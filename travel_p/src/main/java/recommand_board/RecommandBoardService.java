@@ -3,39 +3,38 @@ package recommand_board;
 import java.util.ArrayList;
 
 
+import recommandrep.RecommandRepVo;
+
 public class RecommandBoardService {
-	private RecommandBoardDao dao;
+	private  RecommandBoardDao dao;
+	
 	public RecommandBoardService() {
 		dao = new RecommandBoardDao();
 	}
 	
-	public void addBoard(RecommandBoardVo vo) {
+	public void addImg(RecommandBoardVo vo) {
 		dao.insert(vo);
 	}
 	
-	public RecommandBoardVo getBoard(int num) {
+	public RecommandBoardVo getImg(int num) {
 		return dao.select(num);
 	}
-	//원글 목록 검색
+	
 	public ArrayList<RecommandBoardVo> getAll(){
 		return dao.selectAll();
 	}
 	
-	//댓글 검색
-	public ArrayList<RecommandBoardVo> getReps(int parent){
-		return dao.selectReps(parent);
-	}
-	
-	public void editBoard(RecommandBoardVo vo) {
+	public void editImg(RecommandBoardVo vo) {
 		dao.update(vo);
 	}
 	
-	public void delBoard(int num) {
+	public void delImg(int num) {
 		dao.delete(num);
 	}
+		
+	public ArrayList<RecommandRepVo> getReps(int pnum){
+			return dao.selectByPnum(pnum);
+		
+		
+	}
 }
-
-
-
-
-
