@@ -2,8 +2,10 @@ package join_board;
 
 import java.util.ArrayList;
 
-public class JoinBoardService {
+import recommandrep.RecommandRepDao;
+import recommandrep.RecommandRepVo;
 
+public class JoinBoardService {
 	private JoinBoardDao dao;
 	public JoinBoardService() {
 		dao = new JoinBoardDao();
@@ -16,14 +18,9 @@ public class JoinBoardService {
 	public JoinBoardVo getBoard(int num) {
 		return dao.select(num);
 	}
-	//원글 목록 검색
+	
 	public ArrayList<JoinBoardVo> getAll(){
 		return dao.selectAll();
-	}
-	
-	//댓글 검색
-	public ArrayList<JoinBoardVo> getReps(int parent){
-		return dao.selectReps(parent);
 	}
 	
 	public void editBoard(JoinBoardVo vo) {
@@ -34,5 +31,3 @@ public class JoinBoardService {
 		dao.delete(num);
 	}
 }
-
-

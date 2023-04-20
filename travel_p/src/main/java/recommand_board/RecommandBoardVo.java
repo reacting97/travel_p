@@ -1,21 +1,33 @@
 package recommand_board;
 
 import java.sql.Date;
+import java.util.ArrayList;
 
+import recommandrep.RecommandRepVo;
+
+                    
 public class RecommandBoardVo {
 	private int num;
 	private String writer;
+	private Date w_date;
 	private String title;
 	private String content;
-	private Date w_date;
-	
-	public RecommandBoardVo(int num, String writer, String title, String content, Date w_date) {
+	private String path;
+	private ArrayList<RecommandRepVo> reps;
+
+	public RecommandBoardVo() {
+	}
+
+	public RecommandBoardVo(int num, String writer, Date w_date, String title, String content, String path
+			) {
 		super();
 		this.num = num;
 		this.writer = writer;
+		this.w_date = w_date;
 		this.title = title;
 		this.content = content;
-		this.w_date = w_date;
+		this.path = path;
+		
 	}
 
 	public int getNum() {
@@ -34,6 +46,14 @@ public class RecommandBoardVo {
 		this.writer = writer;
 	}
 
+	public Date getW_date() {
+		return w_date;
+	}
+
+	public void setW_date(Date w_date) {
+		this.w_date = w_date;
+	}
+
 	public String getTitle() {
 		return title;
 	}
@@ -50,21 +70,28 @@ public class RecommandBoardVo {
 		this.content = content;
 	}
 
-	public Date getW_date() {
-		return w_date;
+	public String getPath() {
+		return path;
 	}
 
-	public void setW_date(Date w_date) {
-		this.w_date = w_date;
+	public void setPath(String path) {
+		this.path = path;
+	}
+
+	public ArrayList<RecommandRepVo> getReps() {
+		return reps;
+	}
+
+	public void setReps(ArrayList<RecommandRepVo> reps) {
+		this.reps = reps;
 	}
 
 	@Override
 	public String toString() {
-		return "RecommandBoardVo [num=" + num + ", writer=" + writer + ", title=" + title + ", content=" + content
-				+ ", w_date=" + w_date + "]";
+		return "RecommandBoardVo [num=" + num + ", writer=" + writer + ", w_date=" + w_date + ", title=" + title
+				+ ", content=" + content + ", path=" + path + "]";
 	}
 	
-	
-	
-
 }
+
+	

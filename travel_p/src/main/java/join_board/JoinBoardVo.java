@@ -8,18 +8,17 @@ public class JoinBoardVo {
 	private String title;
 	private String content;
 	private Date w_date;
-	
-	public JoinBoardVo() {}
+	private int parent;
 	
 	public JoinBoardVo(int num, String writer, String title, String content, Date w_date) {
-		
+		super();
 		this.num = num;
 		this.writer = writer;
 		this.title = title;
 		this.content = content;
 		this.w_date = w_date;
+		
 	}
-
 
 	public int getNum() {
 		return num;
@@ -61,10 +60,18 @@ public class JoinBoardVo {
 		this.w_date = w_date;
 	}
 
+	public int getParent() {
+		return parent;
+	}
+
+	public void setParent(int parent) {
+		this.parent = parent;
+	}
+
 	@Override
 	public String toString() {
 		return "JoinBoardVo [num=" + num + ", writer=" + writer + ", title=" + title + ", content=" + content
-				+ ", w_date=" + w_date + "]";
+				+ ", w_date=" + w_date + ", parent=" + parent + "]";
 	}
 	
 	
