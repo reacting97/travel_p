@@ -15,7 +15,6 @@ public class TravelListHandler implements Handler{
 		TravelService service = new TravelService();
 		ArrayList<TravelVO> list = service.selectAll();
 		request.setAttribute("list", list);
-		request.setAttribute("view", "/travel/list.jsp");
-		return "/index.jsp";
+		return "/travel/travel_list.jsp";
 	}
 }

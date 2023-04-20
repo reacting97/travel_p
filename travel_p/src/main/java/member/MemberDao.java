@@ -13,11 +13,12 @@ public class MemberDao {
 	public MemberDao() {
 		dbconn = DBConnect.getInstance();
 	}
-	//id로 검색
+
+	// id로 검색
 	public MemberVo select(String id) {
 		MemberVo vo = null;
 		Connection conn = dbconn.conn();
-		String sql = "select * from member where id=? ";
+		String sql = "select * from tmember where id=? ";
 
 		try {
 			PreparedStatement pstmt = conn.prepareStatement(sql);
@@ -44,10 +45,11 @@ public class MemberDao {
 		}
 		return vo;
 	}
-	//일반회원가입
+
+	// 일반회원가입
 	public void insert(MemberVo vo) {
 		Connection conn = dbconn.conn();
-		String sql = "insert into member values(?,?,?,?,?,0)";
+		String sql = "insert into tmember values(?,?,?,?,?,0)";
 		try {
 			PreparedStatement pstmt = conn.prepareStatement(sql);
 			pstmt.setString(1, vo.getId());
@@ -55,7 +57,6 @@ public class MemberDao {
 			pstmt.setString(3, vo.getName());
 			pstmt.setString(4, vo.getEmail());
 			pstmt.setString(5, vo.getPhone());
-
 			int num = pstmt.executeUpdate();
 			System.out.println(num + " 일반회원 추가");
 
@@ -71,10 +72,11 @@ public class MemberDao {
 			}
 		}
 	}
-	//관리자 가입
+
+	// 관리자 가입
 	public void insertM(MemberVo vo) {
 		Connection conn = dbconn.conn();
-		String sql = "insert into member values(?,?,?,?,?,1)";
+		String sql = "insert into tmember values(?,?,?,?,?,1)";
 		try {
 			PreparedStatement pstmt = conn.prepareStatement(sql);
 			pstmt.setString(1, vo.getId());
@@ -98,10 +100,11 @@ public class MemberDao {
 			}
 		}
 	}
-	//회원 탈퇴
+
+	// 회원 탈퇴
 	public void delete(String id) {
 		Connection conn = dbconn.conn();
-		String sql = "delete from member where id=?";
+		String sql = "delete from tmember where id=?";
 
 		try {
 			PreparedStatement pstmt = conn.prepareStatement(sql);
@@ -125,7 +128,7 @@ public class MemberDao {
 	// 비밀번호, 이름, 이메일, 핸드폰번호 수정
 	public void update(MemberVo vo) {
 		Connection conn = dbconn.conn();
-		String sql = "update member set pwd=?, name=? email=?, phone=? where id= ?";
+		String sql = "update tmember set pwd=?, name=? email=?, phone=? where id= ?";
 		try {
 			PreparedStatement pstmt = conn.prepareStatement(sql);
 			pstmt.setString(1, vo.getPwd());
