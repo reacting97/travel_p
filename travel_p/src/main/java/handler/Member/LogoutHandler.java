@@ -14,7 +14,7 @@ public class LogoutHandler implements Handler {
 		HttpSession session = request.getSession(false);
 		session.invalidate(); // 로그아웃 처리. 세션무효화
 		request.setAttribute("msg", "로그아웃 완료");
-		return "/index.jsp";
+		return "/member/member_index.jsp";
 
 	}
 }

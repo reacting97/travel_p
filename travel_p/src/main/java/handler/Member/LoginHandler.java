@@ -13,10 +13,10 @@ public class LoginHandler implements Handler {
 	@Override
 	public String process(HttpServletRequest request, HttpServletResponse response) {
 		// TODO Auto-generated method stub
-		String view = "/index.jsp";
+		String view = "/member/member_index.jsp";
 		String msg = "로그인 실패";
 		if (request.getMethod().equals("GET")) {
-			view = "/member/login.jsp";
+			view = "/member/member_login.jsp";
 		} else {
 			String id = request.getParameter("id");
 			String pwd = request.getParameter("pwd");

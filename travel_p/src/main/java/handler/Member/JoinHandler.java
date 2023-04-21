@@ -12,9 +12,9 @@ public class JoinHandler implements Handler {
 	@Override
 	public String process(HttpServletRequest request, HttpServletResponse response) {
 		// TODO Auto-generated method stub
-		String view = "/index.jsp";
+		String view = "/member/member_index.jsp";
 		if (request.getMethod().equals("GET")) { // request.getMethod(): 요청방식 (get/post)값 반환
-			view = "/member/join.jsp";
+			view = "/member/member_join.jsp";
 		} else {
 			String id = request.getParameter("id");
 			String pwd = request.getParameter("pwd");
