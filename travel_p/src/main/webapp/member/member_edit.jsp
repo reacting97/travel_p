@@ -23,18 +23,18 @@
 				<td><input type="text" name="name" value="${vo.name }"></td>
 			</tr>
 			<tr>
+				<th>EMAIL</th>
+				<td><input type="email" name="email" value="${vo.email }"></td>
+			</tr>
+			<tr>
 				<th>PHONE</th>
 				<td><input type="tel" name="phone" value="${vo.phone }"></td>
 			</tr>
 			<tr>
-				<th>EMAIL</th>
-				<td><input type="text" name="email" value="${vo.email }"></td>
-			</tr>
-			<tr>
 				<th>수정</th>
-				<td><input type="submit" value="수정"> <input
-					type="button" value="취소"
-					onclick="javascript:location.href='${pageContext.request.contextPath }/member/member_index.jsp'"></td>
+				<td><input type="submit" value="수정"> 
+				<input type="button" value="취소"
+				onclick="javascript:location.href='${pageContext.request.contextPath }/member/member_index.jsp'"></td>
 
 			</tr>
 

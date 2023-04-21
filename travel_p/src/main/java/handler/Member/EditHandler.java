@@ -35,11 +35,11 @@ public class EditHandler implements Handler {
 			String id = request.getParameter("id");
 			String pwd = request.getParameter("pwd");
 			String name = request.getParameter("name");
-			String phone = request.getParameter("phone");
 			String email = request.getParameter("email");
+			String phone = request.getParameter("phone");
 
 			MemberService service = new MemberService();
-			service.editMyInfo(new MemberVo(id, pwd, name, phone, email, null));
+			service.editMyInfo(new MemberVo(id, pwd, name, email, phone, null));
 			view = "redirect:/member/edit.do?id=" + id;
 		}
 		return view;
