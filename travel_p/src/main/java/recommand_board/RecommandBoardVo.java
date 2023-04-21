@@ -9,88 +9,108 @@ import recommandrep.RecommandRepVo;
 public class RecommandBoardVo {
 	private int num;
 	private String writer;
-	private Date w_date;
 	private String title;
 	private String content;
-	private String path;
-	private ArrayList<RecommandRepVo> reps;
+	private Date w_date;
+	private String pic1;
+	private String pic2;
+	
 
 	public RecommandBoardVo() {
 	}
 
-	public RecommandBoardVo(int num, String writer, Date w_date, String title, String content, String path
-			) {
+
+	public RecommandBoardVo(int num, String writer, String title, String content, Date w_date, String pic1,
+			String pic2) {
 		super();
 		this.num = num;
 		this.writer = writer;
-		this.w_date = w_date;
 		this.title = title;
 		this.content = content;
-		this.path = path;
-		
+		this.w_date = w_date;
+		this.pic1 = pic1;
+		this.pic2 = pic2;
 	}
+
 
 	public int getNum() {
 		return num;
 	}
 
+
 	public void setNum(int num) {
 		this.num = num;
 	}
+
 
 	public String getWriter() {
 		return writer;
 	}
 
+
 	public void setWriter(String writer) {
 		this.writer = writer;
 	}
 
-	public Date getW_date() {
-		return w_date;
-	}
-
-	public void setW_date(Date w_date) {
-		this.w_date = w_date;
-	}
 
 	public String getTitle() {
 		return title;
 	}
 
+
 	public void setTitle(String title) {
 		this.title = title;
 	}
+
 
 	public String getContent() {
 		return content;
 	}
 
+
 	public void setContent(String content) {
 		this.content = content;
 	}
 
-	public String getPath() {
-		return path;
+
+	public Date getW_date() {
+		return w_date;
 	}
 
-	public void setPath(String path) {
-		this.path = path;
+
+	public void setW_date(Date w_date) {
+		this.w_date = w_date;
 	}
 
-	public ArrayList<RecommandRepVo> getReps() {
-		return reps;
+
+	public String getPic1() {
+		return pic1;
 	}
 
-	public void setReps(ArrayList<RecommandRepVo> reps) {
-		this.reps = reps;
+
+	public void setPic1(String pic1) {
+		this.pic1 = pic1;
 	}
+
+
+	public String getPic2() {
+		return pic2;
+	}
+
+
+	public void setPic2(String pic2) {
+		this.pic2 = pic2;
+	}
+
 
 	@Override
 	public String toString() {
-		return "RecommandBoardVo [num=" + num + ", writer=" + writer + ", w_date=" + w_date + ", title=" + title
-				+ ", content=" + content + ", path=" + path + "]";
+		return "RecommandBoardVo [num=" + num + ", writer=" + writer + ", title=" + title + ", content=" + content
+				+ ", w_date=" + w_date + ", pic1=" + pic1 + ", pic2=" + pic2 + "]";
 	}
+	
+	
+	
 	
 }
 

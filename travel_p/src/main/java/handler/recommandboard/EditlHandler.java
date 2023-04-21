@@ -33,9 +33,9 @@ public class EditlHandler implements Handler {
 		String content = request.getParameter("content");
 		//System.out.println(num+":"+title+":"+content);
 		RecommandBoardService service = new RecommandBoardService();
-		service.editImg(new RecommandBoardVo(num, null, null, title, content, null));
+		service.editBoard(new RecommandBoardVo(0,null,title,content,null,null,null));
 
-		RecommandBoardVo vo = service.getImg(num);
+		RecommandBoardVo vo = service.getBoard(num);
 		JSONObject obj = new JSONObject();
 		obj.put("title", vo.getTitle());
 		obj.put("content", vo.getContent());

@@ -10,7 +10,8 @@ import com.oreilly.servlet.MultipartRequest;
 import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
 
 import handler.Handler;
-
+import join_board.JoinBoardService;
+import join_board.JoinBoardVo;
 import recommand_board.RecommandBoardService;
 import recommand_board.RecommandBoardVo;
 
@@ -19,37 +20,33 @@ public class AddHandler implements Handler {
 	@Override
 	public String process(HttpServletRequest request, HttpServletResponse response) {
 		
-		String view = "/index.jsp";
-		if(request.getMethod().equals("GET")) {
-			request.setAttribute("view", "/recommandboard/edit.do");
-		}else {
-			String path = "";
-
-			// 업로드 파일의 최대 크기
-			int size = 100 * 1024 * 1024; // 100M
-
+		String view = "";
+		if (request.getMethod().equals("GET")) {
+			view = "/recommandboard/add.jsp";
+		} else {
+			int size = 100 * 1024 * 1024;
+			String path = "C:\\Users\\wnsgk\\Desktop\\web_workspace\\.metadata\\.plugins\\org.eclipse.wst.server.core\\tmp0\\webapps\\img\\";
+			MultipartRequest multipart;
 			try {
-				MultipartRequest multipart = new MultipartRequest(request, path, size, "utf-8", new DefaultFileRenamePolicy());
-				// 폼파라메터 읽기
+				multipart = new MultipartRequest(request, path, size, "utf-8", new DefaultFileRenamePolicy());
 				String writer = multipart.getParameter("writer");
 				String title = multipart.getParameter("title");
 				String content = multipart.getParameter("content");
-				
-				// 업로드된 파일의 파일객체 반환
-				File f = multipart.getFile("file");
-				// getName(): 파일명 반환
-				String fname = "\\img\\"+f.getName();// 파일명
-				
-				RecommandBoardService service = new RecommandBoardService();
-				service.addImg(new RecommandBoardVo(0, writer, null, title, content, fname));
-				
-				view = "redirect:/recommandboard/list.jsp";
+				File f1 = multipart.getFile("file1");
+				File f2 = multipart.getFile("file2");
+
+				String fname1 = "\\img\\" + f1.getName();
+				String fname2 = "\\img\\" + f2.getName();
+
+				RecommandBoardService s = new RecommandBoardService();
+				s.addBoard(new RecommandBoardVo(0,writer,title,content,null,fname1,fname2));
+
+				view = "redirect:/recommandboard/list.do";
 			} catch (IOException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 
-			
 		}
 		return view;
 	}

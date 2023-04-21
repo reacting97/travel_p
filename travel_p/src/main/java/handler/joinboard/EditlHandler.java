@@ -17,7 +17,7 @@ public class EditlHandler implements Handler {
 		String title = request.getParameter("title");
 		String content = request.getParameter("content");
 		JoinBoardService service = new JoinBoardService();
-		service.editBoard(new JoinBoardVo(num,"",title,content,null));
+		service.editBoard(new JoinBoardVo(0,null,title,content,null,null,null));
 		service.delBoard(num);
 		
 		

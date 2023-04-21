@@ -2,9 +2,6 @@ package join_board;
 
 import java.util.ArrayList;
 
-import recommandrep.RecommandRepDao;
-import recommandrep.RecommandRepVo;
-
 public class JoinBoardService {
 	private JoinBoardDao dao;
 	public JoinBoardService() {
@@ -21,6 +18,10 @@ public class JoinBoardService {
 	
 	public ArrayList<JoinBoardVo> getAll(){
 		return dao.selectAll();
+	}
+	
+	public ArrayList<JoinBoardVo> getByWriter(String writer){
+		return dao.selectByWriter(writer);
 	}
 	
 	public void editBoard(JoinBoardVo vo) {

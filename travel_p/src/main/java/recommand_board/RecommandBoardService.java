@@ -12,11 +12,11 @@ public class RecommandBoardService {
 		dao = new RecommandBoardDao();
 	}
 	
-	public void addImg(RecommandBoardVo vo) {
+	public void addBoard(RecommandBoardVo vo) {
 		dao.insert(vo);
 	}
 	
-	public RecommandBoardVo getImg(int num) {
+	public RecommandBoardVo getBoard(int num) {
 		return dao.select(num);
 	}
 	
@@ -24,17 +24,16 @@ public class RecommandBoardService {
 		return dao.selectAll();
 	}
 	
-	public void editImg(RecommandBoardVo vo) {
+	public void editBoard(RecommandBoardVo vo) {
 		dao.update(vo);
 	}
 	
-	public void delImg(int num) {
+	public void delBoard(int num) {
 		dao.delete(num);
 	}
-		
-	public ArrayList<RecommandRepVo> getReps(int pnum){
-			return dao.selectByPnum(pnum);
-		
-		
+	
+	public ArrayList<RecommandBoardVo> getByWriter(String writer){
+		return dao.selectByWriter(writer);
 	}
+		
 }

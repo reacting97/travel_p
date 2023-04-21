@@ -8,16 +8,22 @@ public class JoinBoardVo {
 	private String title;
 	private String content;
 	private Date w_date;
-	private int parent;
+	private String pic1;
+	private String pic2;
 	
-	public JoinBoardVo(int num, String writer, String title, String content, Date w_date) {
+	public JoinBoardVo() {
+		
+	}
+	
+	public JoinBoardVo(int num, String writer, String title, String content, Date w_date, String pic1, String pic2) {
 		super();
 		this.num = num;
 		this.writer = writer;
 		this.title = title;
 		this.content = content;
 		this.w_date = w_date;
-		
+		this.pic1 = pic1;
+		this.pic2 = pic2;
 	}
 
 	public int getNum() {
@@ -60,20 +66,26 @@ public class JoinBoardVo {
 		this.w_date = w_date;
 	}
 
-	public int getParent() {
-		return parent;
+	public String getPic1() {
+		return pic1;
 	}
 
-	public void setParent(int parent) {
-		this.parent = parent;
+	public void setPic1(String pic1) {
+		this.pic1 = pic1;
+	}
+
+	public String getPic2() {
+		return pic2;
+	}
+
+	public void setPic2(String pic2) {
+		this.pic2 = pic2;
 	}
 
 	@Override
 	public String toString() {
 		return "JoinBoardVo [num=" + num + ", writer=" + writer + ", title=" + title + ", content=" + content
-				+ ", w_date=" + w_date + ", parent=" + parent + "]";
+				+ ", w_date=" + w_date + ", pic1=" + pic1 + ", pic2=" + pic2 + "]";
 	}
-	
-	
 }
 	

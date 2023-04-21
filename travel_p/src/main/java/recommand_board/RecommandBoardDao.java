@@ -1,13 +1,13 @@
 package recommand_board;
 
 import java.sql.Connection;
+
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
 import conn.DBConnect;
-import recommandrep.RecommandRepVo;
 
 
 public class RecommandBoardDao {
@@ -20,13 +20,14 @@ public class RecommandBoardDao {
 	public void insert(RecommandBoardVo vo) {
 		Connection conn = dbconn.conn();
 
-		String sql = "insert into recommand_board values(seq_imgboard.nextval, ?, sysdate, ?, ?, ?)";
+		String sql = "insert into recommand_board values(seq_recommand_board.nextval,?,?,?,sysdate,?,?)";
 		try {
 			PreparedStatement pstmt = conn.prepareStatement(sql);
 			pstmt.setString(1, vo.getWriter());
 			pstmt.setString(2, vo.getTitle());
 			pstmt.setString(3, vo.getContent());
-			pstmt.setString(4, vo.getPath());
+			pstmt.setString(4, vo.getPic1());
+			pstmt.setString(5, vo.getPic2());
 
 			int num = pstmt.executeUpdate();
 			System.out.println(num + " 줄이 추가되었다");
@@ -42,18 +43,20 @@ public class RecommandBoardDao {
 			}
 		}
 	}
+	
+	
 
 	public RecommandBoardVo select(int num) {
 		Connection conn = dbconn.conn();
-
+		RecommandBoardVo vo = null;
 		String sql = "select * from recommand_board where num=?";
 		try {
 			PreparedStatement pstmt = conn.prepareStatement(sql);
 			pstmt.setInt(1, num);
 			ResultSet rs = pstmt.executeQuery();
 			if (rs.next()) {
-				return new RecommandBoardVo(rs.getInt(1), rs.getString(2), rs.getDate(3), rs.getString(4), 
-						rs.getString(5), rs.getString(6));
+				vo = new RecommandBoardVo(rs.getInt(1), rs.getString(2), rs.getString(3),rs.getString(4),rs.getDate(5), rs.getString(6), 
+						rs.getString(7));
 			}
 
 		} catch (SQLException e) {
@@ -67,19 +70,20 @@ public class RecommandBoardDao {
 				e.printStackTrace();
 			}
 		}
-		return null;
+		return vo;
 	}
 	
-	public ArrayList<RecommandRepVo> selectByPnum(int pnum){
+	public ArrayList<RecommandBoardVo> selectByWriter(String writer) {
 		Connection conn = dbconn.conn();
-		ArrayList<RecommandRepVo> list = new ArrayList<RecommandRepVo>();
-		String sql = "select * from recommand_reps where pnum=?";
+		ArrayList<RecommandBoardVo> list = new ArrayList<RecommandBoardVo>();
+		String sql = "select * from recommand_board where writer = ? order by num desc";
 		try {
 			PreparedStatement pstmt = conn.prepareStatement(sql);
-			pstmt.setInt(1, pnum);
+			pstmt.setString(1, writer);
 			ResultSet rs = pstmt.executeQuery();
-			while(rs.next()) {
-				list.add(new RecommandRepVo(rs.getInt(1), rs.getInt(2), rs.getString(3), rs.getString(4)));
+			while (rs.next()) {
+				list.add(new RecommandBoardVo(rs.getInt(1), rs.getString(2), rs.getString(3),rs.getString(4),rs.getDate(5), rs.getString(6), 
+						rs.getString(7)));
 			}
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
@@ -94,6 +98,8 @@ public class RecommandBoardDao {
 		}
 		return list;
 	}
+	
+	
 
 	public ArrayList<RecommandBoardVo> selectAll() {
 		Connection conn = dbconn.conn();
@@ -103,8 +109,8 @@ public class RecommandBoardDao {
 			PreparedStatement pstmt = conn.prepareStatement(sql);
 			ResultSet rs = pstmt.executeQuery();
 			while (rs.next()) {
-				list.add(new RecommandBoardVo(rs.getInt(1), rs.getString(2), rs.getDate(3), rs.getString(4), 
-						rs.getString(5), rs.getString(6)));
+				list.add(new RecommandBoardVo(rs.getInt(1), rs.getString(2), rs.getString(3),rs.getString(4),rs.getDate(5), rs.getString(6), 
+						rs.getString(7)));
 			}
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
