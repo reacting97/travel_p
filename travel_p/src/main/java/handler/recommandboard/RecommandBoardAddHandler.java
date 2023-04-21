@@ -21,7 +21,7 @@ public class RecommandBoardAddHandler implements Handler {
 		
 		String view = "/index.jsp";
 		if(request.getMethod().equals("GET")) {
-			request.setAttribute("view", "/recommand_board/add.jsp");
+			request.setAttribute("view", "/recommand_board/edit.do");
 		}else {
 			String path = "";
 
@@ -43,7 +43,7 @@ public class RecommandBoardAddHandler implements Handler {
 				RecommandBoardService service = new RecommandBoardService();
 				service.addImg(new RecommandBoardVo(0, writer, null, title, content, fname));
 				
-				view = "redirect:/recommand_board/list.do";
+				view = "redirect:/recommand_board/list.jsp";
 			} catch (IOException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();

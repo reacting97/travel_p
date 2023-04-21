@@ -21,7 +21,7 @@ public class JoinBoardDetailHandler implements Handler {
 		
 		
 		
-		return "/joinboard/detail.do";
+		return "/join_board/detail.do";
 	}
 
 }

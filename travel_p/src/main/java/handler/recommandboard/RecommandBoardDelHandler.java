@@ -22,6 +22,6 @@ public class RecommandBoardDelHandler implements Handler {
 		File f = new File(delf);
 		f.delete();//파일 삭제
 		service.delImg(num);
-		return null;
+		return "/recommand_board/del.do";
 	}
 }

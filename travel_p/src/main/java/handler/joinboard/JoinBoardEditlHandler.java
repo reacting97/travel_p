@@ -22,7 +22,7 @@ public class JoinBoardEditlHandler implements Handler {
 		
 		
 		
-		return "/joinboard/edit.do";
+		return "/join_board/edit.do";
 	}
 
 }
