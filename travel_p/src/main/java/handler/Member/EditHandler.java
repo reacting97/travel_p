@@ -23,14 +23,14 @@ public class EditHandler implements Handler {
 		}
 		response.setCharacterEncoding("utf-8");
 
-		String view = "/index.jsp";
+		String view = "/member/member_index.jsp";
 		if (request.getMethod().equals("GET")) {
 			String id = request.getParameter("id");
 			MemberService service = new MemberService();
 			MemberVo vo = service.getMember(id);
 			// 검색한 결과를 request에 담음. setAttribute(이름, 값);
 			request.setAttribute("vo", vo);
-			view = "/member/edit.jsp";
+			view = "/member/member_edit.jsp";
 		} else {
 			String id = request.getParameter("id");
 			String pwd = request.getParameter("pwd");
