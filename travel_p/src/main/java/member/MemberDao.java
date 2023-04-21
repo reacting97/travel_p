@@ -128,7 +128,7 @@ public class MemberDao {
 	// 비밀번호, 이름, 이메일, 핸드폰번호 수정
 	public void update(MemberVo vo) {
 		Connection conn = dbconn.conn();
-		String sql = "update tmember set pwd=?, name=?, email=?, phone=? where id= ?";
+		String sql = "update tmember set pwd=?, name=? email=?, phone=? where id= ?";
 		try {
 			PreparedStatement pstmt = conn.prepareStatement(sql);
 			pstmt.setString(1, vo.getPwd());
