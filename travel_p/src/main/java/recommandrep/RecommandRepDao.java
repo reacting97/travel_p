@@ -43,7 +43,7 @@ public class RecommandRepDao {
 	public ArrayList<RecommandRepVo> selectByPnum(int pnum){
 		Connection conn = dbconn.conn();
 		ArrayList<RecommandRepVo> list = new ArrayList<RecommandRepVo>();
-		String sql = "select * from img_reps where pnum=?";
+		String sql = "select * from recommand_reps where pnum=?";
 		try {
 			PreparedStatement pstmt = conn.prepareStatement(sql);
 			pstmt.setInt(1, pnum);

@@ -25,7 +25,7 @@ public class AddHandler implements Handler {
 		JoinBoardService service = new JoinBoardService();
 		service.addBoard(vo);
 		// TODO Auto-generated method stub
-		return "/joinboard/add.do";
+		return "/joinboard/add.jsp";
 	}
 
 }

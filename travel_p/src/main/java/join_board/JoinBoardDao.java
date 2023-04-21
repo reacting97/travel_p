@@ -21,7 +21,7 @@ public class JoinBoardDao {
 		public JoinBoardVo select(int num) {
 			JoinBoardVo vo = null;
 			Connection conn = dbconn.conn();
-			String sql = "select * from board where num=?";
+			String sql = "select * from join_board where num=?";
 			try {
 				PreparedStatement pstmt = conn.prepareStatement(sql);
 				pstmt.setInt(1, num);
@@ -51,7 +51,7 @@ public class JoinBoardDao {
 
 		public ArrayList<JoinBoardVo> selectAll() {
 			Connection conn = dbconn.conn();
-			String sql = "select * from board where parent=? order by num desc";
+			String sql = "select * from join_board where parent=? order by num desc";
 			ArrayList<JoinBoardVo> list = new ArrayList<>();
 			try {
 				PreparedStatement pstmt = conn.prepareStatement(sql);
@@ -76,7 +76,7 @@ public class JoinBoardDao {
 
 		public ArrayList<JoinBoardVo> selectReps(int parent) {
 			Connection conn = dbconn.conn();
-			String sql = "select * from board where parent=? order by num desc";
+			String sql = "select * from join_board where parent=? order by num desc";
 			ArrayList<JoinBoardVo> list = new ArrayList<>();
 			try {
 				PreparedStatement pstmt = conn.prepareStatement(sql);
@@ -103,7 +103,7 @@ public class JoinBoardDao {
 		public void insert(JoinBoardVo vo) {
 			Connection conn = dbconn.conn();
 
-			String sql = "insert into board values(seq_board.nextval, ?, ?, ?, sysdate)";
+			String sql = "insert into join_board values(seq_board.nextval, ?, ?, ?, sysdate)";
 			try {
 				PreparedStatement pstmt = conn.prepareStatement(sql);
 				pstmt.setString(1, vo.getWriter());
@@ -129,7 +129,7 @@ public class JoinBoardDao {
 		// update: 글번호로 찾아서 title, content를 새 값으로 수정
 		public void update(JoinBoardVo vo) {
 			Connection conn = dbconn.conn();
-			String sql = "update board set title=?, content=? where num=?";
+			String sql = "update join_board set title=?, content=? where num=?";
 			try {
 				PreparedStatement pstmt = conn.prepareStatement(sql);
 				pstmt.setString(1, vo.getTitle());
@@ -153,7 +153,7 @@ public class JoinBoardDao {
 		// delete: 글번호로 찾아서 삭제
 		public void delete(int num) {
 			Connection conn = dbconn.conn();
-			String sql = "delete from board where num=?";
+			String sql = "delete from join_board where num=?";
 			try {
 				PreparedStatement pstmt = conn.prepareStatement(sql);
 				pstmt.setInt(1, num);
