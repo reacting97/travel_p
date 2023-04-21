@@ -23,7 +23,7 @@ public class RecommandListHandler implements Handler {
 			vo.setReps(reps);
 		}
 		request.setAttribute("list", list);
-		request.setAttribute("view", "/recommandboard/list.jsp");
+		request.setAttribute("view", "/recommand_board/list.do");
 		return "/index.jsp";
 	}
 

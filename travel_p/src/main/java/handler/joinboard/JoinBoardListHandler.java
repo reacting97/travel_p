@@ -18,7 +18,7 @@ public class JoinBoardListHandler implements Handler {
 		ArrayList<JoinBoardVo> list = service.getAll();
 		request.setAttribute("list", list);
 		
-		return "/index.jsp";
+		return "/join_board/list.do";
 	}
 
 }
