@@ -1,4 +1,4 @@
-package handler.Member;
+package handler.member;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -13,10 +13,10 @@ public class LoginHandler implements Handler {
 	@Override
 	public String process(HttpServletRequest request, HttpServletResponse response) {
 		// TODO Auto-generated method stub
-		String view = "/member/member_index.jsp";
+		String view = "/index.jsp";
 		String msg = "로그인 실패";
 		if (request.getMethod().equals("GET")) {
-			view = "/member/member_login.jsp";
+			view = "/member/login.jsp";
 		} else {
 			String id = request.getParameter("id");
 			String pwd = request.getParameter("pwd");

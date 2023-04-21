@@ -17,7 +17,7 @@
 <tr><th>사진1</th><td><input type="file" name="file1"></td></tr>
 <tr><th>사진2</th><td><input type="file" name="file2"></td></tr>
 <tr><th>사진3</th><td><input type="file" name="file3"></td></tr>
-<tr><th>작성</th><td><input type="submit" value="저장"></td></tr>
+<tr><th>작성</th><td><input type="submit" value="저장"><a href="${pageContext.request.contextPath }/recordboard/list.do"><input type="button" value="작성취소"></td></a></tr>
 </table>
 </form>
 </body>
