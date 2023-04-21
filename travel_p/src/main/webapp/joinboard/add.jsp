@@ -8,7 +8,7 @@
 </head>
 <body>
 <h3>자료 올리기</h3>
-<form action="${pageContext.request.contextPath }/join_board/add.do" method="post" enctype="multipart/form-data">
+<form action="${pageContext.request.contextPath }/joinboard/add.do" method="post" enctype="multipart/form-data">
 <table border="1">
 <tr><th>작성자</th><td><input type="text" name="writer" value="${sessionScope.loginId }" readonly></td></tr>
 <tr><th>제목</th><td><input type="text" name="title"></td></tr>

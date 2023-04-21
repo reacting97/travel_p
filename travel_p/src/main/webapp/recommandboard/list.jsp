@@ -21,7 +21,7 @@ $(document).ready(function() {
 	$('.edit').click(function(){
 		let num = $(this).attr("num");	
 		$.ajax({
-			url:'${pageContext.request.contextPath }/recommand_board/edit.do',
+			url:'${pageContext.request.contextPath }/recommandboard/edit.do',
 			type:'post',
 			data:{'num':num, 'title':$('#eval1_'+num).val(), 'content':$('#eval2_'+num).val()},
 			dataType:'json',
@@ -45,7 +45,7 @@ $(document).ready(function() {
 	$('.delbtn').click(function(){
 		let num = $(this).attr("num");
 		$.ajax({
-			url:'${pageContext.request.contextPath }/recommand_board/del.do',
+			url:'${pageContext.request.contextPath }/recommandboard/del.do',
 			type:'post',
 			data:{'num':num},
 			success:function(result){
@@ -61,7 +61,7 @@ $(document).ready(function() {
 </head>
 <body>
 <h3>이미지 게시판</h3>
-<a href="${pageContext.request.contextPath }/recommand_board/add.do">글작성</a><br/>
+<a href="${pageContext.request.contextPath }/recommandboard/add.do">글작성</a><br/>
 <c:forEach var="vo" items="${list }">
 <table border="1" id="tbl_${vo.num }">
 <tr><th>num</th>

@@ -12,7 +12,7 @@
 <table border="1">
 <tr><th>title</th><th>writer</th><th>다운수</th></tr>
 <c:forEach var="vo" items="${list }">
-<tr><td><a href="${pageContext.request.contextPath }/join_board/detail.do?num=${vo.num }">${vo.title }</a></td>
+<tr><td><a href="${pageContext.request.contextPath }/joinboard/detail.do?num=${vo.num }">${vo.title }</a></td>
 <td>${vo.writer }</td><td>${vo.cnt }</td></tr>
 </c:forEach>
 </table>

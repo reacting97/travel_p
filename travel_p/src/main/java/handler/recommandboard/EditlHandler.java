@@ -13,7 +13,7 @@ import handler.Handler;
 import recommand_board.RecommandBoardService;
 import recommand_board.RecommandBoardVo;
 
-public class RecommandBoardEditlHandler implements Handler {
+public class EditlHandler implements Handler {
 
 	@Override
 	public String process(HttpServletRequest request, HttpServletResponse response) {

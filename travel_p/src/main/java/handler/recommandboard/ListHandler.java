@@ -10,7 +10,7 @@ import recommand_board.RecommandBoardService;
 import recommand_board.RecommandBoardVo;
 import recommandrep.RecommandRepVo;
 
-public class RecommandListHandler implements Handler {
+public class ListHandler implements Handler {
 
 	@Override
 	public String process(HttpServletRequest request, HttpServletResponse response) {
@@ -23,8 +23,8 @@ public class RecommandListHandler implements Handler {
 			vo.setReps(reps);
 		}
 		request.setAttribute("list", list);
-		request.setAttribute("view", "/recommand_board/list.do");
-		return "/index.jsp";
+		
+		return "/recommandboard/list.jsp";
 	}
 
 

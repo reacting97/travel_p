@@ -9,13 +9,13 @@
 </head>
 <body>
 <h3>자료 내용</h3>
-<a href="${pageContext.request.contextPath }/recommand_board/list.do">자료목록으로</a><br/>
+<a href="${pageContext.request.contextPath }/recommandboard/list.do">자료목록으로</a><br/>
 <table border="1">
 <tr><th>제목</th><td>${vo.title }</td></tr>
 <tr><th>작성자</th><td>${vo.writer }</td></tr>
 <tr><th>작성일</th><td>${vo.w_date }</td></tr>
 <tr><th>파일명</th><td>${vo.fname }
-<form action="${pageContext.request.contextPath }/recommand_board/detail.do" method="post">
+<form action="${pageContext.request.contextPath }/recommandboard/detail.do" method="post">
 <input type="hidden" name="num" value="${vo.num }">
 <input type="submit" value="다운로드">
 </form></td></tr>

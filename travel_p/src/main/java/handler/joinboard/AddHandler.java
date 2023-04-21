@@ -7,7 +7,7 @@ import handler.Handler;
 import join_board.JoinBoardService;
 import join_board.JoinBoardVo;
 
-public class JoinBoardAddHandler implements Handler {
+public class AddHandler implements Handler {
 
 	@Override
 	public String process(HttpServletRequest request, HttpServletResponse response) {
@@ -25,7 +25,7 @@ public class JoinBoardAddHandler implements Handler {
 		JoinBoardService service = new JoinBoardService();
 		service.addBoard(vo);
 		// TODO Auto-generated method stub
-		return "/join_board/add.do";
+		return "/joinboard/add.do";
 	}
 
 }
