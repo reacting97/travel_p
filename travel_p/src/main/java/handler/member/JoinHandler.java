@@ -1,4 +1,4 @@
-package handler.Member;
+package handler.member;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -12,9 +12,9 @@ public class JoinHandler implements Handler {
 	@Override
 	public String process(HttpServletRequest request, HttpServletResponse response) {
 		// TODO Auto-generated method stub
-		String view = "/member/member_index.jsp";
+		String view = "/index.jsp";
 		if (request.getMethod().equals("GET")) { // request.getMethod(): 요청방식 (get/post)값 반환
-			view = "/member/member_join.jsp";
+			view = "/member/join.jsp";
 		} else {
 			String id = request.getParameter("id");
 			String pwd = request.getParameter("pwd");
