@@ -58,18 +58,13 @@ public class TravelDetailHandler implements Handler{
 //			URLConnection conn = url.openConnection();
 			DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
 			DocumentBuilder builder = factory.newDocumentBuilder();
-//			Document doc = builder.parse(conn.getInputStream());
 			Document doc = builder.parse(fis);
 			Element root = doc.getDocumentElement();
-//			NodeList nodeList = root.getElementsByTagName("item");
 			NodeList nodeList = root.getElementsByTagName("record");
 			for(int i=0; i<nodeList.getLength(); i++) {
 				Element element = (Element) nodeList.item(i);
 				String rdnmadr = element.getElementsByTagName("소재지도로명주소").item(0).getTextContent();
-//				String rdnmadr = element.getElementsByTagName("rdnmadr").item(0).getTextContent();
 				if(rdnmadr.equals(travel.getAddress())) {
-//					latitude = element.getElementsByTagName("latitude").item(0).getTextContent();
-//					longitude = element.getElementsByTagName("longitude").item(0).getTextContent();
 					latitude = element.getElementsByTagName("위도").item(0).getTextContent();
 					longitude = element.getElementsByTagName("경도").item(0).getTextContent();
 				}

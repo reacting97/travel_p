@@ -35,9 +35,11 @@
 		</tr>
 	</table>
 	<table border="1">
-		<c:forEach var="food" items="${list }">
+		<c:forEach var="food" items="${foodList }">
 			<tr>
 				<td>${food.name} </td>
+				<td>${food.address} </td>
+				<td>${food.phone} </td>
 			</tr>
 		</c:forEach>
 	</table>
