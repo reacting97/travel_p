@@ -1,5 +1,7 @@
 package handler.joinboard;
 
+import java.util.ArrayList;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -7,22 +9,16 @@ import handler.Handler;
 import join_board.JoinBoardService;
 import join_board.JoinBoardVo;
 
-public class JoinBoardEditlHandler implements Handler {
+public class ListHandler implements Handler {
 
 	@Override
 	public String process(HttpServletRequest request, HttpServletResponse response) {
 		// TODO Auto-generated method stub
-		
-		int num = Integer.parseInt(request.getParameter("num"));
-		String title = request.getParameter("title");
-		String content = request.getParameter("content");
 		JoinBoardService service = new JoinBoardService();
-		service.editBoard(new JoinBoardVo(num,"",title,content,null));
-		service.delBoard(num);
+		ArrayList<JoinBoardVo> list = service.getAll();
+		request.setAttribute("list", list);
 		
-		
-		
-		return "/join_board/edit.do";
+		return "/joinboard/list.jsp";
 	}
 
 }

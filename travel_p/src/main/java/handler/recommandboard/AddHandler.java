@@ -14,14 +14,14 @@ import handler.Handler;
 import recommand_board.RecommandBoardService;
 import recommand_board.RecommandBoardVo;
 
-public class RecommandBoardAddHandler implements Handler {
+public class AddHandler implements Handler {
 
 	@Override
 	public String process(HttpServletRequest request, HttpServletResponse response) {
 		
 		String view = "/index.jsp";
 		if(request.getMethod().equals("GET")) {
-			request.setAttribute("view", "/recommand_board/edit.do");
+			request.setAttribute("view", "/recommandboard/edit.do");
 		}else {
 			String path = "";
 
@@ -43,7 +43,7 @@ public class RecommandBoardAddHandler implements Handler {
 				RecommandBoardService service = new RecommandBoardService();
 				service.addImg(new RecommandBoardVo(0, writer, null, title, content, fname));
 				
-				view = "redirect:/recommand_board/list.jsp";
+				view = "redirect:/recommandboard/list.jsp";
 			} catch (IOException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();

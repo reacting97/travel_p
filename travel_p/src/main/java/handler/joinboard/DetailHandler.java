@@ -9,7 +9,7 @@ import handler.Handler;
 import join_board.JoinBoardService;
 import join_board.JoinBoardVo;
 
-public class JoinBoardDetailHandler implements Handler {
+public class DetailHandler implements Handler {
 
 	@Override
 	public String process(HttpServletRequest request, HttpServletResponse response) {
@@ -21,7 +21,7 @@ public class JoinBoardDetailHandler implements Handler {
 		
 		
 		
-		return "/join_board/detail.do";
+		return "/joinboard/detail.do";
 	}
 
 }

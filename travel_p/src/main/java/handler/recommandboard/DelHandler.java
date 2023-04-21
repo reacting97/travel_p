@@ -9,7 +9,7 @@ import handler.Handler;
 import recommand_board.RecommandBoardService;
 import recommand_board.RecommandBoardVo;
 
-public class RecommandBoardDelHandler implements Handler {
+public class DelHandler implements Handler {
 
 	@Override
 	public String process(HttpServletRequest request, HttpServletResponse response) {
@@ -22,6 +22,6 @@ public class RecommandBoardDelHandler implements Handler {
 		File f = new File(delf);
 		f.delete();//파일 삭제
 		service.delImg(num);
-		return "/recommand_board/del.do";
+		return "/recommandboard/list.jsp";
 	}
 }
