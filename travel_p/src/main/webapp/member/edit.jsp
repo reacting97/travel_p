@@ -34,8 +34,12 @@
 				<th>수정</th>
 				<td><input type="submit" value="수정"> <input
 					type="button" value="취소"
-					onclick="javascript:location.href='${pageContext.request.contextPath }/member/member_index.jsp'"></td>
-
+					onclick="javascript:location.href='${pageContext.request.contextPath }/index.jsp'"></td>
+			</tr>
+			<tr>
+				<th>탈퇴</th>
+				<td><input type="button" value="탈퇴"
+					onclick="javascript:location.href='${pageContext.request.contextPath }/member/del.do?id=${sessionScope.loginId}'"></td>
 			</tr>
 
 		</table>
