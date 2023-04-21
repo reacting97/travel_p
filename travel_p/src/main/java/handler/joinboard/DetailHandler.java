@@ -21,7 +21,7 @@ public class DetailHandler implements Handler {
 		
 		
 		
-		return "/joinboard/detail.do";
+		return "/joinboard/detail.jsp";
 	}
 
 }

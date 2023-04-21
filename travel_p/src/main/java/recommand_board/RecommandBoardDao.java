@@ -20,7 +20,7 @@ public class RecommandBoardDao {
 	public void insert(RecommandBoardVo vo) {
 		Connection conn = dbconn.conn();
 
-		String sql = "insert into imgboard values(seq_imgboard.nextval, ?, sysdate, ?, ?, ?)";
+		String sql = "insert into recommand_board values(seq_imgboard.nextval, ?, sysdate, ?, ?, ?)";
 		try {
 			PreparedStatement pstmt = conn.prepareStatement(sql);
 			pstmt.setString(1, vo.getWriter());
@@ -46,7 +46,7 @@ public class RecommandBoardDao {
 	public RecommandBoardVo select(int num) {
 		Connection conn = dbconn.conn();
 
-		String sql = "select * from imgboard where num=?";
+		String sql = "select * from recommand_board where num=?";
 		try {
 			PreparedStatement pstmt = conn.prepareStatement(sql);
 			pstmt.setInt(1, num);
@@ -73,7 +73,7 @@ public class RecommandBoardDao {
 	public ArrayList<RecommandRepVo> selectByPnum(int pnum){
 		Connection conn = dbconn.conn();
 		ArrayList<RecommandRepVo> list = new ArrayList<RecommandRepVo>();
-		String sql = "select * from img_reps where pnum=?";
+		String sql = "select * from recommand_reps where pnum=?";
 		try {
 			PreparedStatement pstmt = conn.prepareStatement(sql);
 			pstmt.setInt(1, pnum);
@@ -98,7 +98,7 @@ public class RecommandBoardDao {
 	public ArrayList<RecommandBoardVo> selectAll() {
 		Connection conn = dbconn.conn();
 		ArrayList<RecommandBoardVo> list = new ArrayList<RecommandBoardVo>();
-		String sql = "select * from imgboard order by num desc";
+		String sql = "select * from recommand_board order by num desc";
 		try {
 			PreparedStatement pstmt = conn.prepareStatement(sql);
 			ResultSet rs = pstmt.executeQuery();
@@ -123,7 +123,7 @@ public class RecommandBoardDao {
 	public void update(RecommandBoardVo vo) {
 		Connection conn = dbconn.conn();
 
-		String sql = "update imgboard set title=?, content=? where num=?";
+		String sql = "update recommand_board set title=?, content=? where num=?";
 		try {
 			PreparedStatement pstmt = conn.prepareStatement(sql);			
 			pstmt.setString(1, vo.getTitle());
@@ -147,7 +147,7 @@ public class RecommandBoardDao {
 	public void delete(int num) {
 		Connection conn = dbconn.conn();
 
-		String sql = "delete imgboard where num=?";
+		String sql = "delete recommand_board where num=?";
 		try {
 			PreparedStatement pstmt = conn.prepareStatement(sql);			
 			pstmt.setInt(1, num);
