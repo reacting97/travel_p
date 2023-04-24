@@ -39,7 +39,7 @@ public class EditHandler implements Handler {
 			String email = request.getParameter("email");
 
 			MemberService service = new MemberService();
-			service.editMyInfo(new MemberVo(id, pwd, name, email, phone, null));
+			service.editMyInfo(new MemberVo(id, pwd, email, phone, null, name));
 			view = "redirect:/member/edit.do?id=" + id;
 		}
 		return view;

@@ -27,10 +27,11 @@ public class MemberDao {
 			if (rs.next()) {
 				String id1 = rs.getString(1);
 				String pwd = rs.getString(2);
-				String name = rs.getString(3);
-				String email = rs.getString(4);
-				String phone = rs.getString(5);
-				vo = new MemberVo(id1, pwd, name, email, phone, null);
+				String email = rs.getString(3);
+				String phone = rs.getString(4);
+				String manager = rs.getString(5);
+				String name = rs.getString(6);
+				vo = new MemberVo(id1, pwd, email, phone, manager, name);
 			}
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
@@ -49,14 +50,14 @@ public class MemberDao {
 	// 일반회원가입
 	public void insert(MemberVo vo) {
 		Connection conn = dbconn.conn();
-		String sql = "insert into tmember values(?,?,?,?,?,0)";
+		String sql = "insert into tmember values(?,?,?,?,0,?)";
 		try {
 			PreparedStatement pstmt = conn.prepareStatement(sql);
 			pstmt.setString(1, vo.getId());
 			pstmt.setString(2, vo.getPwd());
-			pstmt.setString(3, vo.getName());
-			pstmt.setString(4, vo.getEmail());
-			pstmt.setString(5, vo.getPhone());
+			pstmt.setString(3, vo.getEmail());
+			pstmt.setString(4, vo.getPhone());
+			pstmt.setString(5, vo.getName());
 			int num = pstmt.executeUpdate();
 			System.out.println(num + " 일반회원 추가");
 
@@ -76,14 +77,14 @@ public class MemberDao {
 	// 관리자 가입
 	public void insertM(MemberVo vo) {
 		Connection conn = dbconn.conn();
-		String sql = "insert into tmember values(?,?,?,?,?,1)";
+		String sql = "insert into tmember values(?,?,?,?,1,?)";
 		try {
 			PreparedStatement pstmt = conn.prepareStatement(sql);
 			pstmt.setString(1, vo.getId());
 			pstmt.setString(2, vo.getPwd());
-			pstmt.setString(3, vo.getName());
-			pstmt.setString(4, vo.getEmail());
-			pstmt.setString(5, vo.getPhone());
+			pstmt.setString(3, vo.getEmail());
+			pstmt.setString(4, vo.getPhone());
+			pstmt.setString(5, vo.getName());
 
 			int num = pstmt.executeUpdate();
 			System.out.println(num + " 관리자회원 추가");

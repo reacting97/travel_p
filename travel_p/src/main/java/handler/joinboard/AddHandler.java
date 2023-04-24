@@ -21,7 +21,7 @@ public class AddHandler implements Handler {
 
 		String view = "";
 		if (request.getMethod().equals("GET")) {
-			view = "/recordboard/add.jsp";
+			view = "/joinboard/add.jsp";
 		} else {
 			int size = 100 * 1024 * 1024;
 			String path = "C:\\Users\\wnsgk\\Desktop\\web_workspace\\.metadata\\.plugins\\org.eclipse.wst.server.core\\tmp0\\webapps\\img\\";
