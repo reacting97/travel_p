@@ -29,14 +29,32 @@
 		        dataList = d;
 		        //글 목록 표시 호출 (테이블 생성)
 				displayData(1, dataPerPage);
-				 
+				
 				//페이징 표시 호출
 				paging(totalData, dataPerPage, pageCount, 1);
 			}, error: function(request, status, error) {
 		        alert("status : " + request.status + "\n" + "\n" + "error:" + error);
 			}
 		});
-		 
+		
+		$(".col-lg-1").click(function() {
+			$.ajax({
+				method : 'get',
+				url : '${pageContext.request.contextPath}/travel/provincelist.do',
+				data: {loc : $(this).text()},
+ 				dataType: 'json',
+				success : function(data){
+					totalData = data.length;
+			        dataList = data;
+					displayData(1, dataPerPage);
+					paging(totalData, dataPerPage, pageCount, 1);
+				}, error : function(request, status, error) {
+			        alert("status : " + request.status + "\n" + "\n" + "error:" + error);
+				}
+				
+			});
+		});
+		
 		$(document).on("click", ".col-12", function(){
 			$(location).attr('href', '${pageContext.request.contextPath}/travel/detail.do?num='+$(this).attr('num'));
 		});
@@ -63,10 +81,10 @@
 		for (let i = (currentPage-1)*dataPerPage; i < (currentPage - 1) * dataPerPage + dataPerPage; i++) {
 			if(dataList[i] == null) break;
 			
-			textHtml += "<div class='col-12' num='"+dataList[i].id+"'><div class='card'><div class='row no-gutters'>";
-			textHtml += "<div class='col-4'><img src='https://mdbcdn.b-cdn.net/img/new/standard/nature/111.webp' class='card-img'/></div><div class='col-8'>";
+			textHtml += "<div class='col-12' num='"+dataList[i].id+"'><div class='card h-75'><div class='row no-gutters'>";
+			textHtml += "<div class='col-4'><img src='https://mdbcdn.b-cdn.net/img/new/standard/nature/111.webp' class='card-img w-75 h-75'/></div><div class='col-8'>";
 			/* textHtml += "<div class='col-4'><img src='"+dataList[i].pic1+"' class='card-img'/></div><div class='col-8'>"; */
-			textHtml +=	"<div class='card-body'><h4 class='card-title'>"+dataList[i].name+"</h4><p class='card-text'></p>";
+			textHtml +=	"<div class='card-body'><h4 class='card-title text-start'>"+dataList[i].name+"</h4><p class='card-text'></p>";
 			textHtml += "</div></div></div></div></div>";
 		}
 		
@@ -144,30 +162,36 @@
 	});
 
 </script>
+<style type="text/css">
+	.col-12 : {
+		margin-top: 10px;
+		margin-bottom: 10px; 	
+	}
+</style>
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
 </head>
 <body>
-	<div class="container">
+	<div class="container mt-5">
 		<div class="row justify-content-center">
-			<div class="col-lg-1 col-md-4">서울</div>
-			<div class="col-lg-1 col-md-4">경기도</div>
-			<div class="col-lg-1 col-md-4">충청북도</div>
-			<div class="col-lg-1 col-md-4">충청남도</div>
-			<div class="col-lg-1 col-md-4">전라북도</div>
-			<div class="col-lg-1 col-md-4">전라남도</div>
-			<div class="col-lg-1 col-md-4">경상북도</div>
-			<div class="col-lg-1 col-md-4">경상남도</div>
+			<div class="col-lg-1 col-md-4" id="all">전체</div>
+			<div class="col-lg-1 col-md-4" id="seoul">서울</div>
+			<div class="col-lg-1 col-md-4" id="kyung">경기도</div>
+			<div class="col-lg-1 col-md-4" id="kang">강원도</div>
+			<div class="col-lg-1 col-md-4" id="chungbuk">충청북도</div>
+			<div class="col-lg-1 col-md-4" id="chungnam">충청남도</div>
+			<div class="col-lg-1 col-md-4" id="jeonbuk">전라북도</div>
+			<div class="col-lg-1 col-md-4" id="jeonnam">전라남도</div>
 		</div>
 		<div class="row justify-content-center">
-			<div class="col-lg-1 col-md-4">강원도</div>
-			<div class="col-lg-1 col-md-4">부산광역시</div>
-			<div class="col-lg-1 col-md-4">대구광역시</div>
-			<div class="col-lg-1 col-md-4">인천광역시</div>
-			<div class="col-lg-1 col-md-4">광주광역시</div>
-			<div class="col-lg-1 col-md-4">대전광역시</div>
-			<div class="col-lg-1 col-md-4">울산광역시</div>
-			<div class="col-lg-1 col-md-4">제주도</div>
-			<div class="col-lg-1 col-md-4">asd</div>
+			<div class="col-lg-1 col-md-3" id="kyungbuk">경상북도</div>
+			<div class="col-lg-1 col-md-3" id="kyungnam">경상남도</div>
+			<div class="col-lg-1 col-md-3" id="busan">부산</div>
+			<div class="col-lg-1 col-md-3" id="daegu">대구</div>
+			<div class="col-lg-1 col-md-3" id="inchun">인천</div>
+			<div class="col-lg-1 col-md-3" id="kwangju">광주</div>
+			<div class="col-lg-1 col-md-3" id="daejeon">대전</div>
+			<div class="col-lg-1 col-md-3" id="ulsan">울산</div>
+			<div class="col-lg-1 col-md-3" id="jeju">제주도</div>
 		</div>
 	</div>
 	<div class="container">
@@ -183,31 +207,12 @@
 				</select>
 			</div>
 		</div>
-		<div class="row" id=divBody>
-<%-- 			<c:forEach var="travel" items="${list }"> --%>
-<%-- 				<div class="col-12" num="${travel.id }"> --%>
-<!-- 					<div class="card"> -->
-<!-- 						<div class="row no-gutters"> -->
-<!-- 							<div class="col-4"> -->
-<!-- 								<img -->
-<!-- 									src="https://mdbcdn.b-cdn.net/img/new/standard/nature/111.webp" -->
-<!-- 									alt="" class="card-img" /> -->
-<!-- 							</div> -->
-<!-- 							<div class="col-8"> -->
-<!-- 								<div class="card-body"> -->
-<%-- 									<h5 class="card-title">${travel.name }</h5> --%>
-<%-- 									<p class="card-text">${tavel.content }</p> --%>
-<!-- 								</div> -->
-<!-- 							</div> -->
-<!-- 						</div> -->
-<!-- 					</div> -->
-<!-- 				</div> -->
-<%-- 			</c:forEach> --%>
+		<div class="row gap-3 m-5" id=divBody>
+			
 		</div>
-		<nav aria-label="pagination">
+		<nav class='mt-5' aria-label="pagination">
 			<ul class="pagination justify-content-center" id="pagingul">
-<!-- 				<li class="page-item disabled"><a class="page-link" href="#"
-					tabindex="-1" aria-disabled="true">이전</a></li>
+<!-- 			<li class="page-item disabled"><a class="page-link" href="#" tabindex="-1" aria-disabled="true">이전</a></li>
 				<li class="page-item"><a class="page-link" href="#">1</a></li>
 				<li class="page-item"><a class="page-link" href="#">2</a></li>
 				<li class="page-item"><a class="page-link" href="#">3</a></li>

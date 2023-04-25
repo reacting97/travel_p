@@ -13,7 +13,7 @@ import handler.Handler;
 import travel.TravelService;
 import travel.TravelVO;
 
-public class TravelAjaxList implements Handler{
+public class TravelProvinceListHandler implements Handler {
 	@Override
 	public String process(HttpServletRequest request, HttpServletResponse response) {
 		try {
@@ -22,10 +22,18 @@ public class TravelAjaxList implements Handler{
 			e.printStackTrace();
 		}
 		response.setCharacterEncoding("UTF-8");
-		response.setContentType("text/html; charset=UTF-8");
+		
+		String loc = request.getParameter("loc");
 		TravelService service = new TravelService();
-		ArrayList<TravelVO> list = service.selectAll();
-		request.setAttribute("list", list);
+		ArrayList<TravelVO> list = new ArrayList<>();
+		if(loc.equals("전체")) {
+			list = service.selectAll();
+		} else if(loc.equals("제주도")) {
+			loc = "제주";
+			list = service.selectByLoc(loc);
+		} else {
+			list = service.selectByLoc(loc);
+		}
 		
 		JSONArray arr = new JSONArray();
 		for(TravelVO travel : list) {
