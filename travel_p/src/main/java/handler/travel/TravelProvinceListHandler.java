@@ -47,6 +47,6 @@ public class TravelProvinceListHandler implements Handler {
 		}
 		
 		String txt = arr.toJSONString();
-		return "responsebody/"+txt;
+		return "rsps@"+txt;
 	}
 }

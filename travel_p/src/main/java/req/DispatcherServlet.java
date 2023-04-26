@@ -125,6 +125,9 @@ public class DispatcherServlet extends HttpServlet {
 				} else if (view.startsWith("responsebody")) {
 					String[] path = view.split("/");
 					response.getWriter().append(path[1]);//{flag:true}
+				} else if (view.startsWith("rsps")) {
+					String[] path = view.split("@");
+					response.getWriter().append(path[1]);//{flag:true}
 				} else {
 					RequestDispatcher dis = request.getRequestDispatcher(view);
 					dis.forward(request, response);

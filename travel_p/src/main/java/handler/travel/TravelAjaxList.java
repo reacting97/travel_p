@@ -39,6 +39,6 @@ public class TravelAjaxList implements Handler{
 		}
 		
 		String txt = arr.toJSONString();
-		return "responsebody/"+txt;
+		return "rsps@"+txt;
 	}
 }
