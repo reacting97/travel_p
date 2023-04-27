@@ -306,26 +306,26 @@ https://templatemo.com/tm-580-woox-travel
     <div class="container">
       <div class="row">
           <div class="section-heading">
-          <div class="test"><button type="button" class="lo_icons" onclick ="location.href ='#'"><img src="assets/images/seoulicon.png"  >서울</button></div> 
-          <div class="test"> <button type="button" class="lo_icons" onclick ="location.href ='#'"><img src="assets/images/incheon.png" >인천</button></div>
-          <div class="test"> <button type="button" class="lo_icons" onclick ="location.href ='#'"><img src="assets/images/dejeon.png" >대전</button></div>
-           <div class="test"><button type="button" class="lo_icons" onclick ="location.href ='#'"><img src="assets/images/guangju.png" >광주</button></div>
-           <div class="test"><button type="button" class="lo_icons" onclick ="location.href ='#'"><img src="assets/images/daegu.png" >대구</button></div>
-           <div class="test"><button type="button" class="lo_icons" onclick ="location.href ='#'"><img src="assets/images/ulsan.png" >울산</button></div>
-          <div class="test"> <button type="button" class="lo_icons" onclick ="location.href ='#'"><img src="assets/images/busan.png" >부산</button></div>
-          <div class="test"> <button type="button" class="lo_icons" onclick ="location.href ='#'"><img src="assets/images/jeju1.png" >제주</button></div>
+          <div class="test"><button type="button" class="lo_icons" onclick ="location.href ='${pageContext.request.contextPath}/travel/list.do?loc=서울'"><img src="assets/images/seoulicon.png"  >서울</button></div> 
+          <div class="test"> <button type="button" class="lo_icons" onclick ="location.href ='${pageContext.request.contextPath}/travel/list.do?loc=인천'"><img src="assets/images/incheon.png" >인천</button></div>
+          <div class="test"> <button type="button" class="lo_icons" onclick ="location.href ='${pageContext.request.contextPath}/travel/list.do?loc=대전'"><img src="assets/images/dejeon.png" >대전</button></div>
+           <div class="test"><button type="button" class="lo_icons" onclick ="location.href ='${pageContext.request.contextPath}/travel/list.do?loc=광주'"><img src="assets/images/guangju.png" >광주</button></div>
+           <div class="test"><button type="button" class="lo_icons" onclick ="location.href ='${pageContext.request.contextPath}/travel/list.do?loc=대구'"><img src="assets/images/daegu.png" >대구</button></div>
+           <div class="test"><button type="button" class="lo_icons" onclick ="location.href ='${pageContext.request.contextPath}/travel/list.do?loc=울산'"><img src="assets/images/ulsan.png" >울산</button></div>
+          <div class="test"> <button type="button" class="lo_icons" onclick ="location.href ='${pageContext.request.contextPath}/travel/list.do?loc=부산'"><img src="assets/images/busan.png" >부산</button></div>
+          <div class="test"> <button type="button" class="lo_icons" onclick ="location.href ='${pageContext.request.contextPath}/travel/list.do?loc=제주'"><img src="assets/images/jeju1.png" >제주</button></div>
           </div>
       </div>
       <div class="row">
           <div class="section-heading">
-          <div class="test"><button type="button" class="lo_icons" onclick ="location.href ='#'"><img src="assets/images/gyeonggi.png" >경기</button></div> 
-          <div class="test"> <button type="button" class="lo_icons" onclick ="location.href ='#'"><img src="assets/images/kang.png" >강원</button></div>
-          <div class="test"> <button type="button" class="lo_icons" onclick ="location.href ='#'"><img src="assets/images/choongnam.png" >충남</button></div>
-           <div class="test"><button type="button" class="lo_icons" onclick ="location.href ='#'"><img src="assets/images/choongbook.png" >충북</button></div>
-           <div class="test"><button type="button" class="lo_icons" onclick ="location.href ='#'"><img src="assets/images/junnam.png" >전남</button></div>
-           <div class="test"><button type="button" class="lo_icons" onclick ="location.href ='#'"><img src="assets/images/bap.png" >전북</button></div>
-          <div class="test"> <button type="button" class="lo_icons" onclick ="location.href ='#'"><img src="assets/images/green-tea.png" >경남</button></div>
-          <div class="test"> <button type="button" class="lo_icons" onclick ="location.href ='#'"><img src="assets/images/crab.png">경북</button></div>
+          <div class="test"><button type="button" class="lo_icons" onclick ="location.href ='${pageContext.request.contextPath}/travel/list.do?loc=경기도'"><img src="assets/images/gyeonggi.png" >경기</button></div> 
+          <div class="test"> <button type="button" class="lo_icons" onclick ="location.href ='${pageContext.request.contextPath}/travel/list.do?loc=강원도'"><img src="assets/images/kang.png" >강원</button></div>
+          <div class="test"> <button type="button" class="lo_icons" onclick ="location.href ='${pageContext.request.contextPath}/travel/list.do?loc=충청남도'"><img src="assets/images/choongnam.png" >충남</button></div>
+           <div class="test"><button type="button" class="lo_icons" onclick ="location.href ='${pageContext.request.contextPath}/travel/list.do?loc=충청북도'"><img src="assets/images/choongbook.png" >충북</button></div>
+           <div class="test"><button type="button" class="lo_icons" onclick ="location.href ='${pageContext.request.contextPath}/travel/list.do?loc=전라남도'"><img src="assets/images/junnam.png" >전남</button></div>
+           <div class="test"><button type="button" class="lo_icons" onclick ="location.href ='${pageContext.request.contextPath}/travel/list.do?loc=전라북도'"><img src="assets/images/bap.png" >전북</button></div>
+          <div class="test"> <button type="button" class="lo_icons" onclick ="location.href ='${pageContext.request.contextPath}/travel/list.do?loc=경상남도'"><img src="assets/images/green-tea.png" >경남</button></div>
+          <div class="test"> <button type="button" class="lo_icons" onclick ="location.href ='${pageContext.request.contextPath}/travel/list.do?loc=경상북도'"><img src="assets/images/crab.png">경북</button></div>
           </div>
       </div>
 <!--       랭킹 -->

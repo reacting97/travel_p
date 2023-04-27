@@ -23,9 +23,17 @@ public class TravelListHandler implements Handler{
 		}
 		response.setCharacterEncoding("UTF-8");
 		response.setContentType("text/html; charset=UTF-8");
-		TravelService service = new TravelService();
-		ArrayList<TravelVO> list = service.selectAll();
-		request.setAttribute("list", list);
+		String loc = request.getParameter("loc");
+//		TravelService service = new TravelService();
+//		ArrayList<TravelVO> list = new ArrayList<>();
+//		if(loc == null || loc.equals("")) {
+//			list = service.selectAll();
+//		} else {
+//			list = service.selectByLoc(loc);
+//		}
+//		
+//		request.setAttribute("list", list);
+		request.setAttribute("loc", loc);
 		return "/travel/travel_list.jsp";
 	}
 }

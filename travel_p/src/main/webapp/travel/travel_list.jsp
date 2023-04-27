@@ -6,6 +6,14 @@
 <head>
 <meta charset="UTF-8">
 <title>travel list test</title>
+	<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+	<link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+	<link rel="stylesheet" href="../assets/css/fontawesome.css">
+	<link rel="stylesheet" href="../assets/css/templatemo-woox-travel.css">
+	<link rel="stylesheet" href="../assets/css/owl.css">
+	<link rel="stylesheet" href="../assets/css/animate.css">
+	<link rel="stylesheet"href="https://unpkg.com/swiper@7/swiper-bundle.min.css"/>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
 <script type="text/javascript">
 	let totalData; //총 데이터 수
@@ -20,7 +28,8 @@
 		
 		$.ajax({ // ajax로 데이터 가져오기
 			method: "GET",
-			url: "${pageContext.request.contextPath}/travel/ajaxlist.do",
+			url: "${pageContext.request.contextPath}/travel/provincelist.do",
+			data: {'loc' : '${loc}'},
 			dataType: 'json',
 			success: function (d) {
 				//totalData(총 데이터 수) 구하기
@@ -37,11 +46,11 @@
 			}
 		});
 		
-		$(".col-lg-1").click(function() {
+		$(".test").click(function() {
 			$.ajax({
 				method : 'get',
 				url : '${pageContext.request.contextPath}/travel/provincelist.do',
-				data: {loc : $(this).text()},
+				data: {'loc' : $(this).attr('loc')},
 				dataType: 'json',
 				success : function(data){
 					totalData = data.length;
@@ -169,8 +178,71 @@
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
 </head>
 <body>
+	<!-- ***** Header Area Start ***** -->
+	<header class="header-area header-sticky">
+	  <div class="container head-nav">
+	      <div class="row head-nav-sub">
+	          <div class="col-12 head-nav-sub2">
+	              <nav class="main-nav">
+	                  <!-- ***** Logo Start ***** -->
+	                  <a href="../index.jsp" class="logo">
+	                      <img src="../assets/images/bangbang.png" class="main-logo" alt="">
+	                  </a>
+	                  <!-- ***** Logo End ***** -->
+	                  <!-- ***** Menu Start ***** -->
+	                  <ul class="nav">
+	                      <li><a href="../index.jsp" class="active">Home</a></li>
+	                      <li>
+	                      <a href="#" class="board">Board</a>
+	                      </li>
+	                      <li><a href="#">Deals</a></li>
+	                      <li><a href="${pageContext.request.contextPath }/member/login.do">Login</a></li>
+	                      <li><a href="${pageContext.request.contextPath }/member/logout.do">Logout</a></li>
+	                  </ul>   
+	                  
+	                  <a class='menu-trigger'>
+	                      <span>Menu</span>
+	                  </a>
+	                  <!-- ***** Menu End ***** -->
+	              </nav>
+	              <div class="container hide-position" style="text-align: center">
+	              <ul class="hideboard">
+						<li class="board-li" ><a href="${pageContext.request.contextPath }/recommandboard/list.do" id="board-li-a">추천게시판</a>
+	  						<li class="board-li"><a href="${pageContext.request.contextPath }/recordboard/list.do" id="board-li-a">관광일기</a>
+	  						<li class="board-li"><a href="${pageContext.request.contextPath }/joinboard/list.do" id="board-li-a">같이가자!</a>
+		 					 </ul>
+		 			</div>		 
+	          </div>
+	      </div>
+	  </div>
+	</header>
+	<!-- ***** Header Area End ***** -->
 	<div class="container mt-5">
-		<div class="row justify-content-center">
+		<div class="row">
+          <div class="section-heading">
+          <div class="test" loc="서울"><button type="button" class="lo_icons" ><img src="../assets/images/seoulicon.png">서울</button></div> 
+          <div class="test" loc="인천"><button type="button" class="lo_icons"><img src="../assets/images/incheon.png">인천</button></div>
+          <div class="test" loc="대전"><button type="button" class="lo_icons"><img src="../assets/images/dejeon.png">대전</button></div>
+           <div class="test" loc="광주"><button type="button" class="lo_icons"><img src="../assets/images/guangju.png">광주</button></div>
+           <div class="test" loc="대구"><button type="button" class="lo_icons"><img src="../assets/images/daegu.png">대구</button></div>
+           <div class="test" loc="울산"><button type="button" class="lo_icons"><img src="../assets/images/ulsan.png">울산</button></div>
+          <div class="test" loc="부산"><button type="button" class="lo_icons"><img src="../assets/images/busan.png">부산</button></div>
+          <div class="test" loc="제주"><button type="button" class="lo_icons"><img src="../assets/images/jeju1.png">제주</button></div>
+          </div>
+      </div>
+      <div class="row">
+          <div class="section-heading">
+          <div class="test" loc="경기"><button type="button" class="lo_icons"><img src="../assets/images/gyeonggi.png" >경기</button></div> 
+          <div class="test" loc="강원"><button type="button" class="lo_icons"><img src="../assets/images/kang.png" >강원</button></div>
+          <div class="test" loc="충청북도"><button type="button" class="lo_icons"><img src="../assets/images/choongbook.png" >충북</button></div>
+          <div class="test" loc="충청남도"><button type="button" class="lo_icons"><img src="../assets/images/choongnam.png" >충남</button></div>
+          <div class="test" loc="전라북도"><button type="button" class="lo_icons"><img src="../assets/images/bap.png" >전북</button></div>
+		  <div class="test" loc="전라남도"><button type="button" class="lo_icons"><img src="../assets/images/junnam.png" >전남</button></div>
+          <div class="test" loc="경상북도"><button type="button" class="lo_icons"><img src="../assets/images/crab.png">경북</button></div>
+          <div class="test" loc="경상남도"><button type="button" class="lo_icons"><img src="../assets/images/green-tea.png" >경남</button></div>
+          </div>
+      </div>
+		<!-- <div class="row justify-content-center">
 			<div class="col-lg-1 col-md-4" id="all">전체</div>
 			<div class="col-lg-1 col-md-4" id="seoul">서울</div>
 			<div class="col-lg-1 col-md-4" id="kyung">경기도</div>
@@ -190,8 +262,8 @@
 			<div class="col-lg-1 col-md-3" id="daejeon">대전</div>
 			<div class="col-lg-1 col-md-3" id="ulsan">울산</div>
 			<div class="col-lg-1 col-md-3" id="jeju">제주도</div>
-		</div>
-	</div>
+		</div> -->
+	</div> 
 	<div class="container">
 		<div class="row">
 			<div class="col-10">
