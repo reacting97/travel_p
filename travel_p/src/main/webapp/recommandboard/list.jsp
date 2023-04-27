@@ -46,8 +46,8 @@ response.setCharacterEncoding("utf-8");
             <div class="col-12">
                 <nav class="main-nav">
                     <!-- ***** Logo Start ***** -->
-                    <a href="index.html" class="logo">
-                        <img src="assets/images/logo_1.jpg" style="width:150px; height:70px" alt="">
+                    <a href="../index.jsp" class="logo">
+                        <img src="../assets/images/bangbang.png" style="width:150px; height:70px" alt="">
                     </a>
                     <!-- ***** Logo End ***** -->
                     <!-- ***** Menu Start ***** -->
@@ -55,7 +55,7 @@ response.setCharacterEncoding("utf-8");
                         <li><a href="../index.jsp" class="active">Home</a></li>
                         <li><a href="${pageContext.request.contextPath }/joinboard/list.do" class="board">join board</a></li>
                         <li><a href="${pageContext.request.contextPath }/recordboard/list.do" class="board">record board</a></li>
-                        <li><a href="${pageContext.request.contextPath }/recordboard/add.do">글작성</a></li>
+                        <li><a href="${pageContext.request.contextPath }/recommandboard/add.do">글작성</a></li>
                         <li><a href="${pageContext.request.contextPath }/member/login.do">Login</a></li>
                         <li><a href="${pageContext.request.contextPath }/member/logout.do">Logout</a></li>
                     </ul>   

@@ -46,7 +46,7 @@ response.setCharacterEncoding("utf-8");
             <div class="col-12">
                 <nav class="main-nav">
                     <!-- ***** Logo Start ***** -->
-                    <a href="index.html" class="logo">
+                    <a href="../index.jsp" class="logo">
                         <img src="../assets/images/bangbang.png" style="width:150px; height:80px;" alt="">
                     </a>
                     <!-- ***** Logo End ***** -->

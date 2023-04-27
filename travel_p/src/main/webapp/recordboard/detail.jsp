@@ -134,6 +134,7 @@ body {
 	<div class="container">
 		<div class="post">
 			<h2>${vo.title }</h2>
+			<p>조회수: ${vo.cnt }</p>
 			<p class="date">작성일자: ${vo.rdate}</p>
 			<div class="post-content">
 				<p>여행경비: ${vo.price }원</p>

@@ -35,8 +35,8 @@ TemplateMo 580 Woox Travel
 https://templatemo.com/tm-580-woox-travel
 
 -->
-
-
+<script src="https://kit.fontawesome.com/df89dafb93.js" crossorigin="anonymous"></script>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
 <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.css">
  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick-theme.min.css">
@@ -51,36 +51,82 @@ https://templatemo.com/tm-580-woox-travel
 	  });
 	});
 	
-	
-	
-	$(document).ready(function() {
-		  $('.slider').each(function() {
-		    var slides = $(this).find('.slide');
-		    var currentSlide = 0;
-		    var interval = setInterval(nextSlide, 3000);
-		    
-		    $(this).hover(function() {
-		      clearInterval(interval);
-		    }, function() {
-		      interval = setInterval(nextSlide, 3000);
-		    });
-		    
-		    function nextSlide() {
-				  slides.eq(currentSlide).fadeOut(500, function() {
-				    $(this).css('display', 'none');
-				  });
-				  currentSlide = (currentSlide + 1) % slides.length;
-				  slides.eq(currentSlide).css('display', 'block').hide().fadeIn(500);
+// 	  var images1 = ["엄지.png", "추천.png", "seoul.jpg"];
+// 	  var images2 = ["kang.png", "jeju.avif", "pohang.jpg"];
+// 	  var images3 = ["jeju.jpg", "choong.png", "dol.png"];
+// 	  var currentIndex1 = 0;
+// 	  var currentIndex2 = 0;
+// 	  var currentIndex3 = 0;
 
-				  if (currentSlide === 0) {
-				    slides.eq(slides.length - 1).css('display', 'block');
-				  }
-				}
-		  	});
-			});
+// 	  // 추천글
+// 	  function changeImage1(direction) {
+// 	    if (direction == "next") {
+// 	      currentIndex1 = (currentIndex1 + 1) % images1.length;
+// 	    } else if (direction == "prev") {
+// 	      currentIndex1--;
+// 	      if (currentIndex1 < 0) {
+// 	        currentIndex1 = images1.length - 1;
+// 	      }
+// 	    }
+// 	    document.getElementById("image1").src = images1[currentIndex1];
+// 	  }
+
+// 	  // 일기 
+// 	  function changeImage2(direction) {
+// 	    if (direction == "next") {
+// 	      currentIndex2 = (currentIndex2 + 1) % images2.length;
+// 	    } else if (direction == "prev") {
+// 	      currentIndex2--;
+// 	      if (currentIndex2 < 0) {
+// 	        currentIndex2 = images2.length - 1;
+// 	      }
+// 	    }
+// 	    document.getElementById("image2").src = images2[currentIndex2];
+// 	  }
+
+// 	  // 모집 
+// 	  function changeImage3(direction) {
+// 	    if (direction == "next") {
+// 	      currentIndex3 = (currentIndex3 + 1) % images3.length;
+// 	    } else if (direction == "prev") {
+// 	      currentIndex3--;
+// 	      if (currentIndex3 < 0) {
+// 	        currentIndex3 = images3.length - 1;
+// 	      }
+// 	    }
+// 	    document.getElementById("image3").src = images3[currentIndex3];
+// 	  }
+
+// 	  // 버튼 클릭 이벤트 처리
+// 	  document.getElementById("next1").addEventListener("click", function() {
+// 	    changeImage1("next");
+// 	  });
+// 	  document.getElementById("prev1").addEventListener("click", function() {
+// 	    changeImage1("prev");
+// 	  });
+// 	  document.getElementById("next2").addEventListener("click", function() {
+// 	    changeImage2("next");
+// 	  });
+// 	  document.getElementById("prev2").addEventListener("click", function() {
+// 	    changeImage2("prev");
+// 	  });
+// 	  document.getElementById("next3").addEventListener("click", function() {
+// 	    changeImage3("next");
+// 	  });
+// 	  document.getElementById("prev3").addEventListener("click", function() {
+// 	    changeImage3("prev");
+// 	  });
+	
 	
 		</script>
-  
+<style type="text/css">
+
+.myinfo-icon{
+	width:30px;
+	height:30px;
+}
+
+</style>
   </head>
 
 <body>
@@ -114,10 +160,21 @@ https://templatemo.com/tm-580-woox-travel
                         <li><a href="index.jsp" class="active">Home</a></li>
                         <li>
                         <a href="#" class="board">Board</a>
-                        </li>
+                         <ul class="hideboard">
+							<li class="board-li" ><a href="${pageContext.request.contextPath }/recommandboard/list.do" id="board-li-a">추천게시판</a>
+    						<li class="board-li"><a href="${pageContext.request.contextPath }/recordboard/list.do" id="board-li-a">관광일기</a>
+    						<li class="board-li"><a href="${pageContext.request.contextPath }/joinboard/list.do" id="board-li-a">같이가자!</a>
+  	 					 </ul>
+  	 					 </li>
                         <li><a href="#">Deals</a></li>
+                        <c:if test ="${empty sessionScope.loginId }">
                         <li><a href="${pageContext.request.contextPath }/member/login.do">Login</a></li>
+                        </c:if>
+                        <c:if test ="${not empty sessionScope.loginId }">
                         <li><a href="${pageContext.request.contextPath }/member/logout.do">Logout</a></li>
+                        <li><a href="#" style="padding-top:6px">${sessionScope.loginId } 님 <img src="assets/images/myinfo.png" class="myinfo-icon"></a>
+                        </li>
+                        </c:if>
                     </ul>   
                     
                     <a class='menu-trigger'>
@@ -125,13 +182,9 @@ https://templatemo.com/tm-580-woox-travel
                     </a>
                     <!-- ***** Menu End ***** -->
                 </nav>
-                <div class="container hide-position" style="text-align: center">
-                <ul class="hideboard">
-							<li class="board-li" ><a href="${pageContext.request.contextPath }/recommandboard/list.do" id="board-li-a">추천게시판</a>
-    						<li class="board-li"><a href="${pageContext.request.contextPath }/recordboard/list.do" id="board-li-a">관광일기</a>
-    						<li class="board-li"><a href="${pageContext.request.contextPath }/joinboard/list.do" id="board-li-a">같이가자!</a>
-  	 					 </ul>
-  	 			</div>		 
+<!--                 <div class="container hide-position" style="text-align: center"> -->
+             
+<!--   	 			</div>		  -->
             </div>
         </div>
     </div>
@@ -337,10 +390,10 @@ https://templatemo.com/tm-580-woox-travel
      						실시간 관광곡곡 랭킹
    				 </a>
    				 <span class="navbar-ranking blink"><a href="#"> 1. 날씨 위젯 서버 이슈.. </a></span>
-   				 <span class="navbar-ranking"> <button type="button" class="borderbutton drop"><img src="assets/images/햄버거바.png" class="nav_bar_img2" ></button></span>
+   				 <span class="navbar-ranking" > <button type="button" class="borderbutton drop"><img src="assets/images/햄버거바.png" class="nav_bar_img2" ></button></span>
   			</div>
   			<div >
-  				<nav class="nav flex-column ranking">
+  				<nav class="nav flex-column ranking" style="display:none; padding-left:630px">
   					<a class="nav-link" href="#">2. 관광곡곡</a>
  					<a class="nav-link" href="#">3. 방방곳곳 or 방방곡곡</a>
   					<a class="nav-link" href="#">4. 방방방방방방</a>
@@ -388,48 +441,37 @@ https://templatemo.com/tm-580-woox-travel
 		</div>
 	</div>
 <!-- 	날씨 -->
-	<div class="container">
-		<div class="weather">
-		<a class="weatherwidget-io" href="https://forecast7.com/en/35d91127d77/south-korea/" data-label_1="한국" data-label_2="날씨" data-icons="Climacons Animated" data-theme="mountains" >한국 날씨</a>
-		<script>
-		!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src='https://weatherwidget.io/js/widget.min.js';fjs.parentNode.insertBefore(js,fjs);}}(document,'script','weatherwidget-io-js');
-		</script>
-		</div>
+	<div class="container boards">
+		<div class="column recommed">
+      <h2 class="boards-title">추천글</h2>
+      <img id="image1" src="assets/images/kuje.jpg" alt="추천글 이미지" class="recommend-img">
+      <p>추천글 내용</p>
+      <div class="img-button">
+        <img id="prev1" src="assets/images/left.png" alt="왼쪽 화살표" >
+        <img id="next1" src="assets/images/right.png" alt="오른쪽 화살표" >
+      </div>
+    </div>
+    <!-- 일기 컬럼 -->
+    <div class="column recommed">
+      <h2 class="boards-title">일기</h2>
+      <img id="image2" src="assets/images/busan.jpg" alt="일기 이미지" class="recommend-img">
+      <p>일기 내용</p>
+      <div class="img-button">
+        <img id="prev2" src="assets/images/left.png" alt="왼쪽 화살표" >
+        <img id="next2" src="assets/images/right.png" alt="오른쪽 화살표" >
+      </div>
+    </div>
+    <!-- 모집 컬럼 -->
+    <div class="column recommed">
+      <h2 class="boards-title">모집</h2>
+      <img id="image3" src="assets/images/nammountain.jpg" alt="모집 이미지" class="recommend-img">
+      <p>모집 내용</p>
+      <div class="img-button">
+        <img id="prev3" src="assets/images/left.png" alt="왼쪽 화살표" >
+        <img id="next3" src="assets/images/right.png" alt="오른쪽 화살표" >
+      </div>
+    </div>
 	</div>
-
-	<div class="container commuhead">
-	<div class="commu-main">
-	<div class="container commu">
-  <div class="column">
-    <h2>추천곡곡</h2>
-    <div class="slider">
-      <div class="slide"><a href="#">여기 정말 최고야</a></div>
-      <div class="slide"><a href="#">아니? 여기가 최곤데?</a></div>
-      <div class="slide"><a href="#">여기도..</a></div>
-      <div class="slide"><a href="#">여기도1..</a></div>
-    </div>
-  </div>
-  <div class="column">
-    <h2>나의관광일지</h2>
-    <div class="slider">
-      <div class="slide"><a href="#">나의 해방일지 아님</a></div>
-      <div class="slide"><a href="#">비와서 망함</a></div>
-      <div class="slide"><a href="#">눈와서 넘어짐</a></div>
-      <div class="slide"><a href="#">222</a></div>
-    </div>
-  </div>
-  <div class="column">
-    <h2>같이 갈래?</h2>
-    <div class="slider">
-      <div class="slide"><a href="#">23살/남자/술 마실사람</a></div>
-      <div class="slide"><a href="#">35살/남자/...</a></div>
-      <div class="slide"><a href="#">20살/남자/여기 뭐하는 곳이죠?</a></div>
-      <div class="slide"><a href="#">1살</a></div>
-    </div>
-  </div>
-  </div>
-</div>
-</div>
 	
 	
 	
@@ -536,6 +578,7 @@ https://templatemo.com/tm-580-woox-travel
 
   <!-- Scripts -->
   <!-- Bootstrap core JavaScript -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
   <script src="vendor/jquery/jquery.min.js"></script>
   <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
 

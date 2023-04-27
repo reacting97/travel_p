@@ -15,7 +15,7 @@ public class JoinHandler implements Handler {
 	@Override
 	public String process(HttpServletRequest request, HttpServletResponse response) {
 		// TODO Auto-generated method stub
-		String view = "/index.jsp";
+		String view = "redirect:/index.jsp";
 		if (request.getMethod().equals("GET")) { // request.getMethod(): 요청방식 (get/post)값 반환
 			view = "/member/join.jsp";
 		} else {

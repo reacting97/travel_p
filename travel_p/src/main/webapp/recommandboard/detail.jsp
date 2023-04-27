@@ -1,5 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%
+request.setCharacterEncoding("utf-8");
+response.setCharacterEncoding("utf-8");
+%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -124,11 +129,31 @@ body {
 	border-color: #005cbf;
 }
 </style>
+<script type="text/javascript">
+function likey2(num){
+	const xhttp = new XMLHttpRequest();
+	
+	xhttp.onload = function(){
+		let val = xhttp.responseText;
+		let arr = JSON.parse(val);
+		let html = '';
+		html = arr.cnt;
+		let res = document.getElementById("likenum");
+		res.innerHTML = html;//responseText: 서버로부터 받은 응답값
+	}
+	
+	let param = "?recommandnum=" + num;
+	param += "&writer=${sessionScope.loginId}";
+	//요청 전송방식, 서버페이지 url 설정. get방식인 경우 url뒤에 파람 붙임
+	xhttp.open("GET", "${pageContext.request.contextPath}/recommandboard/likeup.do"+param);
+	xhttp.send();
+}
+</script>
 </head>
 <body>
 	<div class="container">
 		<div class="post">
-			<h2>${vo.title }</h2>
+			<h2>${vo.title } <button type="button" class="btn btn-primary" onclick="likey2(${vo.num})">좋아요</button><span id="likenum">${cnt }</span></h2>
 			<p class="date">작성일자: ${vo.w_date}</p>
 			<div class="post-content">
 				<p>${vo.content }</p>

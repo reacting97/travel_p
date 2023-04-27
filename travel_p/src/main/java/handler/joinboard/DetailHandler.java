@@ -10,6 +10,7 @@ import comment.CommentVo;
 import handler.Handler;
 import join_board.JoinBoardService;
 import join_board.JoinBoardVo;
+import like.LikeService;
 
 public class DetailHandler implements Handler {
 
@@ -19,10 +20,13 @@ public class DetailHandler implements Handler {
 		ArrayList<CommentVo> clist = new ArrayList<>();
 		int num = Integer.parseInt(request.getParameter("num"));
 		JoinBoardService service = new JoinBoardService();
+		
+		
 		JoinBoardVo vo = service.getBoard(num);
 		request.setAttribute("vo", vo);
 		CommentService s = new CommentService();
 		clist=s.selectByBoard(num);
+		
 		request.setAttribute("clist", clist);
 		
 		

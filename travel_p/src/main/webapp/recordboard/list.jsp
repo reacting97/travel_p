@@ -29,6 +29,27 @@ response.setCharacterEncoding("utf-8");
 	display: none;
 }
 </style>
+
+<script type="text/javascript">
+function f(num){
+	const xhttp = new XMLHttpRequest();
+	
+	xhttp.onload = function(){
+		let val = xhttp.responseText;
+		let arr = JSON.parse(val);
+		let html = '';
+		html = arr.cnt;
+		let res = document.getElementById("viewcount");
+		res.innerHTML = html;//responseText: 서버로부터 받은 응답값
+	}
+	
+	let param = "?bnum=" + num;
+	param += "&writer=${sessionScope.loginId}";
+	//요청 전송방식, 서버페이지 url 설정. get방식인 경우 url뒤에 파람 붙임
+	xhttp.open("GET", "${pageContext.request.contextPath}/recordboard/cntup.do"+param);
+	xhttp.send();
+}
+</script>
 <script
 	src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
 	integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
@@ -46,8 +67,8 @@ response.setCharacterEncoding("utf-8");
             <div class="col-12">
                 <nav class="main-nav">
                     <!-- ***** Logo Start ***** -->
-                    <a href="index.html" class="logo">
-                        <img src="assets/images/logo_1.jpg" style="width:150px; height:70px" alt="">
+                    <a href="../index.jsp" class="logo">
+                        <img src="../assets/images/bangbang.png" style="width:150px; height:70px" alt="">
                     </a>
                     <!-- ***** Logo End ***** -->
                     <!-- ***** Menu Start ***** -->
@@ -83,7 +104,7 @@ response.setCharacterEncoding("utf-8");
 						<h5 class="card-title">${vo.title }</h5>
 						<p>${vo.content }</p>
 
-						<a href="${pageContext.request.contextPath}/recordboard/detail.do?num=${vo.num}"><button type="button" class="btn btn-primary">상세보기</button></a>
+						<a href="${pageContext.request.contextPath}/recordboard/detail.do?num=${vo.num}"><button type="button" class="btn btn-primary" onclick="f(${vo.num})">상세보기</button></a>
 					</div>
 				</div>
 			</div>

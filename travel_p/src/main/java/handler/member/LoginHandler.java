@@ -13,7 +13,7 @@ public class LoginHandler implements Handler {
 	@Override
 	public String process(HttpServletRequest request, HttpServletResponse response) {
 		// TODO Auto-generated method stub
-		String view = "/index.jsp";
+		String view = "";
 		String msg = "로그인 실패";
 		if (request.getMethod().equals("GET")) {
 			view = "/member/login.jsp";
@@ -26,10 +26,9 @@ public class LoginHandler implements Handler {
 			if (vo.getId() != null && pwd.equals(vo.getPwd())) {
 				HttpSession session = request.getSession();
 				session.setAttribute("loginId", id);
-				msg = "로그인 성공";
+				view = "redirect:/index.jsp";
 			}
 		}
-		request.setAttribute("msg", msg);
 		return view;
 	}
 }
