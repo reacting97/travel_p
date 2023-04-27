@@ -40,6 +40,7 @@ https://templatemo.com/tm-580-woox-travel
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
 <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.css">
  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick-theme.min.css">
+ <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
 <script type="text/javascript">
 	
 	$(document).ready(function(){
@@ -51,82 +52,75 @@ https://templatemo.com/tm-580-woox-travel
 	  });
 	});
 	
-// 	  var images1 = ["엄지.png", "추천.png", "seoul.jpg"];
-// 	  var images2 = ["kang.png", "jeju.avif", "pohang.jpg"];
-// 	  var images3 = ["jeju.jpg", "choong.png", "dol.png"];
-// 	  var currentIndex1 = 0;
-// 	  var currentIndex2 = 0;
-// 	  var currentIndex3 = 0;
+	
+	  var images1 = ["assets/images/kuje.jpg", "assets/images/추천.png", "assets/images/seoul.jpg"];
+	  var images2 = ["assets/images/kang.png", "assets/images/jeju.avif", "assets/images/pohang.jpg"];
+	  var images3 = ["assets/images/jeju.jpg", "assets/images/choong.png", "assets/images/dol.png"];
+	  var currentIndex1 = 0;
+	  var currentIndex2 = 0;
+	  var currentIndex3 = 0;
 
-// 	  // 추천글
-// 	  function changeImage1(direction) {
-// 	    if (direction == "next") {
-// 	      currentIndex1 = (currentIndex1 + 1) % images1.length;
-// 	    } else if (direction == "prev") {
-// 	      currentIndex1--;
-// 	      if (currentIndex1 < 0) {
-// 	        currentIndex1 = images1.length - 1;
-// 	      }
-// 	    }
-// 	    document.getElementById("image1").src = images1[currentIndex1];
-// 	  }
+	  // 추천글
+	  function changeImage1(direction) {
+	    if (direction == "next") {
+	      currentIndex1 = (currentIndex1 + 1) % images1.length;
+	    } else if (direction == "prev") {
+	      currentIndex1--;
+	      if (currentIndex1 < 0) {
+	        currentIndex1 = images1.length - 1;
+	      }
+	    }
+	    document.getElementById("image1").src = images1[currentIndex1];
+	  }
 
-// 	  // 일기 
-// 	  function changeImage2(direction) {
-// 	    if (direction == "next") {
-// 	      currentIndex2 = (currentIndex2 + 1) % images2.length;
-// 	    } else if (direction == "prev") {
-// 	      currentIndex2--;
-// 	      if (currentIndex2 < 0) {
-// 	        currentIndex2 = images2.length - 1;
-// 	      }
-// 	    }
-// 	    document.getElementById("image2").src = images2[currentIndex2];
-// 	  }
+	  // 일기 
+	  function changeImage2(direction) {
+	    if (direction == "next") {
+	      currentIndex2 = (currentIndex2 + 1) % images2.length;
+	    } else if (direction == "prev") {
+	      currentIndex2--;
+	      if (currentIndex2 < 0) {
+	        currentIndex2 = images2.length - 1;
+	      }
+	    }
+	    document.getElementById("image2").src = images2[currentIndex2];
+	  }
 
-// 	  // 모집 
-// 	  function changeImage3(direction) {
-// 	    if (direction == "next") {
-// 	      currentIndex3 = (currentIndex3 + 1) % images3.length;
-// 	    } else if (direction == "prev") {
-// 	      currentIndex3--;
-// 	      if (currentIndex3 < 0) {
-// 	        currentIndex3 = images3.length - 1;
-// 	      }
-// 	    }
-// 	    document.getElementById("image3").src = images3[currentIndex3];
-// 	  }
+	  // 모집 
+	  function changeImage3(direction) {
+	    if (direction == "next") {
+	      currentIndex3 = (currentIndex3 + 1) % images3.length;
+	    } else if (direction == "prev") {
+	      currentIndex3--;
+	      if (currentIndex3 < 0) {
+	        currentIndex3 = images3.length - 1;
+	      }
+	    }
+	    document.getElementById("image3").src = images3[currentIndex3];
+	  }
 
-// 	  // 버튼 클릭 이벤트 처리
-// 	  document.getElementById("next1").addEventListener("click", function() {
-// 	    changeImage1("next");
-// 	  });
-// 	  document.getElementById("prev1").addEventListener("click", function() {
-// 	    changeImage1("prev");
-// 	  });
-// 	  document.getElementById("next2").addEventListener("click", function() {
-// 	    changeImage2("next");
-// 	  });
-// 	  document.getElementById("prev2").addEventListener("click", function() {
-// 	    changeImage2("prev");
-// 	  });
-// 	  document.getElementById("next3").addEventListener("click", function() {
-// 	    changeImage3("next");
-// 	  });
-// 	  document.getElementById("prev3").addEventListener("click", function() {
-// 	    changeImage3("prev");
-// 	  });
+	  // 버튼 클릭 이벤트 처리
+	  document.getElementById("next1").addEventListener("click", function() {
+	    changeImage1("next");
+	  });
+	  document.getElementById("prev1").addEventListener("click", function() {
+	    changeImage1("prev");
+	  });
+	  document.getElementById("next2").addEventListener("click", function() {
+	    changeImage2("next");
+	  });
+	  document.getElementById("prev2").addEventListener("click", function() {
+	    changeImage2("prev");
+	  });
+	  document.getElementById("next3").addEventListener("click", function() {
+	    changeImage3("next");
+	  });
+	  document.getElementById("prev3").addEventListener("click", function() {
+	    changeImage3("prev");
+	  });
 	
 	
 		</script>
-<style type="text/css">
-
-.myinfo-icon{
-	width:30px;
-	height:30px;
-}
-
-</style>
   </head>
 
 <body>
@@ -447,8 +441,8 @@ https://templatemo.com/tm-580-woox-travel
       <img id="image1" src="assets/images/kuje.jpg" alt="추천글 이미지" class="recommend-img">
       <p>추천글 내용</p>
       <div class="img-button">
-        <img id="prev1" src="assets/images/left.png" alt="왼쪽 화살표" >
-        <img id="next1" src="assets/images/right.png" alt="오른쪽 화살표" >
+        <button onclick="changeImage1('prev')" style="background-color: transparent; border:none"><img id="prev1" src="assets/images/left.png" alt="왼쪽 화살표" ></button> 
+         <button onclick="changeImage1('next')" style="background-color: transparent; border:none"><img id="next1" src="assets/images/right.png" alt="오른쪽 화살표"></button>
       </div>
     </div>
     <!-- 일기 컬럼 -->
@@ -457,8 +451,8 @@ https://templatemo.com/tm-580-woox-travel
       <img id="image2" src="assets/images/busan.jpg" alt="일기 이미지" class="recommend-img">
       <p>일기 내용</p>
       <div class="img-button">
-        <img id="prev2" src="assets/images/left.png" alt="왼쪽 화살표" >
-        <img id="next2" src="assets/images/right.png" alt="오른쪽 화살표" >
+         <button onclick="changeImage2('prev')" style="background-color: transparent; border:none"><img id="prev2" src="assets/images/left.png" alt="왼쪽 화살표"></button>
+        <button onclick="changeImage2('next')" style="background-color: transparent; border:none"><img id="next2" src="assets/images/right.png" alt="오른쪽 화살표"></button>
       </div>
     </div>
     <!-- 모집 컬럼 -->
@@ -467,15 +461,11 @@ https://templatemo.com/tm-580-woox-travel
       <img id="image3" src="assets/images/nammountain.jpg" alt="모집 이미지" class="recommend-img">
       <p>모집 내용</p>
       <div class="img-button">
-        <img id="prev3" src="assets/images/left.png" alt="왼쪽 화살표" >
-        <img id="next3" src="assets/images/right.png" alt="오른쪽 화살표" >
+       <button onclick="changeImage3('prev')" style="background-color: transparent; border:none"><img id="prev3" src="assets/images/left.png" alt="왼쪽 화살표"></button>
+       <button onclick="changeImage3('next')" style="background-color: transparent; border:none"><img id="next3" src="assets/images/right.png" alt="오른쪽 화살표"></button>
       </div>
     </div>
 	</div>
-	
-	
-	
-	
 	
 	<div class="container  com">
 	<div class="rec">
