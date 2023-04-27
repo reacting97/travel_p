@@ -112,7 +112,7 @@ public class TravelDAO {
 	
 	public ArrayList<TravelVO> selectByName(String name) {
 		Connection conn = dbconn.conn();
-		String sql = "select * from travel where name like '%'|| ? ||'%'order by num desc";
+		String sql = "select * from travel where name like '%'|| ? ||'%' and pic1 is not null order by num desc";
 		ArrayList<TravelVO> list = new ArrayList<>();
 		try {
 			PreparedStatement ps = conn.prepareStatement(sql);
@@ -138,7 +138,7 @@ public class TravelDAO {
 	
 	public ArrayList<TravelVO> selectByLoc(String loc) {
 		Connection conn = dbconn.conn();
-		String sql = "select * from travel where address like '%'|| ? ||'%'order by num desc";
+		String sql = "select * from travel where address like '%'|| ? ||'%' and pic1 is not null order by num desc";
 		ArrayList<TravelVO> list = new ArrayList<>();
 		try {
 			PreparedStatement ps = conn.prepareStatement(sql);
@@ -164,7 +164,7 @@ public class TravelDAO {
 	
 	public ArrayList<TravelVO> selectAll() {
 		Connection conn = dbconn.conn();
-		String sql = "select * from travel order by num desc";
+		String sql = "select * from travel where pic1 is not null order by num desc";
 		ArrayList<TravelVO> list = new ArrayList<>();
 		try {
 			PreparedStatement ps = conn.prepareStatement(sql);

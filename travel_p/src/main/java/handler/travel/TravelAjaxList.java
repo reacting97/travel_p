@@ -13,7 +13,7 @@ import handler.Handler;
 import travel.TravelService;
 import travel.TravelVO;
 
-public class TravelListHandler implements Handler{
+public class TravelAjaxList implements Handler{
 	@Override
 	public String process(HttpServletRequest request, HttpServletResponse response) {
 		try {
@@ -26,6 +26,19 @@ public class TravelListHandler implements Handler{
 		TravelService service = new TravelService();
 		ArrayList<TravelVO> list = service.selectAll();
 		request.setAttribute("list", list);
-		return "/travel/travel_list.jsp";
+		
+		JSONArray arr = new JSONArray();
+		for(TravelVO travel : list) {
+			JSONObject obj = new JSONObject();
+			obj.put("id", travel.getId());
+			obj.put("name", travel.getName());
+			obj.put("address", travel.getAddress());
+			obj.put("phone", travel.getPhone());
+			obj.put("pic1", travel.getPic1());
+			arr.add(obj);
+		}
+		
+		String txt = arr.toJSONString();
+		return "rsps@"+txt;
 	}
 }
