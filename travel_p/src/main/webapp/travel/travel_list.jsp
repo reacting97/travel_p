@@ -79,7 +79,6 @@
 		dataPerPage = Number(dataPerPage);
 		for (let i = (currentPage-1)*dataPerPage; i < (currentPage - 1) * dataPerPage + dataPerPage; i++) {
 			if(dataList[i] == null) break;
-			console.log(dataList[i]);
 			textHtml += "<div class='col-12' num='"+dataList[i].id+"'><div class='card h-75'><div class='row no-gutters'>";
 			/* textHtml += "<div class='col-4'><img src='https://mdbcdn.b-cdn.net/img/new/standard/nature/111.webp' class='card-img w-75 h-75'/></div><div class='col-8'>"; */
 			textHtml += "<div class='col-4'><img src='"+dataList[i].pic1+"' class='card-img h-75 w-75'/></div><div class='col-8'>";
