@@ -1,5 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%
+request.setCharacterEncoding("utf-8");
+response.setCharacterEncoding("utf-8");
+%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -143,24 +148,24 @@ body {
 		<a href="${pageContext.request.contextPath }/joinboard/del.do?num=${vo.num}" class="btn btn-warning">이 글 삭제</a>
 		<div class="comments">
 			<h3>댓글</h3>
+			<c:forEach var="co" items="${clist }">
 			<div class="comment">
-				<p class="author">작성자</p>
-				<p class="date">작성일자: 2023-04-22</p>
-				<p class="content">댓글 내용이 들어갑니다.</p>
+				<p class="author">${co.user_id }</p>
+				<p class="date">작성일자: ${co.date }</p>
+				<p class="content">${co.content }</p>
 			</div>
-			<div class="comment">
-				<p class="author">작성자</p>
-				<p class="date">작성일자: 2023-04-22</p>
-				<p class="content">댓글 내용이 들어갑니다.</p>
-			</div>
-			<form class="comment-form">
+			</c:forEach>
+			<form action="${pageContext.request.contextPath }/comment/add.do" method="get" class="comment-form">
 				<h3>댓글 작성</h3>
 				<div class="form-group">
-					<label for="name">작성자</label> <input type="text" value="${sessionScope.loginId}" class="form-control" id="name" disabled>
+					<label for="name">게시물 번호</label> <input type="text" value="${vo.num}" class="form-control" name="num" id="name" readonly>
+				</div>
+				<div class="form-group">
+					<label for="name">작성자</label> <input type="text" value="${sessionScope.loginId}" class="form-control" name="name" id="name" readonly>
 				</div>
 				<div class="form-group">
 					<label for="comment">내용</label>
-					<textarea class="form-control" id="comment"></textarea>
+					<textarea class="form-control" id="comment" name="content"></textarea>
 				</div>
 				<button type="submit" class="btn btn-primary">작성하기</button>
 			</form>

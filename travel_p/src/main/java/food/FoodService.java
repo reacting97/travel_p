@@ -24,4 +24,8 @@ public class FoodService {
 	public ArrayList<FoodVO> selectByLoc(String loc) {
 		return dao.selectByLoc(loc);
 	}
+	
+	public ArrayList<FoodVO> selectAll() {
+		return dao.selectAll();
+	}
 }

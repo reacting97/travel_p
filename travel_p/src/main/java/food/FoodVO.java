@@ -7,16 +7,19 @@ public class FoodVO {
 	private String phone;
 	private String pic1;
 	private String pic2;
+	private String content;
 	
 	public FoodVO() {}
 
-	public FoodVO(int num, String name, String address, String phone, String pic1, String pic2) {
+	public FoodVO(int num, String name, String address, String phone, String pic1, String pic2, String content) {
+		super();
 		this.num = num;
 		this.name = name;
 		this.address = address;
 		this.phone = phone;
 		this.pic1 = pic1;
 		this.pic2 = pic2;
+		this.content = content;
 	}
 
 	public int getNum() {
@@ -67,9 +70,19 @@ public class FoodVO {
 		this.pic2 = pic2;
 	}
 
+	public String getContent() {
+		return content;
+	}
+
+	public void setContent(String content) {
+		this.content = content;
+	}
+
 	@Override
 	public String toString() {
 		return "FoodVO [num=" + num + ", name=" + name + ", address=" + address + ", phone=" + phone + ", pic1=" + pic1
-				+ ", pic2=" + pic2 + "]";
+				+ ", pic2=" + pic2 + ", content=" + content + "]";
 	}
+
+	
 }

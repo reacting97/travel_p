@@ -19,7 +19,7 @@ public class ListHandler implements Handler {
 		RecordBoardService s = new RecordBoardService();
 		list = s.selectAll();
 		request.setAttribute("list", list);
-		return "/recordboard/list2.jsp";
+		return "/recordboard/list.jsp";
 	}
 
 }

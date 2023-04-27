@@ -17,7 +17,7 @@ public class FoodDAO {
 	
 	public void insert(FoodVO travel) {
 		Connection conn = dbconn.conn();
-		String sql = "insert into food values(seq_food.nextval, ?, ?, ?, ?, ?)";
+		String sql = "insert into food values(seq_food.nextval, ?, ?, ?, ?, ?, ?)";
 		try {
 			PreparedStatement ps = conn.prepareStatement(sql);
 			ps.setString(1, travel.getName());
@@ -25,6 +25,7 @@ public class FoodDAO {
 			ps.setString(3, travel.getPhone());
 			ps.setString(4, travel.getPic1());
 			ps.setString(5, travel.getPic2());
+			ps.setString(6, travel.getContent());
 			int num = ps.executeUpdate();
 			System.out.println(num + " 줄 추가");
 		} catch (SQLException e) {
@@ -91,7 +92,32 @@ public class FoodDAO {
 			ResultSet rs = ps.executeQuery();
 			while(rs.next()) {
 				FoodVO food = new FoodVO(rs.getInt(1), rs.getString(2), rs.getString(3), 
-						rs.getString(4), rs.getString(5), rs.getString(6));
+						rs.getString(4), rs.getString(5), rs.getString(6), rs.getString(7));
+				list.add(food);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				conn.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+		
+		return list;
+	}
+	
+	public ArrayList<FoodVO> selectAll() {
+		Connection conn = dbconn.conn();
+		String sql = "select * from food";
+		ArrayList<FoodVO> list = new ArrayList<>();
+		try {
+			PreparedStatement ps = conn.prepareStatement(sql);
+			ResultSet rs = ps.executeQuery();
+			while(rs.next()) {
+				FoodVO food = new FoodVO(rs.getInt(1), rs.getString(2), rs.getString(3), 
+						rs.getString(4), rs.getString(5), rs.getString(6), rs.getString(7));
 				list.add(food);
 			}
 		} catch (SQLException e) {

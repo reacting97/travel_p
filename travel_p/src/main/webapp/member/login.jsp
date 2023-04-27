@@ -25,7 +25,7 @@
 @import url('https://fonts.googleapis.com/css?family=Numans');
 
 html,body{
-background-image: url('http://getwallpapers.com/wallpaper/full/a/5/d/544750.jpg');
+background-image: url('https://t1.daumcdn.net/cfile/tistory/990BC43F5D2E590D1F');
 background-size: cover;
 background-repeat: no-repeat;
 height: 100%;
@@ -124,8 +124,7 @@ margin-left: 4px;
 				</div>
 			</div>
 			<div class="card-body">
-				<form action="${pageContext.request.contextPath }/member/login.do"
-		method="post">
+				<form action="${pageContext.request.contextPath }/member/login.do" method="post">
 					<div class="input-group form-group">
 						<div class="input-group-prepend">
 							<span class="input-group-text"><i class="fas fa-user"></i></span>

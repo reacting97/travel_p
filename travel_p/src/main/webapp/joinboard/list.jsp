@@ -6,34 +6,90 @@ request.setCharacterEncoding("utf-8");
 response.setCharacterEncoding("utf-8");
 %>
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-  <meta charset="UTF-8">
-  <title>글 목록</title>
-  <!-- 부트스트랩 스타일시트 링크 -->
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<!-- Additional CSS Files -->
+    <link rel="stylesheet" href="../assets/css/fontawesome.css">
+    <link rel="stylesheet" href="../assets/css/templatemo-woox-travel.css">
+    <link rel="stylesheet" href="../assets/css/owl.css">
+    <link rel="stylesheet" href="../assets/css/animate.css">
+    <link rel="stylesheet"href="https://unpkg.com/swiper@7/swiper-bundle.min.css"/>
+<style type="text/css">
+.col-3{
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+.card img {
+    height: 13rem;
+    object-fit: cover;
+}
+.hideboard{
+	display: none;
+}
+</style>
+<script
+	src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
+	integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
+	crossorigin="anonymous"></script>
+<link
+	href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css"
+	rel="stylesheet"
+	integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ"
+	crossorigin="anonymous">
 </head>
 <body>
-  <div class="container">
-    <h1 class="my-5">모집글 목록</h1> <a href="${pageContext.request.contextPath }/joinboard/add.do">추가</a>
-    <a href="${pageContext.request.contextPath }/index.jsp">메인페이지</a>
-    <div class="row">
-    <c:forEach var="vo" items="${list }">
-      <div class="col-md-6">
-        <div class="card mb-3">
-          <div class="card-body">
-            <h5 class="card-title">글번호:${vo.num } 제목:${vo.title }</h5>
-            <p class="card-text">${vo.content }</p>
-            <a href="${pageContext.request.contextPath}/joinboard/detail.do?num=${vo.num}" class="btn btn-primary">상세페이지</a>
-          </div>
+	<header class="header-area header-sticky">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <nav class="main-nav">
+                    <!-- ***** Logo Start ***** -->
+                    <a href="index.html" class="logo">
+                        <img src="../assets/images/bangbang.png" style="width:150px; height:80px;" alt="">
+                    </a>
+                    <!-- ***** Logo End ***** -->
+                    <!-- ***** Menu Start ***** -->
+                    <ul class="nav">
+                        <li><a href="../index.jsp" class="active">Home</a></li>
+                        <li><a href="${pageContext.request.contextPath }/recommandboard/list.do" class="board">recommand board</a></li>
+                        <li><a href="${pageContext.request.contextPath }/recordboard/list.do" class="board">record board</a></li>
+                        <li><a href="${pageContext.request.contextPath }/recordboard/add.do">글작성</a></li>
+                        <li><a href="${pageContext.request.contextPath }/member/login.do">Login</a></li>
+                        <li><a href="${pageContext.request.contextPath }/member/logout.do">Logout</a></li>
+                    </ul>   
+                    <a class='menu-trigger'>
+                        <span>Menu</span>
+                    </a>
+                    <!-- ***** Menu End ***** -->
+                </nav>
+            </div>
         </div>
-      </div>
-     </c:forEach>
     </div>
-  </div>
-  <!-- 부트스트랩 자바스크립트 링크 -->
-  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+  </header>
+	<div class="container">
+		<div class="row" style="margin-top: 100px;">
+		<c:forEach var="vo" items="${list }">
+			<div class="col-3">
+				<div class="card" style="width:100%; height:100%;">
+					<div class="bg-image hover-overlay ripple"
+						data-mdb-ripple-color="light">
+						<img src=${vo.pic1 } class="img-fluid" style=""/>
+							<div class="mask" style="background-color: rgba(251, 251, 251, 0.15)"></div>
+					</div>
+					<div class="card-header">${vo.writer }</div>
+					<div class="card-body">
+						<h5 class="card-title">${vo.title }</h5>
+						<p>${vo.content }</p>
+
+						<a href="${pageContext.request.contextPath}/joinboard/detail.do?num=${vo.num}"><button type="button" class="btn btn-primary">상세보기</button></a>
+					</div>
+				</div>
+			</div>
+			</c:forEach>
+		</div>
+	</div>
+	
 </body>
 </html>

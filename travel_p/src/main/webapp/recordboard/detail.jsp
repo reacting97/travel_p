@@ -1,5 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%
+request.setCharacterEncoding("utf-8");
+response.setCharacterEncoding("utf-8");
+%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -131,6 +136,7 @@ body {
 			<h2>${vo.title }</h2>
 			<p class="date">작성일자: ${vo.rdate}</p>
 			<div class="post-content">
+				<p>여행경비: ${vo.price }원</p>
 				<p>${vo.content }</p>
 				<div class="images">
 					<img src="${vo.pic1 }" alt="이미지 1">
@@ -142,30 +148,6 @@ body {
 		</div>
 		<a href="${pageContext.request.contextPath }/recordboard/list.do" class="btn btn-warning">여행기록게시판 리스트로 이동</a>
 		<a href="${pageContext.request.contextPath }/recordboard/del.do?num=${vo.num}" class="btn btn-warning">이 글 삭제</a>
-		<div class="comments">
-			<h3>댓글</h3>
-			<div class="comment">
-				<p class="author">작성자</p>
-				<p class="date">작성일자: 2023-04-22</p>
-				<p class="content">댓글 내용이 들어갑니다.</p>
-			</div>
-			<div class="comment">
-				<p class="author">작성자</p>
-				<p class="date">작성일자: 2023-04-22</p>
-				<p class="content">댓글 내용이 들어갑니다.</p>
-			</div>
-			<form class="comment-form">
-				<h3>댓글 작성</h3>
-				<div class="form-group">
-					<label for="name">작성자</label> <input type="text" value="${sessionScope.loginId}" class="form-control" id="name" disabled>
-				</div>
-				<div class="form-group">
-					<label for="comment">내용</label>
-					<textarea class="form-control" id="comment"></textarea>
-				</div>
-				<button type="submit" class="btn btn-primary">작성하기</button>
-			</form>
-		</div>
 	</div>
 	<!-- 부트스트랩 JS 파일 링크 -->
 	<script

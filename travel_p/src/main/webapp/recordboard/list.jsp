@@ -10,52 +10,86 @@ response.setCharacterEncoding("utf-8");
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<!-- Additional CSS Files -->
+    <link rel="stylesheet" href="../assets/css/fontawesome.css">
+    <link rel="stylesheet" href="../assets/css/templatemo-woox-travel.css">
+    <link rel="stylesheet" href="../assets/css/owl.css">
+    <link rel="stylesheet" href="../assets/css/animate.css">
+    <link rel="stylesheet"href="https://unpkg.com/swiper@7/swiper-bundle.min.css"/>
+<style type="text/css">
+.col-3{
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+.card img {
+    height: 13rem;
+    object-fit: cover;
+}
+.hideboard{
+	display: none;
+}
+</style>
+<script
+	src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
+	integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
+	crossorigin="anonymous"></script>
+<link
+	href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css"
+	rel="stylesheet"
+	integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ"
+	crossorigin="anonymous">
 </head>
 <body>
-<h3>이미지 게시판</h3>
-	<input type="button" value="글작성"
-		onclick="location.href='${pageContext.request.contextPath}/recordboard/add.do'">
-	<input type="button" value="홈화면" 
-		onclick="location.href='${pageContext.request.contextPath}/index.jsp'">
+	<header class="header-area header-sticky">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <nav class="main-nav">
+                    <!-- ***** Logo Start ***** -->
+                    <a href="index.html" class="logo">
+                        <img src="assets/images/logo_1.jpg" style="width:150px; height:70px" alt="">
+                    </a>
+                    <!-- ***** Logo End ***** -->
+                    <!-- ***** Menu Start ***** -->
+                    <ul class="nav">
+                        <li><a href="../index.jsp" class="active">Home</a></li>
+                        <li><a href="${pageContext.request.contextPath }/recommandboard/list.do" class="board">recommand board</a></li>
+                        <li><a href="${pageContext.request.contextPath }/joinboard/list.do" class="board">join board</a></li>
+                        <li><a href="${pageContext.request.contextPath }/recommandboard/add.do">글작성</a></li>
+                        <li><a href="${pageContext.request.contextPath }/member/login.do">Login</a></li>
+                        <li><a href="${pageContext.request.contextPath }/member/logout.do">Logout</a></li>
+                    </ul>   
+                    <a class='menu-trigger'>
+                        <span>Menu</span>
+                    </a>
+                    <!-- ***** Menu End ***** -->
+                </nav>
+            </div>
+        </div>
+    </div>
+  </header>
+	<div class="container">
+		<div class="row" style="margin-top: 100px;">
+		<c:forEach var="vo" items="${list }">
+			<div class="col-3">
+				<div class="card" style="width:100%; height:100%;">
+					<div class="bg-image hover-overlay ripple"
+						data-mdb-ripple-color="light">
+						<img src=${vo.pic1 } class="img-fluid" style=""/>
+							<div class="mask" style="background-color: rgba(251, 251, 251, 0.15)"></div>
+					</div>
+					<div class="card-header">${vo.writer }</div>
+					<div class="card-body">
+						<h5 class="card-title">${vo.title }</h5>
+						<p>${vo.content }</p>
 
-	<c:forEach var="vo" items="${list}">
-		<table border="1">
-			<tr>
-				<th>num</th>
-				<td>${vo.num}</td>
-			</tr>
-			<tr>
-				<th>작성자</th>
-				<td>${vo.writer}</td>
-			</tr>
-			<tr>
-				<th>글제목</th>
-				<td>${vo.title}</td>
-			</tr>
-			<tr>
-				<th>content</th>
-				
-			</tr>
-			<tr>
-				<th>price</th>
-				<td>${vo.price}</td>
-			</tr>
-			<tr>
-				<th>image</th>
-				<td><img src="${vo.pic1}"
-					style="width: 200px; height: 200px" name=img></td>
-			</tr>
-			<tr>
-				<th>image</th>
-				<td><img src="${vo.pic2}"
-					style="width: 200px; height: 200px" name=img></td>
-			</tr>
-			<tr>
-				<th>image</th>
-				<td><img src="${vo.pic3}"
-					style="width: 200px; height: 200px" name=img></td>
-			</tr>
-		</table>
-	</c:forEach>
+						<a href="${pageContext.request.contextPath}/recordboard/detail.do?num=${vo.num}"><button type="button" class="btn btn-primary">상세보기</button></a>
+					</div>
+				</div>
+			</div>
+			</c:forEach>
+		</div>
+	</div>
+	
 </body>
 </html>
