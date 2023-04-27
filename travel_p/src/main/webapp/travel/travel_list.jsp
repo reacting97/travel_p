@@ -17,15 +17,12 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
 <script type="text/javascript">
 	let totalData; //총 데이터 수
-	let dataPerPage; //한 페이지에 나타낼 글 수
+	let dataPerPage = 10; //한 페이지에 나타낼 글 수
 	let pageCount = 10; //페이징에 나타낼 페이지 수
 	let globalCurrentPage=1; //현재 페이지
 	let dataList = null; //표시하려하는 데이터 리스트
 	
 	$(document).ready(function() {
-		//dataPerPage 선택값 가져오기
-		dataPerPage = $("#dataPerPage").val();
-		
 		$.ajax({ // ajax로 데이터 가져오기
 			method: "GET",
 			url: "${pageContext.request.contextPath}/travel/provincelist.do",
@@ -161,12 +158,12 @@
 		});
 	}
 	
-	$("#dataPerPage").change(function () {
-		dataPerPage = $("#dataPerPage").val();
-		//전역 변수에 담긴 globalCurrent 값을 이용하여 페이지 이동없이 글 표시개수 변경 
-		paging(totalData, dataPerPage, pageCount, globalCurrentPage);
-		displayData(globalCurrentPage, dataPerPage);
-	});
+// 	$("#dataPerPage").change(function () {
+// 		dataPerPage = $("#dataPerPage").val();
+// 		//전역 변수에 담긴 globalCurrent 값을 이용하여 페이지 이동없이 글 표시개수 변경 
+// 		paging(totalData, dataPerPage, pageCount, globalCurrentPage);
+// 		displayData(globalCurrentPage, dataPerPage);
+// 	});
 
 </script>
 <style type="text/css">
@@ -270,11 +267,6 @@
 				<span id="displayCount"></span>
 			</div>
 			<div class="col-2">
-				<select id="dataPerPage" style="text-align: right;">
-					<option value="10">10개씩보기</option>
-					<option value="15">15개씩보기</option>
-					<option value="20">20개씩보기</option>
-				</select>
 			</div>
 		</div>
 		<div class="row gap-3 m-5" id=divBody>
