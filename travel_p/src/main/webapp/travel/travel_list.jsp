@@ -15,6 +15,8 @@
 	<link rel="stylesheet" href="../assets/css/animate.css">
 	<link rel="stylesheet"href="https://unpkg.com/swiper@7/swiper-bundle.min.css"/>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+
 <script type="text/javascript">
 	let totalData; //총 데이터 수
 	let dataPerPage = 10; //한 페이지에 나타낼 글 수
@@ -176,43 +178,50 @@
 </head>
 <body>
 	<!-- ***** Header Area Start ***** -->
-	<header class="header-area header-sticky">
-	  <div class="container head-nav">
-	      <div class="row head-nav-sub">
-	          <div class="col-12 head-nav-sub2">
-	              <nav class="main-nav">
-	                  <!-- ***** Logo Start ***** -->
-	                  <a href="../index.jsp" class="logo">
-	                      <img src="../assets/images/bangbang.png" class="main-logo" alt="">
-	                  </a>
-	                  <!-- ***** Logo End ***** -->
-	                  <!-- ***** Menu Start ***** -->
-	                  <ul class="nav">
-	                      <li><a href="../index.jsp" class="active">Home</a></li>
-	                      <li>
-	                      <a href="#" class="board">Board</a>
-	                      </li>
-	                      <li><a href="#">Deals</a></li>
-	                      <li><a href="${pageContext.request.contextPath }/member/login.do">Login</a></li>
-	                      <li><a href="${pageContext.request.contextPath }/member/logout.do">Logout</a></li>
-	                  </ul>   
-	                  
-	                  <a class='menu-trigger'>
-	                      <span>Menu</span>
-	                  </a>
-	                  <!-- ***** Menu End ***** -->
-	              </nav>
-	              <div class="container hide-position" style="text-align: center">
-	              <ul class="hideboard">
-						<li class="board-li" ><a href="${pageContext.request.contextPath }/recommandboard/list.do" id="board-li-a">추천게시판</a>
-	  						<li class="board-li"><a href="${pageContext.request.contextPath }/recordboard/list.do" id="board-li-a">관광일기</a>
-	  						<li class="board-li"><a href="${pageContext.request.contextPath }/joinboard/list.do" id="board-li-a">같이가자!</a>
-		 					 </ul>
-		 			</div>		 
-	          </div>
-	      </div>
-	  </div>
-	</header>
+	  <header class="header-area header-sticky">
+    <div class="container head-nav">
+        <div class="row head-nav-sub">
+            <div class="col-12 head-nav-sub2">
+                <nav class="main-nav">
+                    <!-- ***** Logo Start ***** -->
+                    <a href="../index.jsp" class="logo">
+                        <img src="../assets/images/bangbang.png" class="main-logo" alt="">
+                    </a>
+                    <!-- ***** Logo End ***** -->
+                    <!-- ***** Menu Start ***** -->
+                    <ul class="nav">
+                        <li><a href="../index.jsp" class="active">Home</a></li>
+                        <li>
+                        <a href="#" class="board">Board</a>
+                         <ul class="hideboard">
+							<li class="board-li" ><a href="${pageContext.request.contextPath }/recommandboard/list.do" id="board-li-a">추천게시판</a>
+    						<li class="board-li"><a href="${pageContext.request.contextPath }/recordboard/list.do" id="board-li-a">관광일기</a>
+    						<li class="board-li"><a href="${pageContext.request.contextPath }/joinboard/list.do" id="board-li-a">같이가자!</a>
+  	 					 </ul>
+  	 					 </li>
+                        <li><a href="#">Deals</a></li>
+                        <c:if test ="${empty sessionScope.loginId }">
+                        <li><a href="${pageContext.request.contextPath }/member/login.do">Login</a></li>
+                        </c:if>
+                        <c:if test ="${not empty sessionScope.loginId }">
+                        <li><a href="${pageContext.request.contextPath }/member/logout.do">Logout</a></li>
+                        <li><a href="#" style="padding-top:6px">${sessionScope.loginId } 님 <img src="../assets/images/myinfo.png" class="myinfo-icon"></a>
+                        </li>
+                        </c:if>
+                    </ul>   
+                    
+                    <a class='menu-trigger'>
+                        <span>Menu</span>
+                    </a>
+                    <!-- ***** Menu End ***** -->
+                </nav>
+<!--                 <div class="container hide-position" style="text-align: center"> -->
+             
+<!--   	 			</div>		  -->
+            </div>
+        </div>
+    </div>
+  </header>
 	<!-- ***** Header Area End ***** -->
 	<div class="container mt-5">
 		<div class="row">

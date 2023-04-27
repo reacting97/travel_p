@@ -286,6 +286,13 @@ section {
   }
 }
 
+
+.myinfo-icon{
+	width:30px;
+	height:30px;
+}
+
+
 .section-heading h2 {
 	margin-top: 0px;
 	margin-bottom: 20px;
