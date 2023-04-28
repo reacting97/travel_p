@@ -79,7 +79,14 @@ https://templatemo.com/tm-580-woox-travel
  .card:hover{
  	transform:none;
  }   
-    
+ .mylike{
+ 	position: absolute;
+    width: 52%;
+    margin-left: 462px;
+    float: right;
+    margin-top: 348px;
+    padding-bottom: 120px;
+ }   
  </style>
 </head>
 <body>
@@ -140,7 +147,7 @@ https://templatemo.com/tm-580-woox-travel
 	</nav>
 	
 	<div class="container" style="justify-content:flex-start; display: flex">
-		<div class="card myinfo" style="margin:50px">
+		<div class="card myinfo" style="margin:50px; background-color: beige;">
   <img src="../assets/images/myinfo.png" class="card-img-top" alt="...">
   <div class="card-body">
     <p class="card-text mypage-card" >안녕하세요! <br/> ${sessionScope.loginId } 님 </p>
@@ -151,35 +158,35 @@ https://templatemo.com/tm-580-woox-travel
   <ul class="list-group list-group-flush">
    <li> 
    <div class="input-group flex-nowrap">
-  <span class="input-group-text" id="addon-wrapping" style="width: 100px">ID</span>
+  <span class="input-group-text" id="addon-wrapping" style="width: 100px; background-color: beige;">ID</span>
   <input type="text" class="form-control" name="id" value="${vo.id }" aria-describedby="addon-wrapping" style="background-image: none;" readonly >
 	</div>
 	</li>
 
   <li> 
   <div class="input-group flex-nowrap">
-  <span class="input-group-text" id="addon-wrapping" style="width: 100px">Password</span>
+  <span class="input-group-text" id="addon-wrapping" style="width: 100px; background-color: beige;">Password</span>
   <input type="text" class="form-control" name="pwd" value="${vo.pwd }" aria-describedby="addon-wrapping" >
 	</div>
 	</li>
 
    <li>
    <div class="input-group flex-nowrap">
-  <span class="input-group-text" id="addon-wrapping" style="width: 100px">Name</span>
+  <span class="input-group-text" id="addon-wrapping" style="width: 100px; background-color: beige;">Name</span>
   <input type="text" class="form-control" name="name" value="${vo.name }" aria-describedby="addon-wrapping">
 	</div>
 	</li>
 
 	  <li>
     <div class="input-group flex-nowrap">
- 	 <span class="input-group-text" id="addon-wrapping" style="width: 100px">Email</span>
+ 	 <span class="input-group-text" id="addon-wrapping" style="width: 100px; background-color: beige;">Email</span>
  	 <input type="email" class="form-control" name="email" value="${vo.email }" aria-describedby="addon-wrapping" >
 	</div>
 	</li>
 
     <li>
     <div class="input-group flex-nowrap">
-  	<span class="input-group-text" id="addon-wrapping" style="width: 100px">Phone</span>
+  	<span class="input-group-text" id="addon-wrapping" style="width: 100px; background-color: beige;">Phone</span>
   	<input type="tel" class="form-control" name="phone" value="${vo.phone }" aria-describedby="addon-wrapping" >
 	</div>
 	</li>
@@ -188,9 +195,39 @@ https://templatemo.com/tm-580-woox-travel
   </ul>
  
 </div>
-	 
   </form>
+  		<div class="accordion mylike" id="accordionPanelsStayOpenExample">
+  <div class="accordion-item">
+    <h2 class="accordion-header">
+      <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="true" aria-controls="panelsStayOpen-collapseOne">
+       <img src="../assets/images/like.png" style='width:20px; margin-right:10px'>나의 좋아요 
+      </button>
+    </h2>
+    <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse show">
+      <div class="accordion-body">
+        <strong>This is the first item's accordion body.</strong> It is shown by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
+      </div>
+    </div>
+  </div>
+  <div class="accordion-item">
+    <h2 class="accordion-header">
+      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseTwo" aria-expanded="false" aria-controls="panelsStayOpen-collapseTwo">
+       <img src="../assets/images/write.png" style='width:20px; margin-right:10px'>내 노트
+      </button>
+    </h2>
+    <div id="panelsStayOpen-collapseTwo" class="accordion-collapse collapse">
+      <div class="accordion-body">
+        <strong>This is the second item's accordion body.</strong> It is hidden by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
+      </div>
+    </div>
+  </div>
+</div>
 	</div>
+	<main class="container">
+		
+	
+	</main>
+	
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
 </body>
 </html>
