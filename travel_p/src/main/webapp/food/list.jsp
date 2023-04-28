@@ -118,10 +118,10 @@ response.setCharacterEncoding("utf-8");
                 <p><a href="${pageContext.request.contextPath }/food/add.do"><button>맛집등록</button></a> | 2022-08-27</p> 
             </div>
             <div class="head-title">
-                <p>분당 맛집 베스트 50곳</p>
+                <p>전국 8도 맛집 베스트 50곳</p>
             </div>
             <p class="head-summary">
-                "이렇게 실력있는 맛집이 많았다고?!"
+                "k-매운맛부터 한식에 이렇게 실력있는 맛집이 많았다고?!"
             </p>
         </div>
         <c:forEach var="vo" items="${list }">
