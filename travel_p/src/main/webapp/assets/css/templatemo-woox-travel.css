@@ -905,6 +905,7 @@ Header Style
 	transition: all 0.3s ease 0s;
 	position: relative;
 	z-index: 999;
+	display:flex;
 }
 
 .header-area .main-nav .nav li {
