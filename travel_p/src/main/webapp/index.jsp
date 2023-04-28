@@ -50,6 +50,22 @@ https://templatemo.com/tm-580-woox-travel
 	  $(".drop").click(function(){
 	    $(".ranking").slideToggle("slow");
 	  });
+	  $.ajax({
+		  method: 'get',
+		  url : '${pageContext.request.contextPath }/like/cntrank.do',
+	  	  dataType:'json',
+	  	  success:function(result){
+	  		  let texthtml = '';
+	  		  for(let i=0; i<result.length; i++){
+	  			texthtml += '<div class="card" style="width: 18rem; height:20rem">';
+	  			texthtml +=	'<img src="'+result[i].pic1+'" class="maincard-img-top" alt="...">';
+	  			texthtml += '<div class="card-body">';
+	  			texthtml += '<p class="card-text-top"><a href="#" class="card-text">'+result[i].title+'</a></p></div></div>';
+	  		  }
+	  		  
+	  		  $('#recommand1').html(texthtml);
+	  	  }
+	  });
 	});
 	
 	  var images1 = ["assets/images/kuje.jpg", "assets/images/추천.png", "assets/images/seoul.jpg"];
@@ -400,8 +416,8 @@ https://templatemo.com/tm-580-woox-travel
     
   <h3 class="recommend-text">조회수 랭킹곡곡</h3>
   		<div class="container">
-  			<div class="recommend"> 
-			<div class="card" style="width: 18rem; height:20rem">
+  			<div id="recommand1" class="recommend"> 
+			<!-- <div class="card" style="width: 18rem; height:20rem">
   					<img src="assets/images/nammountain.jpg" class="maincard-img-top" alt="...">
   				<div class="card-body">
     				<p class="card-text-top"><a href="#" class="card-text">대표 랜드마크, 남산서울타워.</a></p>
@@ -430,7 +446,7 @@ https://templatemo.com/tm-580-woox-travel
  				 <div class="card-body">
    					 <p class="card-text-top"><a href="#" class="card-text">경남 거제의 바람의 언덕. 언덕에서 바다를 바라보면 한 없이 넓고, 고즈넉하며, 시원한 바람이 상쾌함을 선사한다.</a> </p>
   				</div>
-			</div>
+			</div> -->
 		</div>
 	</div>
 <!-- 	날씨 -->

@@ -95,6 +95,31 @@ public class RecordBoardDao {
 		}
 		return list;
 	}
+	
+	public ArrayList<RecordBoardVo> selectRank() {
+		Connection conn = dbconn.conn();
+		ArrayList<RecordBoardVo> list = new ArrayList<RecordBoardVo>();
+		String sql = "SELECT num,title,pic1,cnt FROM (SELECT num,title,pic1,cnt, DENSE_RANK() OVER(ORDER BY cnt DESC) AS rnk FROM recordboard) WHERE rnk <= 5";
+		try {
+			PreparedStatement pstmt = conn.prepareStatement(sql);
+			ResultSet rs = pstmt.executeQuery();
+			while (rs.next()) {
+				list.add(new RecordBoardVo(rs.getInt(1), null, rs.getString(2), null, 
+						null, null, rs.getString(3), null, null, rs.getInt(4)));
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			try {
+				conn.close();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+		return list;
+	}
 
 	public void update(String content, int num) {
 		Connection conn = dbconn.conn();

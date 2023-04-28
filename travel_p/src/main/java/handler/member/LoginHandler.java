@@ -23,9 +23,13 @@ public class LoginHandler implements Handler {
 			MemberService service = new MemberService();
 			MemberVo vo = service.getMember(id);
 
-			if (vo.getId() != null && pwd.equals(vo.getPwd())) {
+			if (vo.getId() != null && pwd.equals(vo.getPwd()) && vo.getManager().equals("0")) {
 				HttpSession session = request.getSession();
 				session.setAttribute("loginId", id);
+				view = "redirect:/index.jsp";
+			} else if(vo.getId() != null && pwd.equals(vo.getPwd()) && vo.getManager().equals("1")) {
+				HttpSession session = request.getSession();
+				session.setAttribute("loginIdManager", id);
 				view = "redirect:/index.jsp";
 			}
 		}

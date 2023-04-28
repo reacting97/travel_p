@@ -29,6 +29,10 @@ public class RecordBoardService {
 		return dao.selectAll();
 	}
 	
+	public ArrayList<RecordBoardVo> selectRank() {
+		return dao.selectRank();
+	}
+	
 	public void upCnt(int num) {
 		dao.upCnt(num);
 	}
