@@ -215,8 +215,8 @@
                     			🌧️
                     		</c:when>
                     	</c:choose>
-                    ${weather.info}, ${weather.tmn }℃ ${weather.tmx}℃</p> 
-                    <p class="click" style="color: rgb(18, 126, 214);">날씨정보</p>
+                    ${weather.info}, 최저 : ${weather.tmn }℃ 
+                    최고 : ${weather.tmx}℃</p> 
                 </div>
                 <div class="location-map">
                 	<div class="row">
@@ -228,8 +228,8 @@
                 	<div class="map_wrap">
 					    <div id="map" style="width:500px;height:350px;position:relative;overflow:hidden;"></div>
 					    <div class="hAddr">
-					        <span class="title"><b>주소 정보</b></span>
-					        <span id="centerAddr"></span>
+					        <p><span class="title"><b>주소 정보</b></span></p>
+					        <p><span id="centerAddr"></span></p>
 						</div>
 					</div>
 					</div>
@@ -347,9 +347,9 @@
  		kakao.maps.event.addListener(map, 'click', function(mouseEvent) {
  			searchDetailAddrFromCoords(mouseEvent.latLng, function(result, status) {
  				if (status === kakao.maps.services.Status.OK) {
- 					var detailAddr = !!result[0].road_address ? '<div>도로명주소 : ' + result[0].road_address.address_name + '</div>' : '';
-					detailAddr += '<div>지번 주소 : ' + result[0].address.address_name + '</div>';
- 					var content = '<div class="bAddr"><span class="title">법정동 주소정보</span>' + detailAddr + '</div>';
+ 					var detailAddr = !!result[0].road_address ? '\n<div>도로명주소 : ' + result[0].road_address.address_name + '</div>' : '';
+ 					detailAddr += '\n<div>지번 주소 : ' + result[0].address.address_name + '</div>'; 
+  					var content = '<div class="bAddr"><span class="title">법정동 주소정보</span>' + detailAddr + '</div>'; 
 					
  					// 마커를 클릭한 위치에 표시합니다 
  					marker.setPosition(mouseEvent.latLng);
