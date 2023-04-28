@@ -6,6 +6,19 @@
 <head>
 <meta charset="UTF-8">
 <title>travel list test</title>
+<style type="text/css">
+	@media (min-width: 170) {
+	  .card-img {
+	    width: 160px;
+	  }
+	}
+	
+	@media (min-height: 70) {
+	  .card-img {
+	    height: 60px;
+	  }
+	}
+</style>
 	<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 
 	<link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -88,8 +101,7 @@
 		for (let i = (currentPage-1)*dataPerPage; i < (currentPage - 1) * dataPerPage + dataPerPage; i++) {
 			if(dataList[i] == null) break;
 			textHtml += "<div class='col-12' num='"+dataList[i].id+"'><div class='card h-75'><div class='row no-gutters'>";
-			/* textHtml += "<div class='col-4'><img src='https://mdbcdn.b-cdn.net/img/new/standard/nature/111.webp' class='card-img w-75 h-75'/></div><div class='col-8'>"; */
-			textHtml += "<div class='col-4'><img src='"+dataList[i].pic1+"' class='card-img h-75 w-75'/></div><div class='col-8'>";
+			textHtml += "<div class='col-4' style='width: 16rem; height: 10rem;'><img src='"+dataList[i].pic1+"' class='card-img h-75 w-75' style=''/></div><div class='col-8'>";
 			textHtml +=	"<div class='card-body'><h4 class='card-title text-start'>"+dataList[i].name+"</h4><p class='card-text'></p>";
 			textHtml += "</div></div></div></div></div>";
 		}

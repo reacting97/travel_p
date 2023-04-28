@@ -68,6 +68,9 @@ response.setCharacterEncoding("utf-8");
                     <!-- ***** Menu Start ***** -->
                     <ul class="nav">
                         <li><a href="../index.jsp" class="active">Home</a></li>
+                        <li><a href="${pageContext.request.contextPath }/recommandboard/list.do" class="board">recommand board</a></li>
+                        <li><a href="${pageContext.request.contextPath }/recordboard/list.do" class="board">record board</a></li>
+                        <li><a href="${pageContext.request.contextPath }/joinboard/add.do">글작성</a></li>
                         <li>
                         <a href="#" class="board">Board</a>
                          <ul class="hideboard">
