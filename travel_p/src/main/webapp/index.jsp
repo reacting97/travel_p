@@ -25,7 +25,7 @@ response.setCharacterEncoding("utf-8");
     <link rel="stylesheet" href="assets/css/templatemo-woox-travel.css">
     <link rel="stylesheet" href="assets/css/owl.css">
     <link rel="stylesheet" href="assets/css/animate.css">
-    <link rel="stylesheet"href="https://unpkg.com/swiper@7/swiper-bundle.min.css"/>
+    <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css"/>
  
     
 <!--
@@ -51,7 +51,6 @@ https://templatemo.com/tm-580-woox-travel
 	    $(".ranking").slideToggle("slow");
 	  });
 	});
-	
 	
 	  var images1 = ["assets/images/kuje.jpg", "assets/images/추천.png", "assets/images/seoul.jpg"];
 	  var images2 = ["assets/images/kang.png", "assets/images/jeju.avif", "assets/images/pohang.jpg"];
@@ -166,7 +165,7 @@ https://templatemo.com/tm-580-woox-travel
                         </c:if>
                         <c:if test ="${not empty sessionScope.loginId }">
                         <li><a href="${pageContext.request.contextPath }/member/logout.do">Logout</a></li>
-                        <li><a href="#" style="padding-top:6px">${sessionScope.loginId } 님 <img src="assets/images/myinfo.png" class="myinfo-icon"></a>
+                        <li><a href="${pageContext.request.contextPath }/member/edit.do?id=${sessionScope.loginId}" style="padding-top:6px">${sessionScope.loginId } 님 <img src="assets/images/myinfo.png" class="myinfo-icon"></a>
                         </li>
                         </c:if>
                     </ul>   
@@ -353,7 +352,7 @@ https://templatemo.com/tm-580-woox-travel
     <div class="container">
       <div class="row">
           <div class="section-heading">
-          <div class="test"><button type="button" class="lo_icons" onclick ="location.href ='${pageContext.request.contextPath}/travel/list.do?loc=서울'"><img src="assets/images/seoulicon.png"  >서울</button></div> 
+          <div class="test"><button type="button" class="lo_icons" onclick ="location.href ='${pageContext.request.contextPath}/travel/list.do?loc=서울'"><img src="assets/images/seoulicon.png" >서울</button></div> 
           <div class="test"> <button type="button" class="lo_icons" onclick ="location.href ='${pageContext.request.contextPath}/travel/list.do?loc=인천'"><img src="assets/images/incheon.png" >인천</button></div>
           <div class="test"> <button type="button" class="lo_icons" onclick ="location.href ='${pageContext.request.contextPath}/travel/list.do?loc=대전'"><img src="assets/images/dejeon.png" >대전</button></div>
            <div class="test"><button type="button" class="lo_icons" onclick ="location.href ='${pageContext.request.contextPath}/travel/list.do?loc=광주'"><img src="assets/images/guangju.png" >광주</button></div>
@@ -437,7 +436,7 @@ https://templatemo.com/tm-580-woox-travel
 <!-- 	날씨 -->
 	<div class="container boards">
 		<div class="column recommed">
-      <h2 class="boards-title">추천글</h2>
+      <h2 class="boards-title">Recommend<a href=""> ...</a></h2>
       <img id="image1" src="assets/images/kuje.jpg" alt="추천글 이미지" class="recommend-img">
       <p>추천글 내용</p>
       <div class="img-button">
@@ -447,7 +446,7 @@ https://templatemo.com/tm-580-woox-travel
     </div>
     <!-- 일기 컬럼 -->
     <div class="column recommed">
-      <h2 class="boards-title">일기</h2>
+      <h2 class="boards-title">Diary<a href=""> ...</a></h2>
       <img id="image2" src="assets/images/busan.jpg" alt="일기 이미지" class="recommend-img">
       <p>일기 내용</p>
       <div class="img-button">
@@ -457,7 +456,7 @@ https://templatemo.com/tm-580-woox-travel
     </div>
     <!-- 모집 컬럼 -->
     <div class="column recommed">
-      <h2 class="boards-title">모집</h2>
+      <h2 class="boards-title">Join<a href=""> ...</a></h2>
       <img id="image3" src="assets/images/nammountain.jpg" alt="모집 이미지" class="recommend-img">
       <p>모집 내용</p>
       <div class="img-button">
