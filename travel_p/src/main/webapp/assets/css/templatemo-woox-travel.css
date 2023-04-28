@@ -286,6 +286,13 @@ section {
   }
 }
 
+
+.myinfo-icon{
+	width:30px;
+	height:30px;
+}
+
+
 .section-heading h2 {
 	margin-top: 0px;
 	margin-bottom: 20px;
@@ -898,6 +905,7 @@ Header Style
 	transition: all 0.3s ease 0s;
 	position: relative;
 	z-index: 999;
+	display:flex;
 }
 
 .header-area .main-nav .nav li {

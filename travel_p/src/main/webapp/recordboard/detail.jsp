@@ -148,7 +148,9 @@ body {
 
 		</div>
 		<a href="${pageContext.request.contextPath }/recordboard/list.do" class="btn btn-warning">여행기록게시판 리스트로 이동</a>
-		<a href="${pageContext.request.contextPath }/recordboard/del.do?num=${vo.num}" class="btn btn-warning">이 글 삭제</a>
+		<c:if test="${sessionScope.loginId eq vo.writer }">
+			<a href="${pageContext.request.contextPath }/recordboard/del.do?num=${vo.num}" class="btn btn-warning">이 글 삭제</a>
+		</c:if>
 	</div>
 	<!-- 부트스트랩 JS 파일 링크 -->
 	<script

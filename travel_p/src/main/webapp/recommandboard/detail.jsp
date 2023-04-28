@@ -9,6 +9,14 @@ response.setCharacterEncoding("utf-8");
 <html>
 <head>
 <title>게시판 상세보기</title>
+	
+ 	<link rel="stylesheet" href="../assets/css/fontawesome.css">
+    <link rel="stylesheet" href="../assets/css/templatemo-woox-travel.css">
+    <link rel="stylesheet" href="../assets/css/owl.css">
+    <link rel="stylesheet" href="../assets/css/animate.css">
+    <link rel="stylesheet"href="https://unpkg.com/swiper@7/swiper-bundle.min.css"/>
+    
+    
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <!-- 부트스트랩 CSS 파일 링크 -->
@@ -20,9 +28,6 @@ body {
 	background-color: #f8f9fa;
 }
 
-.container {
-	margin-top: 50px;
-}
 
 .post {
 	background-color: #fff;
@@ -128,7 +133,31 @@ body {
 	background-color: #0062cc;
 	border-color: #005cbf;
 }
+
+.img-style{
+	display: flex;
+	justify-content: space-around;
+}
+
+.pic{
+	border: 1px solid #ddd;
+	width:50%;
+}
 </style>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+<script type="text/javascript">
+	
+	$(document).ready(function(){
+	  $(".board").click(function(){
+	    $(".hideboard").slideToggle("slow");
+	  });
+	  $(".drop").click(function(){
+	    $(".ranking").slideToggle("slow");
+	  });
+	});
+	</script>
+
 <script type="text/javascript">
 function likey2(num){
 	const xhttp = new XMLHttpRequest();
@@ -151,46 +180,77 @@ function likey2(num){
 </script>
 </head>
 <body>
+	 <header class="header-area header-sticky">
+    <div class="container head-nav">
+        <div class="row head-nav-sub">
+            <div class="col-12 head-nav-sub2">
+                <nav class="main-nav">
+                    <!-- ***** Logo Start ***** -->
+                    <a href="../index.jsp" class="logo">
+                        <img src="../assets/images/bangbang.png" class="main-logo" alt="">
+                    </a>
+                    <!-- ***** Logo End ***** -->
+                    <!-- ***** Menu Start ***** -->
+                    <ul class="nav">
+                        <li><a href="../index.jsp" class="active">Home</a></li>
+                        <li>
+                        <a href="#" class="board">Board</a>
+                         <ul class="hideboard">
+							<li class="board-li" ><a href="${pageContext.request.contextPath }/recommandboard/list.do" id="board-li-a">추천게시판</a>
+    						<li class="board-li"><a href="${pageContext.request.contextPath }/recordboard/list.do" id="board-li-a">관광일기</a>
+    						<li class="board-li"><a href="${pageContext.request.contextPath }/joinboard/list.do" id="board-li-a">같이가자!</a>
+  	 					 </ul>
+  	 					 </li>
+                        
+                        <c:if test ="${empty sessionScope.loginId }">
+                        <li><a href="${pageContext.request.contextPath }/member/login.do">Login</a></li>
+                        </c:if>
+                        <c:if test ="${not empty sessionScope.loginId }">
+                        <li><a href="${pageContext.request.contextPath }/recordboard/add.do">관광일기 작성하기~</a></li>
+                        <li><a href="${pageContext.request.contextPath }/member/logout.do">Logout</a></li>
+                        <li><a href="#" style="padding-top:6px">${sessionScope.loginId } 님 <img src="../assets/images/myinfo.png" class="myinfo-icon"></a>
+                        </li>
+                        </c:if>
+                    </ul>   
+                    
+                    <a class='menu-trigger'>
+                        <span>Menu</span>
+                    </a>
+                    <!-- ***** Menu End ***** -->
+                </nav>
+<!--                 <div class="container hide-position" style="text-align: center"> -->
+             
+<!--   	 			</div>		  -->
+            </div>
+        </div>
+    </div>
+  </header>
+	<nav style="padding-top:120px">
 	<div class="container">
 		<div class="post">
-			<h2>${vo.title } <button type="button" class="btn btn-primary" onclick="likey2(${vo.num})">좋아요</button><span id="likenum">${cnt }</span></h2>
+			<h2 style="display: flex; justify-content: space-between;padding-left: 20px; padding-right: 20px ">제목 : ${vo.title } 
+			<span>
+				<button type="button"  onclick="likey2(${vo.num})" style= "background-color: transparent; border: none">
+				<img src="../assets/images/like.png" style="width:30px; height:30px; background-color: transparent"></button>
+				<span id="likenum" style="font-size:18px">${cnt }</span></span></h2>
 			<p class="date">작성일자: ${vo.w_date}</p>
 			<div class="post-content">
-				<p>${vo.content }</p>
+				<p>${vo.content } ${sessionScope.loginId} ${vo.writer }</p>
 				<div class="images">
-					<img src="${vo.pic1 }" alt="이미지 1">
-					<img src="${vo.pic2 }" alt="이미지 2">
+					<div class="img-style">
+					<img src="${vo.pic1 }" alt="이미지 1" class="pic" >
+					<img src="${vo.pic2 }" alt="이미지 2" class="pic" >
+					</div>
 				</div>
 			</div>
 
 		</div>
 		<a href="${pageContext.request.contextPath }/recommandboard/list.do" class="btn btn-warning">여행기록게시판 리스트로 이동</a>
-		<a href="${pageContext.request.contextPath }/recommandboard/del.do?num=${vo.num}" class="btn btn-warning">이 글 삭제</a>
-		<div class="comments">
-			<h3>댓글</h3>
-			<div class="comment">
-				<p class="author">작성자</p>
-				<p class="date">작성일자: 2023-04-22</p>
-				<p class="content">댓글 내용이 들어갑니다.</p>
-			</div>
-			<div class="comment">
-				<p class="author">작성자</p>
-				<p class="date">작성일자: 2023-04-22</p>
-				<p class="content">댓글 내용이 들어갑니다.</p>
-			</div>
-			<form class="comment-form">
-				<h3>댓글 작성</h3>
-				<div class="form-group">
-					<label for="name">작성자</label> <input type="text" value="${sessionScope.loginId}" class="form-control" id="name" disabled>
-				</div>
-				<div class="form-group">
-					<label for="comment">내용</label>
-					<textarea class="form-control" id="comment"></textarea>
-				</div>
-				<button type="submit" class="btn btn-primary">작성하기</button>
-			</form>
-		</div>
+		<c:if test="${sessionScope.loginId eq vo.writer }">
+			<a href="${pageContext.request.contextPath }/recommandboard/del.do?num=${vo.num}" class="btn btn-warning">이 글 삭제</a>
+		</c:if>
 	</div>
+	</nav>
 	<!-- 부트스트랩 JS 파일 링크 -->
 	<script
 		src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>

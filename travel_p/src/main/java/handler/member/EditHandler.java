@@ -23,7 +23,7 @@ public class EditHandler implements Handler {
 		}
 		response.setCharacterEncoding("utf-8");
 
-		String view = "/index.jsp";
+		String view = "";
 		if (request.getMethod().equals("GET")) {
 			String id = request.getParameter("id");
 			MemberService service = new MemberService();

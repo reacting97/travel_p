@@ -16,6 +16,21 @@ response.setCharacterEncoding("utf-8");
     <link rel="stylesheet" href="../assets/css/owl.css">
     <link rel="stylesheet" href="../assets/css/animate.css">
     <link rel="stylesheet"href="https://unpkg.com/swiper@7/swiper-bundle.min.css"/>
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+<script type="text/javascript">
+	
+	$(document).ready(function(){
+	  $(".board").click(function(){
+	    $(".hideboard").slideToggle("slow");
+	  });
+	  $(".drop").click(function(){
+	    $(".ranking").slideToggle("slow");
+	  });
+	});
+	</script>
+    
+    
 <style type="text/css">
 .col-3{
 	margin-top: 10px;
@@ -41,13 +56,13 @@ response.setCharacterEncoding("utf-8");
 </head>
 <body>
 	<header class="header-area header-sticky">
-    <div class="container">
-        <div class="row">
-            <div class="col-12">
+    <div class="container head-nav">
+        <div class="row head-nav-sub">
+            <div class="col-12 head-nav-sub2">
                 <nav class="main-nav">
                     <!-- ***** Logo Start ***** -->
                     <a href="../index.jsp" class="logo">
-                        <img src="../assets/images/bangbang.png" style="width:150px; height:80px;" alt="">
+                        <img src="../assets/images/bangbang.png" class="main-logo" alt="">
                     </a>
                     <!-- ***** Logo End ***** -->
                     <!-- ***** Menu Start ***** -->
@@ -56,14 +71,33 @@ response.setCharacterEncoding("utf-8");
                         <li><a href="${pageContext.request.contextPath }/recommandboard/list.do" class="board">recommand board</a></li>
                         <li><a href="${pageContext.request.contextPath }/recordboard/list.do" class="board">record board</a></li>
                         <li><a href="${pageContext.request.contextPath }/joinboard/add.do">글작성</a></li>
+                        <li>
+                        <a href="#" class="board">Board</a>
+                         <ul class="hideboard">
+							<li class="board-li" ><a href="${pageContext.request.contextPath }/recommandboard/list.do" id="board-li-a">추천게시판</a>
+    						<li class="board-li"><a href="${pageContext.request.contextPath }/recordboard/list.do" id="board-li-a">관광일기</a>
+    						<li class="board-li"><a href="${pageContext.request.contextPath }/joinboard/list.do" id="board-li-a">같이가자!</a>
+  	 					 </ul>
+  	 					 </li>
+                        <li><a href="${pageContext.request.contextPath }/joinboard/add.do">모집글 작성하기~</a></li>
+                        <c:if test ="${empty sessionScope.loginId }">
                         <li><a href="${pageContext.request.contextPath }/member/login.do">Login</a></li>
+                        </c:if>
+                        <c:if test ="${not empty sessionScope.loginId }">
                         <li><a href="${pageContext.request.contextPath }/member/logout.do">Logout</a></li>
+                        <li><a href="#" style="padding-top:6px">${sessionScope.loginId } 님 <img src="../assets/images/myinfo.png" class="myinfo-icon"></a>
+                        </li>
+                        </c:if>
                     </ul>   
+                    
                     <a class='menu-trigger'>
                         <span>Menu</span>
                     </a>
                     <!-- ***** Menu End ***** -->
                 </nav>
+<!--                 <div class="container hide-position" style="text-align: center"> -->
+             
+<!--   	 			</div>		  -->
             </div>
         </div>
     </div>
