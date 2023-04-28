@@ -38,7 +38,7 @@ response.setCharacterEncoding("utf-8");
 	margin-bottom: 10px;
 }
 .card img {
-    height: 13rem;
+    height: auto;
     object-fit: cover;
 }
 .hideboard{
@@ -77,11 +77,12 @@ response.setCharacterEncoding("utf-8");
     						<li class="board-li"><a href="${pageContext.request.contextPath }/joinboard/list.do" id="board-li-a">같이가자!</a>
   	 					 </ul>
   	 					 </li>
-                        <li><a href="${pageContext.request.contextPath }/recommandboard/add.do">여행 추천글 작성하기!!</a></li>
+                       
                         <c:if test ="${empty sessionScope.loginId }">
                         <li><a href="${pageContext.request.contextPath }/member/login.do">Login</a></li>
                         </c:if>
                         <c:if test ="${not empty sessionScope.loginId }">
+                         <li><a href="${pageContext.request.contextPath }/recommandboard/add.do">여행 추천글 작성하기!!</a></li>
                         <li><a href="${pageContext.request.contextPath }/member/logout.do">Logout</a></li>
                         <li><a href="#" style="padding-top:6px">${sessionScope.loginId } 님 <img src="../assets/images/myinfo.png" class="myinfo-icon"></a>
                         </li>
@@ -100,8 +101,19 @@ response.setCharacterEncoding("utf-8");
         </div>
     </div>
   </header>
+  	<nav class="navbar bg-body-tertiary" style="height:190px">
+  <div class="container-fluid" style="display: flex;
+    flex-wrap: inherit;
+    justify-content: center;
+    font-size: -webkit-xxx-large;
+    margin-top: 111px">
+    <span class="navbar-brand mb-0 h1" style="font-size:-webkit-xxx-large">추천 곡!곡!</span>
+  </div>
+	</nav>
+	
+  
 	<div class="container">
-		<div class="row" style="margin-top: 100px;">
+		<div class="row" style="margin-top: 50px">
 		<c:forEach var="vo" items="${list }">
 			<div class="col-3">
 				<div class="card" style="width:100%; height:100%;">
@@ -110,8 +122,8 @@ response.setCharacterEncoding("utf-8");
 						<img src=${vo.pic1 } class="img-fluid" style=""/>
 							<div class="mask" style="background-color: rgba(251, 251, 251, 0.15)"></div>
 					</div>
-					<div class="card-header">${vo.writer }</div>
-					<div class="card-body">
+					<div class="card-header">${vo.writer } 님의 추천</div>
+					<div class="card-body" style=" height: auto; overflow: hidden; white-space: nowrap; width: 200px">
 						<h5 class="card-title">${vo.title }</h5>
 						<p>${vo.content }</p>
 
