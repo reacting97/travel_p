@@ -98,7 +98,7 @@ function f(num){
     						<li class="board-li"><a href="${pageContext.request.contextPath }/joinboard/list.do" id="board-li-a">같이가자!</a>
   	 					 </ul>
   	 					 </li>
-                        <li><a href="#">Deals</a></li>
+                        <li><a href="${pageContext.request.contextPath }/recordboard/add.do">관광일기 작성하기~</a></li>
                         <c:if test ="${empty sessionScope.loginId }">
                         <li><a href="${pageContext.request.contextPath }/member/login.do">Login</a></li>
                         </c:if>

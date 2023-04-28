@@ -156,7 +156,7 @@ function likey2(num){
 			<h2>${vo.title } <button type="button" class="btn btn-primary" onclick="likey2(${vo.num})">좋아요</button><span id="likenum">${cnt }</span></h2>
 			<p class="date">작성일자: ${vo.w_date}</p>
 			<div class="post-content">
-				<p>${vo.content }</p>
+				<p>${vo.content } ${sessionScope.loginId} ${vo.writer }</p>
 				<div class="images">
 					<img src="${vo.pic1 }" alt="이미지 1">
 					<img src="${vo.pic2 }" alt="이미지 2">
@@ -165,31 +165,9 @@ function likey2(num){
 
 		</div>
 		<a href="${pageContext.request.contextPath }/recommandboard/list.do" class="btn btn-warning">여행기록게시판 리스트로 이동</a>
-		<a href="${pageContext.request.contextPath }/recommandboard/del.do?num=${vo.num}" class="btn btn-warning">이 글 삭제</a>
-		<div class="comments">
-			<h3>댓글</h3>
-			<div class="comment">
-				<p class="author">작성자</p>
-				<p class="date">작성일자: 2023-04-22</p>
-				<p class="content">댓글 내용이 들어갑니다.</p>
-			</div>
-			<div class="comment">
-				<p class="author">작성자</p>
-				<p class="date">작성일자: 2023-04-22</p>
-				<p class="content">댓글 내용이 들어갑니다.</p>
-			</div>
-			<form class="comment-form">
-				<h3>댓글 작성</h3>
-				<div class="form-group">
-					<label for="name">작성자</label> <input type="text" value="${sessionScope.loginId}" class="form-control" id="name" disabled>
-				</div>
-				<div class="form-group">
-					<label for="comment">내용</label>
-					<textarea class="form-control" id="comment"></textarea>
-				</div>
-				<button type="submit" class="btn btn-primary">작성하기</button>
-			</form>
-		</div>
+		<c:if test="${sessionScope.loginId eq vo.writer }">
+			<a href="${pageContext.request.contextPath }/recommandboard/del.do?num=${vo.num}" class="btn btn-warning">이 글 삭제</a>
+		</c:if>
 	</div>
 	<!-- 부트스트랩 JS 파일 링크 -->
 	<script

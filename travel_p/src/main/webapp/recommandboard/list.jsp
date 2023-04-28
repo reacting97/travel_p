@@ -77,7 +77,7 @@ response.setCharacterEncoding("utf-8");
     						<li class="board-li"><a href="${pageContext.request.contextPath }/joinboard/list.do" id="board-li-a">같이가자!</a>
   	 					 </ul>
   	 					 </li>
-                        <li><a href="#">Deals</a></li>
+                        <li><a href="${pageContext.request.contextPath }/recommandboard/add.do">여행 추천글 작성하기!!</a></li>
                         <c:if test ="${empty sessionScope.loginId }">
                         <li><a href="${pageContext.request.contextPath }/member/login.do">Login</a></li>
                         </c:if>
