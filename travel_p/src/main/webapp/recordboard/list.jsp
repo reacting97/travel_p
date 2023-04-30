@@ -187,7 +187,7 @@ background-size: 100% 1.2em;">
 		<div class="write-recommend">
 				<h6 style="border-bottom:1px solid gray ">
 				<c:if test="${not empty sessionScope.loginId }">
-				<a href="${pageContext.request.contextPath }/recommandboard/add.do">
+				<a href="${pageContext.request.contextPath }/recordboard/add.do">
 				<img src="../assets/images/pen.png" style="width:20px">기록하기</a>
 				</c:if>
 				</h6>
