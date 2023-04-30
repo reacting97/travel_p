@@ -187,71 +187,76 @@ response.setCharacterEncoding("utf-8");
 	border-radius: 40px;
 }
 
-.rec-btn1-l{
-	position: absolute;
+.rec-btn1-l {
+    position: absolute;
     width: 40px;
     top: 520px;
-    left: 309px;
+    left: 110px;
     cursor: auto;
 }
 
-.rec-btn1-r{
-	position: absolute;
-    width: 40px;
-    top:520px;
-    left:518px;
-}
-.rec-btn2-l{
-	position: absolute;
+.rec-btn1-r {
+    position: absolute;
     width: 40px;
     top: 520px;
-    left: 568px;
+    left: 332px;
 }
 
-.rec-btn2-r{
-	position: absolute;
-    width: 40px;
-    top:520px;
-    left:777px;;
-}
-.rec-btn3-l{
-	position: absolute;
+.rec-btn2-l {
+    position: absolute;
     width: 40px;
     top: 520px;
-    left: 828px;
+    left: 370px;
 }
 
-.rec-btn3-r{
-	position: absolute;
-    width: 40px;
-    top:520px;
-    right: 827px;
-}
-.rec-btn4-l{
-	position: absolute;
+.rec-btn2-r {
+    position: absolute;
     width: 40px;
     top: 520px;
-    right: 776px;
+    left: 592px;
 }
 
-.rec-btn4-r{
-	position: absolute;
-    width: 40px;
-    top:520px;
-    right: 567px;
-}
-.rec-btn5-l{
-	position: absolute;
+.rec-btn3-l {
+    position: absolute;
     width: 40px;
     top: 520px;
-    right: 517px;
+    left: 629px;
 }
 
-.rec-btn5-r{
-	position: absolute;
+.rec-btn3-r {
+    position: absolute;
     width: 40px;
-    top:520px;
-    right: 307px;
+    top: 520px;
+    right: 628px;
+}
+
+.rec-btn4-l {
+    position: absolute;
+    width: 40px;
+    top: 520px;
+    right: 590px;
+}
+
+.rec-btn4-r {
+    position: absolute;
+    width: 40px;
+    top: 520px;
+    right: 370px;
+}
+
+
+.rec-btn5-l {
+    position: absolute;
+    width: 40px;
+    top: 520px;
+    right: 330px;
+}
+
+.rec-btn5-r {
+    position: absolute;
+    width: 40px;
+    top: 520px;
+    right: 110px;
 }
 
 .write-recommend{
@@ -429,7 +434,7 @@ response.setCharacterEncoding("utf-8");
     <div class="container">
       <div class="row">
         <div class="col-lg-12">
-          <p>Copyright © 2023 1JO Travel Company. All rights reserved. 
+          <p>Copyright © 2023 1조 관광곡곡 Travel Company. All rights reserved. 
           <br>From: 이주원 전준하 남영우 장하은</p> 
         </div>
       </div>

@@ -57,7 +57,7 @@ https://templatemo.com/tm-580-woox-travel
 	  	  success:function(result){
 	  		  let texthtml = '';
 	  		  for(let i=0; i<result.length; i++){
-	  			texthtml += '<div class="card" style="width: 18rem; height:20rem">';
+	  			texthtml += '<div class="card" style="width: 15rem; height:18rem">';
 	  			texthtml +=	'<img src="'+result[i].pic1+'" class="maincard-img-top" alt="...">';
 	  			texthtml += '<div class="card-body">';
 	  			texthtml += '<p class="card-text-top"><a href="#" class="card-text">'+result[i].title+'</a></p></div></div>';
@@ -365,7 +365,7 @@ https://templatemo.com/tm-580-woox-travel
   </section>
   <!-- ***** Main Banner Area End ***** -->
 <!--   지역별 버튼 -->
-    <div class="container">
+    <div class="container" style="margin-top:50px">
       <div class="row">
           <div class="section-heading">
           <div class="test"><button type="button" class="lo_icons" onclick ="location.href ='${pageContext.request.contextPath}/travel/list.do?loc=서울'"><img src="assets/images/seoulicon.png" >서울</button></div> 
@@ -391,7 +391,7 @@ https://templatemo.com/tm-580-woox-travel
           </div>
       </div>
 <!--       랭킹 -->
-      <div class="nav-ranking">
+      <div class="nav-ranking" style="margin-top:50px">
       	<nav class="navbar nav-border" style="background-color:#CCFFFF;">
   			<div class="container-fluid">
     			<a class="navbar-ranking">
@@ -450,9 +450,9 @@ https://templatemo.com/tm-580-woox-travel
 		</div>
 	</div>
 <!-- 	날씨 -->
-	<div class="container boards">
+	<div class="container boards" style="margin-top:50px">
 		<div class="column recommed">
-      <h2 class="boards-title">Recommend<a href=""> ...</a></h2>
+      <h2 class="boards-title">Recommend<a href="${pageContext.request.contextPath }/recommandboard/list.do" id="board-li-a" style="color:black; font-size: 20px;"> ...</a></h2>
       <img id="image1" src="assets/images/kuje.jpg" alt="추천글 이미지" class="recommend-img">
       <p>추천글 내용</p>
       <div class="img-button">
@@ -462,7 +462,7 @@ https://templatemo.com/tm-580-woox-travel
     </div>
     <!-- 일기 컬럼 -->
     <div class="column recommed">
-      <h2 class="boards-title">Diary<a href=""> ...</a></h2>
+      <h2 class="boards-title">Diary<a href="${pageContext.request.contextPath }/recordboard/list.do" id="board-li-a" style="color:black; font-size: 20px;"> ...</a></h2>
       <img id="image2" src="assets/images/busan.jpg" alt="일기 이미지" class="recommend-img">
       <p>일기 내용</p>
       <div class="img-button">
@@ -472,7 +472,7 @@ https://templatemo.com/tm-580-woox-travel
     </div>
     <!-- 모집 컬럼 -->
     <div class="column recommed">
-      <h2 class="boards-title">Join<a href=""> ...</a></h2>
+      <h2 class="boards-title">Join<a href="${pageContext.request.contextPath }/joinboard/list.do" id="board-li-a" style="color:black; font-size: 20px;"> ...</a></h2>
       <img id="image3" src="assets/images/nammountain.jpg" alt="모집 이미지" class="recommend-img">
       <p>모집 내용</p>
       <div class="img-button">
@@ -482,7 +482,7 @@ https://templatemo.com/tm-580-woox-travel
     </div>
 	</div>
 	
-	<div class="container  com">
+	<div class="container  com" style="margin-top:50px">
 	<div class="rec">
   <div class="slide-container">
     <div class="slide-image">
@@ -559,9 +559,7 @@ https://templatemo.com/tm-580-woox-travel
       <div class="row">
         <div class="col-lg-8">
           <h2>Are You Looking To Travel ?</h2>
-        	 <audio src="assets/music/Tonto - Silent Partner.mp3" controls autoplay loop
-        	 style="height:30px"
-        	 ></audio>
+        	 <audio src="assets/music/유희열_공원에서.mp3" controls autoplay loop style="height:30px"></audio>
         </div>
       </div>
     </div>
@@ -571,7 +569,7 @@ https://templatemo.com/tm-580-woox-travel
     <div class="container">
       <div class="row">
         <div class="col-lg-12">
-          <p>Copyright © 2023 1JO Travel Company. All rights reserved. 
+          <p>Copyright © 2023 1조 관광곡곡 Travel Company. All rights reserved. 
           <br>From: 이주원 전준하 남영우 장하은</p> 
         </div>
       </div>
