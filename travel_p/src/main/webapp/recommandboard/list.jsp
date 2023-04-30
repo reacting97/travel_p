@@ -25,25 +25,242 @@ response.setCharacterEncoding("utf-8");
 	  $(".board").click(function(){
 	    $(".hideboard").slideToggle("slow");
 	  });
-	  $(".drop").click(function(){
-	    $(".ranking").slideToggle("slow");
-	  });
 	});
-	</script>
-     
+	
+	  var images1 = ["../assets/images/kuje.jpg", "../assets/images/koreaisland.jpg", "../assets/images/seoul.jpg"];
+	  var images2 = ["../assets/images/deals-04.jpg", "../assets/images/jeju.avif", "../assets/images/pohang.jpg"];
+	  var images3 = ["../assets/images/jeju.jpg", "../assets/images/cities-01.jpg", "../assets/images/cities-02.jpg"];
+	  var images4 = ["../assets/images/cities-03.jpg", "../assets/images/cities-04.jpg", "../assets/images/country-01.jpg"];
+	  var images5 = ["../assets/images/deals-01.jpg", "../assets/images/country-03.jpg", "../assets/images/deals-03.jpg"];
+	  var currentIndex1 = 0;
+	  var currentIndex2 = 0;
+	  var currentIndex3 = 0;
+	  var currentIndex4 = 0;
+	  var currentIndex5 = 0;
+		
+	  // 봄
+	  function changeImage1(direction) {
+	    if (direction == "next") {
+	      currentIndex1 = (currentIndex1 + 1) % images1.length;
+	    } else if (direction == "prev") {
+	      currentIndex1--;
+	      if (currentIndex1 < 0) {
+	        currentIndex1 = images1.length - 1;
+	      }
+	    }
+	    document.getElementById("image1").src = images1[currentIndex1];
+	  }
+
+	  // 바다 
+	  function changeImage2(direction) {
+	    if (direction == "next") {
+	      currentIndex2 = (currentIndex2 + 1) % images2.length;
+	    } else if (direction == "prev") {
+	      currentIndex2--;
+	      if (currentIndex2 < 0) {
+	        currentIndex2 = images2.length - 1;
+	      }
+	    }
+	    document.getElementById("image2").src = images2[currentIndex2];
+	  }
+
+	  // 산 
+	  function changeImage3(direction) {
+	    if (direction == "next") {
+	      currentIndex3 = (currentIndex3 + 1) % images3.length;
+	    } else if (direction == "prev") {
+	      currentIndex3--;
+	      if (currentIndex3 < 0) {
+	        currentIndex3 = images3.length - 1;
+	      }
+	    }
+	    document.getElementById("image3").src = images3[currentIndex3];
+	  }
+	  
+	  //이색체험
+	  function changeImage4(direction) {
+	    if (direction == "next") {
+	      currentIndex4 = (currentIndex4 + 1) % images4.length;
+	    } else if (direction == "prev") {
+	      currentIndex4--;
+	      if (currentIndex4 < 0) {
+	        currentIndex4 = images4.length - 1;
+	      }
+	    }
+	    document.getElementById("image4").src = images4[currentIndex4];
+	  }
+	  
+	  //레저
+	  function changeImage5(direction) {
+	    if (direction == "next") {
+	      currentIndex5 = (currentIndex5 + 1) % images5.length;
+	    } else if (direction == "prev") {
+	      currentIndex5--;
+	      if (currentIndex5 < 0) {
+	        currentIndex5 = images5.length - 1;
+	      }
+	    }
+	    document.getElementById("image5").src = images5[currentIndex5];
+	  }
+
+	  // 버튼 클릭 이벤트 처리
+	  document.getElementById("next1").addEventListener("click", function() {
+	    changeImage1("next");
+	  });
+	  document.getElementById("prev1").addEventListener("click", function() {
+	    changeImage1("prev");
+	  });
+	  document.getElementById("next2").addEventListener("click", function() {
+	    changeImage2("next");
+	  });
+	  document.getElementById("prev2").addEventListener("click", function() {
+	    changeImage2("prev");
+	  });
+	  document.getElementById("next3").addEventListener("click", function() {
+	    changeImage3("next");
+	  });
+	  document.getElementById("prev3").addEventListener("click", function() {
+	    changeImage3("prev");
+	  });
+	  document.getElementById("next4").addEventListener("click", function() {
+	    changeImage4("next");
+	  });
+	  document.getElementById("prev4").addEventListener("click", function() {
+	    changeImage4("prev");
+	  });
+	  document.getElementById("next5").addEventListener("click", function() {
+	    changeImage5("next");
+	  });
+	  document.getElementById("prev5").addEventListener("click", function() {
+	    changeImage5("prev");
+	  });
+	
+	
+		</script>
+	
 
 <style type="text/css">
+
+
 .col-3{
 	margin-top: 10px;
 	margin-bottom: 10px;
 }
 .card img {
-    height: auto;
+    height: 200px;
     object-fit: cover;
 }
 .hideboard{
 	display: none;
 }
+
+.sub-head-1{
+	height:130px;
+	background-color: #D3D3D3;
+}
+
+.boss-rec{
+	margin-top:70px;
+}
+
+.boss-rec-img{
+	display: flex;
+    justify-content: center;
+    border-bottom: 1px dashed gray;
+    padding-bottom: 80px;
+    margin-top: 30px;
+}
+
+.boss-recommend{
+	margin:5px;
+	background-color:transparent;
+}
+
+.boards-title-2{
+	font-size:1.8rem;
+	font-family: 고령딸기체;
+}
+
+
+.recommend-img2{
+	height:300px;
+	border-radius: 40px;
+}
+
+.rec-btn1-l{
+	position: absolute;
+    width: 40px;
+    top: 520px;
+    left: 309px;
+    cursor: auto;
+}
+
+.rec-btn1-r{
+	position: absolute;
+    width: 40px;
+    top:520px;
+    left:518px;
+}
+.rec-btn2-l{
+	position: absolute;
+    width: 40px;
+    top: 520px;
+    left: 568px;
+}
+
+.rec-btn2-r{
+	position: absolute;
+    width: 40px;
+    top:520px;
+    left:777px;;
+}
+.rec-btn3-l{
+	position: absolute;
+    width: 40px;
+    top: 520px;
+    left: 828px;
+}
+
+.rec-btn3-r{
+	position: absolute;
+    width: 40px;
+    top:520px;
+    right: 827px;
+}
+.rec-btn4-l{
+	position: absolute;
+    width: 40px;
+    top: 520px;
+    right: 776px;
+}
+
+.rec-btn4-r{
+	position: absolute;
+    width: 40px;
+    top:520px;
+    right: 567px;
+}
+.rec-btn5-l{
+	position: absolute;
+    width: 40px;
+    top: 520px;
+    right: 517px;
+}
+
+.rec-btn5-r{
+	position: absolute;
+    width: 40px;
+    top:520px;
+    right: 307px;
+}
+
+.write-recommend{
+	display:flex;
+	justify-content:flex-end;
+	margin-bottom: 30px;
+	margin-right: 10px;
+}
+
 </style>
 <script
 	src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
@@ -55,7 +272,9 @@ response.setCharacterEncoding("utf-8");
 	integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ"
 	crossorigin="anonymous">
 </head>
-<body>
+
+
+<body style="background-color:#F0FFFF">
   <header class="header-area header-sticky">
     <div class="container head-nav">
         <div class="row head-nav-sub">
@@ -74,7 +293,7 @@ response.setCharacterEncoding("utf-8");
                          <ul class="hideboard">
 							<li class="board-li" ><a href="${pageContext.request.contextPath }/recommandboard/list.do" id="board-li-a">추천게시판</a>
     						<li class="board-li"><a href="${pageContext.request.contextPath }/recordboard/list.do" id="board-li-a">관광일기</a>
-    						<li class="board-li"><a href="${pageContext.request.contextPath }/joinboard/list.do" id="board-li-a">같이가자!</a>
+    						<li class="board-li"><a href="${pageContext.request.contextPath }/joinboard/list.do" id="board-li-a" >같이가자!</a>
   	 					 </ul>
   	 					 </li>
                        
@@ -82,9 +301,9 @@ response.setCharacterEncoding("utf-8");
                         <li><a href="${pageContext.request.contextPath }/member/login.do">Login</a></li>
                         </c:if>
                         <c:if test ="${not empty sessionScope.loginId }">
-                         <li><a href="${pageContext.request.contextPath }/recommandboard/add.do">여행 추천글 작성하기!!</a></li>
+                         <li><a href="${pageContext.request.contextPath }/recommandboard/add.do">Let's recommend</a></li>
                         <li><a href="${pageContext.request.contextPath }/member/logout.do">Logout</a></li>
-                        <li><a href="#" style="padding-top:6px">${sessionScope.loginId } 님 <img src="../assets/images/myinfo.png" class="myinfo-icon"></a>
+                        <li><a href="${pageContext.request.contextPath }/member/edit.do?id=${sessionScope.loginId}" style="padding-top:6px">${sessionScope.loginId } 님 <img src="../assets/images/myinfo.png" class="myinfo-icon"></a>
                         </li>
                         </c:if>
                     </ul>   
@@ -101,31 +320,90 @@ response.setCharacterEncoding("utf-8");
         </div>
     </div>
   </header>
-  	<nav class="navbar bg-body-tertiary" style="height:190px">
+  	<nav class="sub-head-1">
   <div class="container-fluid" style="display: flex;
     flex-wrap: inherit;
     justify-content: center;
     font-size: -webkit-xxx-large;
-    margin-top: 111px">
-    <span class="navbar-brand mb-0 h1" style="font-size:-webkit-xxx-large">추천 곡!곡!</span>
+    margin-top: 70px">
+    <span class="navbar-brand mb-0 h1" style="font-size:-webkit-xxx-large; padding-top:70px; font-family: KCC-간판체 ">
+    추천 곡!곡!</span>
   </div>
 	</nav>
 	
+	
+	<div class="container" >		
+		<div class="boss-rec" style="font-family: 고령딸기체"> 
+			<h4 style="display: inline-block; border-bottom: 1px dashed gray; padding-bottom: 10px">방방의 추천!</h4>
+		</div>
+		<div class="boss-rec-img" >
+			<div class="column boss-recommend">
+      <h2 class="boards-title-2" >봄</h2>
+      <img id="image1" src="../assets/images/kuje.jpg" alt="추천글 이미지" class="recommend-img2">
+        <span class="rec-btn1-l "><button onclick="changeImage1('prev')"  class="push" style="background-color: transparent; border:none"><img id="prev1" src="../assets/images/left1.png" alt="왼쪽 화살표" class="push"></button></span> 
+         <span class="rec-btn1-r "><button onclick="changeImage1('next')" class="push" style="background-color: transparent; border:none"><img id="next1" src="../assets/images/right1.png" alt="오른쪽 화살표" class="push"></button></span>
+      <p></p>
+    </div>
+
+    <div class="column boss-recommend">
+      <h2 class="boards-title-2" >바다</h2>
+      <img id="image2" src="../assets/images/busan.jpg" alt="일기 이미지" class="recommend-img2">
+        <span class="rec-btn2-l"> <button onclick="changeImage2('prev')" class="push" style="background-color: transparent; border:none"><img id="prev2" src="../assets/images/left1.png" alt="왼쪽 화살표"></button></span>
+         <span class="rec-btn2-r"><button onclick="changeImage2('next')" class="push" style="background-color: transparent; border:none"><img id="next2" src="../assets/images/right1.png" alt="오른쪽 화살표"></button></span>
+    	<p></p>
+    </div>
+
+    <div class="column boss-recommend">
+      <h2 class="boards-title-2">산</h2>
+      <img id="image3" src="../assets/images/nammountain.jpg" alt="모집 이미지" class="recommend-img2">
+      <span class="rec-btn3-l"> <button onclick="changeImage3('prev')" class="push" style="background-color: transparent; border:none"><img id="prev3" src="../assets/images/left1.png" alt="왼쪽 화살표"></button></span>
+        <span class="rec-btn3-r"><button onclick="changeImage3('next')" class="push" style="background-color: transparent; border:none"><img id="next3" src="../assets/images/right1.png" alt="오른쪽 화살표"></button></span>
+    	<p></p>
+    </div>
+   
+    <div class="column boss-recommend">
+      <h2 class="boards-title-2" >이색 체험</h2>
+      <img id="image4" src="../assets/images/koreaisland.jpg" alt="모집 이미지" class="recommend-img2">
+       <span class="rec-btn4-l"><button onclick="changeImage4('prev')" class="push" style="background-color: transparent; border:none"><img id="prev4" src="../assets/images/left1.png" alt="왼쪽 화살표"></button></span>
+        <span class="rec-btn4-r"><button onclick="changeImage4('next')" class="push" style="background-color: transparent; border:none"><img id="next4" src="../assets/images/right1.png" alt="오른쪽 화살표"></button></span>
+      <p></p>
+    </div>
+   
+    <div class="column boss-recommend">
+      <h2 class="boards-title-2">레저</h2>
+      <img id="image5" src="../assets/images/country-03.jpg" alt="모집 이미지" class="recommend-img2">
+       <span class="rec-btn5-l"><button onclick="changeImage5('prev')" class="push" style="background-color: transparent; border:none"><img id="prev5" src="../assets/images/left1.png" alt="왼쪽 화살표"></button></span>
+        <span class="rec-btn5-r"><button onclick="changeImage5('next')" class="push" style="background-color: transparent; border:none"><img id="next5" src="../assets/images/right1.png" alt="오른쪽 화살표"></button></span>
+      	<p></p>
+   		 </div>
+		</div>
+	</div>
   
-	<div class="container">
-		<div class="row" style="margin-top: 50px">
+<!--   추천글 시작 -->
+	<div class="container" style="display: flex; justify-content: center; margin-bottom:150px">
+		<div class="row" style="margin-top: 100px; width:1000px">
+		<div class="write-recommend">
+				<h6 style="border-bottom:1px solid gray ">
+				<c:if test="${not empty sessionScope.loginId }">
+				<a href="${pageContext.request.contextPath }/recommandboard/add.do">
+				<img src="../assets/images/pen.png" style="width:20px">추천하기</a>
+				</c:if>
+				</h6>
+				</div>
+				
 		<c:forEach var="vo" items="${list }">
-			<div class="col-3">
+			<div class="col-3" style="margin-bottom:30px">
 				<div class="card" style="width:100%; height:100%;">
 					<div class="bg-image hover-overlay ripple"
 						data-mdb-ripple-color="light">
 						<img src=${vo.pic1 } class="img-fluid" style=""/>
 							<div class="mask" style="background-color: rgba(251, 251, 251, 0.15)"></div>
 					</div>
-					<div class="card-header">${vo.writer } 님의 추천</div>
-					<div class="card-body" style=" height: auto; overflow: hidden; white-space: nowrap; width: 200px">
-						<h5 class="card-title">${vo.title }</h5>
-						<p>${vo.content }</p>
+					<div class="card-header" style="font-family: KCC-간판체 "><strong>${vo.writer }</strong> 님의 추천</div>
+					<div class="card-body" >
+						<h5 class="card-title" style=" height: 25px; overflow: hidden; white-space: nowrap; width: 200px; text-overflow: ellipsis; font-family: Dovemayo_wild;">
+						제목: ${vo.title }</h5>
+						<p style="overflow: hidden; white-space: nowrap; text-overflow: ellipsis;">${vo.content }</p>
 
 						<a href="${pageContext.request.contextPath}/recommandboard/detail.do?num=${vo.num}"><button type="button" class="btn btn-primary">상세보기</button></a>
 					</div>
@@ -135,5 +413,27 @@ response.setCharacterEncoding("utf-8");
 		</div>
 	</div>
 	
+	
+	<!-- 	바닥글 -->
+  <div class="call-to-action">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8">
+          <h2>Are You Looking To Travel ?</h2>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12">
+          <p>Copyright © 2023 1JO Travel Company. All rights reserved. 
+          <br>From: 이주원 전준하 남영우 장하은</p> 
+        </div>
+      </div>
+    </div>
+  </footer>
 </body>
 </html>
