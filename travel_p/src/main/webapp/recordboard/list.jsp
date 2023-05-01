@@ -18,6 +18,12 @@ response.setCharacterEncoding("utf-8");
     <link rel="stylesheet"href="https://unpkg.com/swiper@7/swiper-bundle.min.css"/>
     
 <style type="text/css">
+
+.sub-head-1 {
+    height: 130px;
+    background-color: #D3D3D3;
+}
+
 .col-3{
 	margin-top: 10px;
 	margin-bottom: 10px;
@@ -29,6 +35,30 @@ response.setCharacterEncoding("utf-8");
 .hideboard{
 	display: none;
 }
+
+.diary-logo{
+	display: flex;
+    background-color: #fffbf7;
+    box-shadow: 5px 5px 8px #6d7d8d;
+    border-radius: 20px;
+    width: 100%;
+    height:35rem;
+    justify-content: space-evenly;
+}
+.diary-text{
+	margin-bottom: 45px;
+    font-family: 궁서;
+    font-weight: 900;
+    margin-left: 23px;
+}
+
+.write-recommend {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 30px;
+    margin-right: 10px;
+}
+
 </style>
  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
 <script type="text/javascript">
@@ -76,7 +106,13 @@ function f(num){
 	integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ"
 	crossorigin="anonymous">
 </head>
-<body>
+<body style="background-color: #fff;
+background-image:
+linear-gradient(90deg, transparent 79px, #abced4 79px, #abced4 81px, transparent 81px),
+linear-gradient(#eee .1em, transparent .1em);
+background-size: 100% 1.2em;">
+
+
 	  <header class="header-area header-sticky">
     <div class="container head-nav">
         <div class="row head-nav-sub">
@@ -90,9 +126,6 @@ function f(num){
                     <!-- ***** Menu Start ***** -->
                     <ul class="nav">
                         <li><a href="../index.jsp" class="active">Home</a></li>
-                        <li><a href="${pageContext.request.contextPath }/recommandboard/list.do" class="board">recommand board</a></li>
-                        <li><a href="${pageContext.request.contextPath }/joinboard/list.do" class="board">join board</a></li>
-                        <li><a href="${pageContext.request.contextPath }/recordboard/add.do">글작성</a></li>
                         <li>
                         <a href="#" class="board">Board</a>
                          <ul class="hideboard">
@@ -101,13 +134,14 @@ function f(num){
     						<li class="board-li"><a href="${pageContext.request.contextPath }/joinboard/list.do" id="board-li-a">같이가자!</a>
   	 					 </ul>
   	 					 </li>
-                        <li><a href="${pageContext.request.contextPath }/recordboard/add.do">관광일기 작성하기~</a></li>
+                        
                         <c:if test ="${empty sessionScope.loginId }">
                         <li><a href="${pageContext.request.contextPath }/member/login.do">Login</a></li>
                         </c:if>
                         <c:if test ="${not empty sessionScope.loginId }">
+                        <li><a href="${pageContext.request.contextPath }/recordboard/add.do">Let's record</a></li>
                         <li><a href="${pageContext.request.contextPath }/member/logout.do">Logout</a></li>
-                        <li><a href="#" style="padding-top:6px">${sessionScope.loginId } 님 <img src="../assets/images/myinfo.png" class="myinfo-icon"></a>
+                        <li><a href="${pageContext.request.contextPath }/member/edit.do?id=${sessionScope.loginId}" style="padding-top:6px">${sessionScope.loginId } 님 <img src="../assets/images/myinfo.png" class="myinfo-icon"></a>
                         </li>
                         </c:if>
                     </ul>   
@@ -124,20 +158,54 @@ function f(num){
         </div>
     </div>
   </header>
-	<div class="container">
-		<div class="row" style="margin-top: 100px;">
-		<c:forEach var="vo" items="${list }">
-			<div class="col-3">
+  	
+  	<nav class="sub-head-1">
+  <div class="container-fluid" style="display: flex;
+    flex-wrap: inherit;
+    justify-content: center;
+    font-size: -webkit-xxx-large;
+    margin-top: 70px">
+    <span class="navbar-brand mb-0 h1" style="font-size:-webkit-xxx-large; padding-top:70px; font-family: KCC-간판체 ">
+    기록 곡!곡!</span>
+  </div>
+	</nav>
+  	
+  	
+  	<div class="container" style="margin-top: 70px; margin-bottom: 80px">
+  	<div  class="diary-logo">
+  		<div style="margin-top: 110px;">
+ 			<h2 class="diary-text">다녀왔으면 일기 써야지~<img src="../assets/images/mom.png" style="width:50px"></h2>
+  		<img src="../assets/images/diary4.jpg"  alt="" style="width:130%; height:300px " >
+  		</div>
+  		<img src="../assets/images/diary3.jpg"  alt="" style="width:43%; height:auto; margin-top: 15px; margin-bottom: 15px " >
+  		</div>
+  	</div>
+  
+	<div class="container" style=" display: flex;
+    justify-content: space-around;margin-bottom: 150px;">
+		<div class="row" style="margin-top: 100px; width:1000px">
+		<div class="write-recommend">
+				<h6 style="border-bottom:1px solid gray ">
+				<c:if test="${not empty sessionScope.loginId }">
+				<a href="${pageContext.request.contextPath }/recordboard/add.do">
+				<img src="../assets/images/pen.png" style="width:20px">기록하기</a>
+				</c:if>
+				</h6>
+				</div>
+				<c:forEach var="vo" items="${list }">
+				<div class="col-3" style="margin-bottom: 30px">
 				<div class="card" style="width:100%; height:100%;">
 					<div class="bg-image hover-overlay ripple"
 						data-mdb-ripple-color="light">
+						
 						<img src=${vo.pic1 } class="img-fluid" style=""/>
 							<div class="mask" style="background-color: rgba(251, 251, 251, 0.15)"></div>
 					</div>
-					<div class="card-header">${vo.writer }</div>
+					<div class="card-header" style="font-family: KCC-간판체 "><strong>${vo.writer }</strong>님의 일기</div>
 					<div class="card-body">
-						<h5 class="card-title">${vo.title }</h5>
-						<p>${vo.content }</p>
+						<h5 class="card-title" style=" height: 25px; overflow: hidden; white-space: nowrap; width: 200px; text-overflow: ellipsis; font-family: Dovemayo_wild;">
+						제목: ${vo.title }</h5>
+						<p style="overflow: hidden; white-space: nowrap; text-overflow: ellipsis;">${vo.content }</p>
 
 						<a href="${pageContext.request.contextPath}/recordboard/detail.do?num=${vo.num}"><button type="button" class="btn btn-primary" onclick="f(${vo.num})">상세보기</button></a>
 					</div>
@@ -146,6 +214,29 @@ function f(num){
 			</c:forEach>
 		</div>
 	</div>
+	
+	
+	<!-- 	바닥글 -->
+  <div class="call-to-action">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8">
+          <h2>Are You Looking To Travel ?</h2>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12">
+          <p>Copyright © 2023 1조 관광곡곡 Travel Company. All rights reserved. 
+          <br>From: 이주원 전준하 남영우 장하은</p> 
+        </div>
+      </div>
+    </div>
+  </footer>
 	
 </body>
 </html>
