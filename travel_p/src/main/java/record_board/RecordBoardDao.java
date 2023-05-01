@@ -121,14 +121,19 @@ public class RecordBoardDao {
 		return list;
 	}
 
-	public void update(String content, int num) {
+	public void update(RecordBoardVo vo) {
 		Connection conn = dbconn.conn();
 
-		String sql = "update recordboard content=? where num=?";
+		String sql = "update recordboard set title=?, content=?, price=?, pic1=?, pic2=?, pic3=? where num=?";
 		try {
 			PreparedStatement pstmt = conn.prepareStatement(sql);			
-			pstmt.setString(1, content);
-			pstmt.setInt(2, num);
+			pstmt.setString(1, vo.getTitle());
+			pstmt.setString(2, vo.getContent());
+			pstmt.setString(3, vo.getPrice());
+			pstmt.setString(4, vo.getPic1());
+			pstmt.setString(5, vo.getPic2());
+			pstmt.setString(6, vo.getPic3());
+			pstmt.setInt(7, vo.getNum());
 			int num2 = pstmt.executeUpdate();
 			System.out.println(num2 + " 줄이 수정되었다");
 		} catch (SQLException e) {

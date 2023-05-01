@@ -288,6 +288,7 @@ function likey2(num){
 		</div>
 		<a href="${pageContext.request.contextPath }/recommandboard/list.do" class="btn btn-warning">여행기록게시판 리스트로 이동</a>
 		<c:if test="${sessionScope.loginId eq vo.writer }">
+			<a href="${pageContext.request.contextPath }/recommandboard/edit.do?num=${vo.num}" class="btn btn-warning">이 글 수정</a>
 			<a href="${pageContext.request.contextPath }/recommandboard/del.do?num=${vo.num}" class="btn btn-warning">이 글 삭제</a>
 		</c:if>
 	</div>

@@ -13,8 +13,8 @@ public class RecordBoardService {
 		dao.insert(vo);
 	}
 	
-	public void editBoard(String content, int num) {
-		dao.update(content, num);
+	public void editBoard(RecordBoardVo vo) {
+		dao.update(vo);
 	}
 	
 	public void delBoard(int num) {

@@ -125,12 +125,14 @@ public class JoinBoardDao {
 		// update: 글번호로 찾아서 title, content를 새 값으로 수정
 		public void update(JoinBoardVo vo) {
 			Connection conn = dbconn.conn();
-			String sql = "update join_board set title=?, content=? where num=?";
+			String sql = "update join_board set title=?, content=?, pic1=?, pic2=? where num=?";
 			try {
 				PreparedStatement pstmt = conn.prepareStatement(sql);
 				pstmt.setString(1, vo.getTitle());
 				pstmt.setString(2, vo.getContent());
-				pstmt.setInt(3, vo.getNum());
+				pstmt.setString(3, vo.getPic1());
+				pstmt.setString(4, vo.getPic2());
+				pstmt.setInt(5, vo.getNum());
 				int num = pstmt.executeUpdate();
 				System.out.println(num + " 줄이 수정됨");
 			} catch (SQLException e) {

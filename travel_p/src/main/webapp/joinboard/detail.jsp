@@ -147,6 +147,7 @@ body {
 		<a href="${pageContext.request.contextPath }/joinboard/list.do" class="btn btn-warning">모집글게시판 리스트로 이동</a>
 		<c:if test="${sessionScope.loginId eq vo.writer }">
 			<a href="${pageContext.request.contextPath }/joinboard/del.do?num=${vo.num}" class="btn btn-warning">이 글 삭제</a>
+			<a href="${pageContext.request.contextPath }/joinboard/edit.do?num=${vo.num}" class="btn btn-warning">이 글 수정</a>
 		</c:if>
 		<div class="comments">
 			<h3>댓글</h3>
