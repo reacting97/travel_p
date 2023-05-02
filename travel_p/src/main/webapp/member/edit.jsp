@@ -70,6 +70,24 @@ https://templatemo.com/tm-580-woox-travel
 			 }
 		  });
 	  });
+	  
+	  $('.btn-danger').click(function() {
+		  if(confirm("이 글의 좋아요를 취소하시겠습니까?")){
+			  let li = $(this).closest('li');
+			  $.ajax({
+					 method:'get',
+					 url:'${pageContext.request.contextPath }/recommandboard/likeup.do',
+					 data:{'recommandnum' : $(this).attr('num'), 'writer' : '${sessionScope.loginId}'},
+					 success: function(data) {
+						 li.remove();
+					 }, error : function(request, status, error){
+						 alert("status : "+request.status +"\n\n error : "+error);
+						 
+					 }
+				  });
+		  } else {}
+		  
+	  });
 	});
 	</script>
  <style type="text/css">
@@ -143,6 +161,13 @@ https://templatemo.com/tm-580-woox-travel
  
  
  .msg-content{
+ 	margin-bottom: 12px;
+    border-bottom: 1px dashed #808080;
+    margin-top: 10px;
+    margin-right: 10px;
+ }
+ 
+ .fav-content{
  	margin-bottom: 12px;
     border-bottom: 1px dashed #808080;
     margin-top: 10px;
@@ -276,7 +301,13 @@ https://templatemo.com/tm-580-woox-travel
     </h2>
     <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse show">
       <div class="accordion-body">
-        <strong>This is the first item's accordion body.</strong> It is shown by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
+        <ul class="">
+			<c:forEach var="fav" items="${favlist }">
+				<li class="fav-content" id="fav_${fav.num }" num=${fav.num }>${fav.writer} ${fav.title }
+					<button type="button" num=${fav.num } class="btn btn-danger">삭제</button>
+				</li>
+			</c:forEach>
+			</ul>
       </div>
     </div>
   </div>
@@ -288,7 +319,7 @@ https://templatemo.com/tm-580-woox-travel
     </h2>
     <div id="panelsStayOpen-collapseTwo" class="accordion-collapse collapse">
       <div class="accordion-body">
-        <strong>This is the second item's accordion body.</strong> It is hidden by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
+      	
       </div>
     </div>
   </div>
@@ -301,6 +332,7 @@ https://templatemo.com/tm-580-woox-travel
 			<ul class="msg-detail">
 			<c:forEach var="vo2" items="${mlist }">
 				<li class="msg-content" num=${vo2.num }>${vo2.content }</li>
+				
 			</c:forEach>
 			</ul>  		
   		</span>

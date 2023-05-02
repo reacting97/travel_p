@@ -25,7 +25,7 @@ public class AddHandler implements Handler {
 			view = "/recommandboard/add.jsp";
 		} else {
 			int size = 100 * 1024 * 1024;
-			String path = "C:\\Users\\wnsgk\\Desktop\\web_workspace\\.metadata\\.plugins\\org.eclipse.wst.server.core\\tmp0\\webapps\\img\\";
+			String path = "C:\\Users\\KOSTA\\Desktop\\KOSTA\\web_workspace\\.metadata\\.plugins\\org.eclipse.wst.server.core\\tmp0\\webapps\\img";
 			MultipartRequest multipart;
 			try {
 				multipart = new MultipartRequest(request, path, size, "utf-8", new DefaultFileRenamePolicy());
