@@ -1,5 +1,9 @@
 package like;
 
+import java.util.ArrayList;
+
+import recommand_board.RecommandBoardVo;
+
 public class LikeService {
 private LikeDao dao;
 	
@@ -21,5 +25,9 @@ private LikeDao dao;
 	
 	public LikeVo getVo(int num, String id) {
 		return dao.selectByNum(num, id);
+	}
+	
+	public ArrayList<RecommandBoardVo> getFav(String id) {
+		return dao.selectById(id);
 	}
 }

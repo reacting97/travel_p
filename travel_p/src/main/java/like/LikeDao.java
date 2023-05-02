@@ -4,8 +4,10 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 import conn.DBConnect;
+import recommand_board.RecommandBoardVo;
 
 public class LikeDao {
 private DBConnect dbconn;
@@ -90,5 +92,25 @@ private DBConnect dbconn;
 			e.printStackTrace();
 		}
 		return vo;
+	}
+	
+	public ArrayList<RecommandBoardVo> selectById(String id) {
+		Connection conn = dbconn.conn();
+		String sql = "select r.num, r.writer, r.title from liketable l, recommand_board r where user_id=? and l.user_id = r.writer and l.recommand_num = r.num";
+		ArrayList<RecommandBoardVo> list = new ArrayList<>();
+		try {
+			PreparedStatement pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, id);
+			ResultSet rs = pstmt.executeQuery();
+			while(rs.next()) {
+				RecommandBoardVo vo = new RecommandBoardVo(rs.getInt(1), rs.getString(2), rs.getString(3), null, null, null, null);
+				list.add(vo);
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		return list;
 	}
 }
