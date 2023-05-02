@@ -162,6 +162,32 @@ public class TravelDAO {
 		return list;
 	}
 	
+	public ArrayList<TravelVO> selectByFirstLoc(String loc) {
+		Connection conn = dbconn.conn();
+		String sql = "select * from travel where address like ? ||'%' and pic1 is not null order by num desc";
+		ArrayList<TravelVO> list = new ArrayList<>();
+		try {
+			PreparedStatement ps = conn.prepareStatement(sql);
+			ps.setString(1, loc);
+			ResultSet rs = ps.executeQuery();
+			while(rs.next()) {
+				TravelVO travel = new TravelVO(rs.getInt(1), rs.getString(2), rs.getString(3), 
+						rs.getString(4), rs.getString(5), rs.getString(6), rs.getString(7), rs.getString(8));
+				list.add(travel);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				conn.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+		
+		return list;
+	}
+	
 	public ArrayList<TravelVO> selectAll() {
 		Connection conn = dbconn.conn();
 		String sql = "select * from travel where pic1 is not null order by num desc";
@@ -186,4 +212,6 @@ public class TravelDAO {
 		
 		return list;
 	}
+
+	
 }
