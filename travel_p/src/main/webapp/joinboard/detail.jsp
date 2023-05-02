@@ -18,7 +18,48 @@ response.setCharacterEncoding("utf-8");
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <!-- 부트스트랩 CSS 파일 링크 -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+
+
+<script>
+function abc(num, id){
+	const xhttp = new XMLHttpRequest();
+	
+	xhttp.onload = function(){
+		let val = xhttp.responseText;
+		let arr = JSON.parse(val);
+		alert(arr.msg);
+	}
+	let param = "?joinnum=" + num;
+	param += "&member=${sessionScope.loginId}";
+	param += "&master="+id;
+	//요청 전송방식, 서버페이지 url 설정. get방식인 경우 url뒤에 파람 붙임
+	xhttp.open("GET", "${pageContext.request.contextPath}/joinboard/apply.do"+param);
+	xhttp.send();
+}
+</script>
 <script type="text/javascript">
+function del2(num2){
+const xhttp = new XMLHttpRequest();
+	
+	xhttp.onload = function(){
+		let val = xhttp.responseText;
+		let arr = JSON.parse(val);
+		alert(arr.msg);
+		let html = document.getElementById("id_"+num2);
+		html.remove();
+	}
+	alert(num2);
+	let param = "?num=" + num2;
+	//요청 전송방식, 서버페이지 url 설정. get방식인 경우 url뒤에 파람 붙임
+	xhttp.open("GET", "${pageContext.request.contextPath}/comment/del.do"+param);
+	xhttp.send();
+}
+
+</script>
+
+
+<script>
+	
 	
 	$(document).ready(function(){
 	  $(".board").click(function(){
@@ -26,10 +67,6 @@ response.setCharacterEncoding("utf-8");
 	  });
 	});
 	
-
-	
-</script>
-<script type="text/javascript">
 
 	$(function() {
 	  var $w = $(window),
@@ -45,9 +82,10 @@ response.setCharacterEncoding("utf-8");
 	      $upimg.removeClass('on')
 
 	  });
-</script>
+	</script>  
+	  
 
-<style>
+<style type="text/css">
 /* CSS 코드 */
 .sub-head-1{ 
 	height:130px; 
@@ -308,15 +346,15 @@ response.setCharacterEncoding("utf-8");
 			<a href="${pageContext.request.contextPath }/joinboard/apply2.do?num=${vo.num}" class="btn btn-warning">신청관리</a>
 		</c:if>
 			<c:if test="${sessionScope.loginId != vo.writer }">
-         	<a href="${pageContext.request.contextPath }/joinboard/apply.do?num=${vo.num}&id=${sessionScope.loginId}&master=${vo.writer}" class="btn btn-warning" onclick="abc('${msg }')">신청하기</a>
-     		 </c:if>
+         	<button class="btn btn-warning" onclick="abc('${vo.num}','${vo.writer }')">신청하기</button>
+     	</c:if>
 		
 		<div class="comments">
 			<h3 style="font-family: 고령딸기체">댓글</h3>
 			<c:forEach var="co" items="${clist }">
-			<div class="comment">
+			<div id="id_${co.num }" class="comment">
 				<p class="author" style=" margin-bottom: -6px;">
-				ID: ${co.user_id }</p>
+				ID: ${co.user_id } <button class="btn btn-primary" onclick="del2('${co.num}')">댓삭</button></p>
 				<p class="date" style=" margin-bottom: 0; border-bottom: 1px dashed #dddddd;">작성일: ${co.date }</p>
 				<p class="content" >${co.content }</p>
 			</div>

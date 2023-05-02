@@ -77,4 +77,22 @@ public class MsgDao {
 		}
 		return list;
 	}
+	
+	public int selectMsg(String id) {
+		int num = 0;
+		Connection conn = dbconn.conn();
+		String sql = "select count(*) from join_msg where receiver=?";
+		try {
+			PreparedStatement pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, id);
+			ResultSet rs = pstmt.executeQuery();
+			if(rs.next()) {
+				num=rs.getInt(1);
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return num;
+	}
 }

@@ -50,6 +50,26 @@ https://templatemo.com/tm-580-woox-travel
 	  $(".drop").click(function(){
 	    $(".msg-detail").slideToggle("slow");
 	  });
+	  $('.msg-content').click(function(){
+		  console.log($(this).attr('num'));
+		  $.ajax({
+			 method:'get',
+			 url:'${pageContext.request.contextPath }/msg/del.do',
+			 data:{'num' : $(this).attr('num'), 'id' : '${sessionScope.loginId}'},
+			 success: function(data) {
+				 if(data == 'true'){
+					$(this).remove();
+					alert(${msg})
+				 }else{
+					 alert(${msg})
+				 }
+				
+			 }, error : function(request, status, error){
+				 alert("status : "+request.status +"\n\n error : "+error);
+				 
+			 }
+		  });
+	  });
 	});
 	</script>
  <style type="text/css">
@@ -277,12 +297,11 @@ https://templatemo.com/tm-580-woox-travel
 	<div class="message">
  	<span class="msg-banner">
   			<button class="drop"><img src="../assets/images/chat.png">
-  			<p style="font-size: 16px; width: 80px; display: flex; align-items: center;}">메세지 1개</p></button>
+  			<p style="font-size: 16px; width: 80px; display: flex; align-items: center;}">메세지 ${cnt }개</p></button>
 			<ul class="msg-detail">
-				<li class="msg-content">It is hidden by default, until the collapse plugin adds the appr</li>
-				<li>aaa1님이 제목이수원여행 가실분 ~인 게시판의 참가신청이 승인되었습니다</li>
-				<li>11515</li>
-				<li>11251</li>
+			<c:forEach var="vo2" items="${mlist }">
+				<li class="msg-content" num=${vo2.num }>${vo2.content }</li>
+			</c:forEach>
 			</ul>  		
   		</span>
   		</div>

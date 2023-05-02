@@ -20,4 +20,8 @@ public class MsgService {
 	public ArrayList<MsgVo> getById(String id){
 		return dao.selectById(id);
 	}
+	
+	public int getMsg(String id) {
+		return dao.selectMsg(id);
+	}
 }

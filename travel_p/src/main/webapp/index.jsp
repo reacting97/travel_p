@@ -61,7 +61,7 @@ https://templatemo.com/tm-580-woox-travel
 	  			texthtml += '<div class="card" style="width: 15rem; height:18rem">';
 	  			texthtml +=	'<img src="'+result[i].pic1+'" class="maincard-img-top" alt="...">';
 	  			texthtml += '<div class="card-body">';
-	  			texthtml += '<p class="card-text-top"><a href="#" class="card-text">'+result[i].title+'</a></p></div></div>';
+	  			texthtml += '<p class="card-text-top"><a href="${pageContext.request.contextPath }/recordboard/detail.do?num='+result[i].num+'" class="card-text">'+result[i].title+'</a></p></div></div>';
 	  		  }
 	  		  
 	  		  $('#recommand1').html(texthtml);
@@ -450,7 +450,7 @@ https://templatemo.com/tm-580-woox-travel
 			</div> -->
 		</div>
 	</div>
-<!-- 	날씨 -->
+	<!-- 	날씨 -->
 	<div class="container boards" style="margin-top:50px">
 		<div class="column recommed">
       <h2 class="boards-title">Recommend<a href="${pageContext.request.contextPath }/recommandboard/list.do" id="board-li-a" style="color:black; font-size: 20px;"> ...</a></h2>

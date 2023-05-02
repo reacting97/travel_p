@@ -268,7 +268,7 @@
             </div>
             <div class="location-info">
                 <p style="color:#716868;">${travel.content } </p>
-                <button>∨</button>
+                <button>💖찜하기</button>
             </div>
             <div class="other-info">
                 <div class="location-weather">

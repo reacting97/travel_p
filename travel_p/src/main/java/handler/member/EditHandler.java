@@ -1,6 +1,7 @@
 package handler.member;
 
 import java.io.UnsupportedEncodingException;
+import java.util.ArrayList;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -8,6 +9,8 @@ import javax.servlet.http.HttpServletResponse;
 import handler.Handler;
 import member.MemberService;
 import member.MemberVo;
+import msg.MsgService;
+import msg.MsgVo;
 
 public class EditHandler implements Handler {
 
@@ -27,8 +30,13 @@ public class EditHandler implements Handler {
 		if (request.getMethod().equals("GET")) {
 			String id = request.getParameter("id");
 			MemberService service = new MemberService();
+			MsgService s = new MsgService();
+			int cnt = s.getMsg(id);
+			ArrayList<MsgVo> mlist = s.getById(id);
 			MemberVo vo = service.getMember(id);
 			// 검색한 결과를 request에 담음. setAttribute(이름, 값);
+			request.setAttribute("cnt", cnt);
+			request.setAttribute("mlist", mlist);
 			request.setAttribute("vo", vo);
 			view = "/member/edit.jsp";
 		} else {
