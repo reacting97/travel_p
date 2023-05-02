@@ -48,7 +48,7 @@ https://templatemo.com/tm-580-woox-travel
 	    $(".hideboard").slideToggle("slow");
 	  });
 	  $(".drop").click(function(){
-	    $(".ranking").slideToggle("slow");
+	    $(".msg-detail").slideToggle("slow");
 	  });
 	});
 	</script>
@@ -81,12 +81,53 @@ https://templatemo.com/tm-580-woox-travel
  }   
  .mylike{
  	position: absolute;
-    width: 52%;
-    margin-left: 462px;
-    float: right;
-    margin-top: 348px;
-    padding-bottom: 120px;
+    width: 30%;
+    margin-top: 335px;
  }   
+ 
+ .myinfo-detail{
+ 	display: flex;
+    flex-direction: column;
+ }
+ 
+ .message{
+ 	display: flex;
+    position: relative;
+    float: right;
+    right: -140px;
+    top:50px;
+ 
+ }
+ 
+ 
+ .msg-banner{
+ 	display: flex;
+    flex-direction: column;
+    z-index: 2;
+ }
+ 
+ .drop{
+ 	width: 90px;
+    height: 110px;
+    border: none;
+    background-color: transparent;
+ }
+ .msg-detail{
+ 	border: 1px solid gray;
+    border-radius: 20px;
+    width: 420px;
+    height: auto;
+    word-break: break-all;
+   	display:none;
+ }
+ 
+ 
+ .msg-content{
+ 	margin-bottom: 12px;
+    border-bottom: 1px dashed #808080;
+    margin-top: 10px;
+    margin-right: 10px;
+ }
  </style>
 </head>
 <body>
@@ -134,7 +175,8 @@ https://templatemo.com/tm-580-woox-travel
         </div>
     </div>
   </header>
-  
+  		
+  		
   
   	<nav class="navbar bg-body-tertiary" style="height:190px">
   <div class="container-fluid" style="display: flex;
@@ -146,15 +188,22 @@ https://templatemo.com/tm-580-woox-travel
   </div>
 	</nav>
 	
+<!-- 	메세지 -->
+	
+	
+	
 	<div class="container" style="justify-content:flex-start; display: flex">
-		<div class="card myinfo" style="margin:50px; background-color: beige;">
-  <img src="../assets/images/myinfo.png" class="card-img-top" alt="...">
-  <div class="card-body">
-    <p class="card-text mypage-card" >안녕하세요! <br/> ${sessionScope.loginId } 님 </p>
-  </div>
-</div>
-<form action="${pageContext.request.contextPath }/member/edit.do" method="post" style="height:100%; width:100%; margin:50px">
-	<div class="card myinfo" style="width: 100%; height:100%">
+	
+		<div class="card myinfo" style="margin:50px; background-color: beige; width: 25%;">
+  			<img src="../assets/images/myinfo.png" class="card-img-top" alt="...">
+  		<div class="card-body">
+   				 <p class="card-text mypage-card" >안녕하세요! <br/> ${sessionScope.loginId } 님 </p>
+  		</div>
+	</div>
+	
+	<div class="myinfo-detail">
+	<form action="${pageContext.request.contextPath }/member/edit.do" method="post" style="height:100%; width:130%; margin:50px; margin-left: 0;">
+	<div class="card myinfo" style="width: 100%; height:47%">
   <ul class="list-group list-group-flush">
    <li> 
    <div class="input-group flex-nowrap">
@@ -190,13 +239,15 @@ https://templatemo.com/tm-580-woox-travel
   	<input type="tel" class="form-control" name="phone" value="${vo.phone }" aria-describedby="addon-wrapping" >
 	</div>
 	</li>
-  
+  	<li>
 	<button type="submit" class="btn btn-link" style="display:flex; flex-direction:row-reverse; text-decoration:none">수정하기</button>
+ 	</li>
+ 	
   </ul>
- 
-</div>
+ 	</div>
   </form>
-  		<div class="accordion mylike" id="accordionPanelsStayOpenExample">
+  
+ 	<div class="accordion mylike" id="accordionPanelsStayOpenExample">
   <div class="accordion-item">
     <h2 class="accordion-header">
       <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="true" aria-controls="panelsStayOpen-collapseOne">
@@ -221,12 +272,23 @@ https://templatemo.com/tm-580-woox-travel
       </div>
     </div>
   </div>
-</div>
 	</div>
-	<main class="container">
-		
+</div>
+	<div class="message">
+ 	<span class="msg-banner">
+  			<button class="drop"><img src="../assets/images/chat.png">
+  			<p style="font-size: 16px; width: 80px; display: flex; align-items: center;}">메세지 1개</p></button>
+			<ul class="msg-detail">
+				<li class="msg-content">It is hidden by default, until the collapse plugin adds the appr</li>
+				<li>aaa1님이 제목이수원여행 가실분 ~인 게시판의 참가신청이 승인되었습니다</li>
+				<li>11515</li>
+				<li>11251</li>
+			</ul>  		
+  		</span>
+  		</div>
+
+</div>
 	
-	</main>
 	
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
 </body>
