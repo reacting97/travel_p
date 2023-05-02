@@ -41,15 +41,15 @@ response.setCharacterEncoding("utf-8");
     background-color: #fffbf7;
     box-shadow: 5px 5px 8px #6d7d8d;
     border-radius: 20px;
-    width: 100%;
+    width: 85%;
     height:35rem;
-    justify-content: space-evenly;
+    justify-content: center;
 }
 .diary-text{
 	margin-bottom: 45px;
     font-family: 궁서;
     font-weight: 900;
-    margin-left: 23px;
+    margin-left: 10px;
 }
 
 .write-recommend {
@@ -113,7 +113,7 @@ linear-gradient(#eee .1em, transparent .1em);
 background-size: 100% 1.2em;">
 
 
-	  <header class="header-area header-sticky">
+	  <header class="header-area header-sticky" style="position: fixed">
     <div class="container head-nav">
         <div class="row head-nav-sub">
             <div class="col-12 head-nav-sub2">
@@ -127,7 +127,7 @@ background-size: 100% 1.2em;">
                     <ul class="nav">
                         <li><a href="../index.jsp" class="active">Home</a></li>
                         <li>
-                        <a href="#" class="board">Board</a>
+                        <a class="board" style="cursor: pointer;">Board</a>
                          <ul class="hideboard">
 							<li class="board-li" ><a href="${pageContext.request.contextPath }/recommandboard/list.do" id="board-li-a">추천게시판</a>
     						<li class="board-li"><a href="${pageContext.request.contextPath }/recordboard/list.do" id="board-li-a">관광일기</a>
@@ -171,11 +171,11 @@ background-size: 100% 1.2em;">
 	</nav>
   	
   	
-  	<div class="container" style="margin-top: 70px; margin-bottom: 80px">
+  	<div class="container" style="margin-top: 70px; margin-bottom: 80px; display:flex; justify-content: center">
   	<div  class="diary-logo">
   		<div style="margin-top: 110px;">
  			<h2 class="diary-text">다녀왔으면 일기 써야지~<img src="../assets/images/mom.png" style="width:50px"></h2>
-  		<img src="../assets/images/diary4.jpg"  alt="" style="width:130%; height:300px " >
+  		<img src="../assets/images/diary4.jpg"  alt="" style="width:100%; height:300px " >
   		</div>
   		<img src="../assets/images/diary3.jpg"  alt="" style="width:43%; height:auto; margin-top: 15px; margin-bottom: 15px " >
   		</div>
@@ -205,8 +205,8 @@ background-size: 100% 1.2em;">
 					<div class="card-body">
 						<h5 class="card-title" style=" height: 25px; overflow: hidden; white-space: nowrap; width: 200px; text-overflow: ellipsis; font-family: Dovemayo_wild;">
 						제목: ${vo.title }</h5>
-						<p style="overflow: hidden; white-space: nowrap; text-overflow: ellipsis;">${vo.content }</p>
-
+						<p style="overflow: hidden; white-space: nowrap; text-overflow: ellipsis;">
+						${vo.content }</p>
 						<a href="${pageContext.request.contextPath}/recordboard/detail.do?num=${vo.num}"><button type="button" class="btn btn-primary" onclick="f(${vo.num})">상세보기</button></a>
 					</div>
 				</div>

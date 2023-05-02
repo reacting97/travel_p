@@ -262,7 +262,7 @@ function likey2(num){
   
   
 	<nav style="padding-top:90px">
-	<div class="container" style="width:55%;">
+	<div class="container" style="width:50%;">
 		<div class="post">
 			<div>
 			<span style="display:flex; justify-content: flex-end; margin:10px 20px">

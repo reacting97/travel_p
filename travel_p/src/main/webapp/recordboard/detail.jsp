@@ -277,7 +277,7 @@ https://templatemo.com/tm-580-woox-travel
 
 
 	<nav style="padding-top:90px">
-	<div class="container" style="width:55%">
+	<div class="container" style="width:50%">
 		<div class="post">
 			<div>
 			<span style="display:flex; justify-content: flex-end; margin:10px 20px; font-family:KCC-간판체; color:#977b7b;">
