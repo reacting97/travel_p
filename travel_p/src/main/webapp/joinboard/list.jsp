@@ -180,12 +180,6 @@ response.setCharacterEncoding("utf-8");
       <div class="row">
         <div class="col-lg-8">
           <h2>Are You Looking To Travel ?</h2>
-          <h4>Make A Reservation By Clicking The Button</h4>
-        </div>
-        <div class="col-lg-4">
-          <div class="border-button">
-            <a href="reservation.html">Book Yours Now</a>
-          </div>
         </div>
       </div>
     </div>
@@ -195,12 +189,12 @@ response.setCharacterEncoding("utf-8");
     <div class="container">
       <div class="row">
         <div class="col-lg-12">
-          <p>Copyright © 2036 <a href="#">WoOx Travel</a> Company. All rights reserved. 
-          <br>Design: <a href="https://templatemo.com" target="_blank" title="free CSS templates">TemplateMo</a> Distribution: <a href="https://themewagon.com target="_blank" >ThemeWagon</a></p>
+          <p>Copyright © 2023 1조 관광곡곡 Travel Company. All rights reserved. 
+          <br>From: 이주원 전준하 남영우 장하은</p> 
         </div>
       </div>
     </div>
-  </footer>
+  </footer>	
 	
 </body>
 </html>
