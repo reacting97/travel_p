@@ -19,8 +19,14 @@ response.setCharacterEncoding("utf-8");
 <!-- 부트스트랩 CSS 파일 링크 -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
 
+<script type="text/javascript">
 
-<script>
+$(document).ready(function(){
+	  $(".board").click(function(){
+	    $(".hideboard").slideToggle("slow");
+	  });
+	});
+	
 function abc(num, id){
 	const xhttp = new XMLHttpRequest();
 	
@@ -59,14 +65,6 @@ const xhttp = new XMLHttpRequest();
 
 
 <script>
-	
-	
-	$(document).ready(function(){
-	  $(".board").click(function(){
-	    $(".hideboard").slideToggle("slow");
-	  });
-	});
-	
 
 	$(function() {
 	  var $w = $(window),
@@ -243,8 +241,19 @@ const xhttp = new XMLHttpRequest();
 	border-color: #005cbf;
 }
 
+.writer-date-join{
+	display: flex;
+    justify-content: space-between;
+    height: auto;
+}
 
-
+.join{
+	font-size: 14px;
+    color: #888;
+    margin: 0;
+    margin-left: 20px;
+    font-weight: bold;
+}
 </style>
 
 <script
@@ -260,7 +269,7 @@ const xhttp = new XMLHttpRequest();
 <body style="background-image: url(../assets/images/backimg.jpg)">
 
 
-	<header class="header-area header-sticky">
+	<header class="header-area header-sticky" style="position: fixed">
     <div class="container head-nav">
         <div class="row head-nav-sub">
             <div class="col-12 head-nav-sub2">
@@ -274,7 +283,7 @@ const xhttp = new XMLHttpRequest();
                     <ul class="nav">
                         <li><a href="../index.jsp" class="active">Home</a></li>
                         <li>
-                        <a href="#" class="board">Board</a>
+                        <a class="board">Board</a>
                         <ul class="hideboard">
 							<li class="board-li" ><a href="${pageContext.request.contextPath }/recommandboard/list.do" id="board-li-a">추천게시판</a>
     						<li class="board-li"><a href="${pageContext.request.contextPath }/recordboard/list.do" id="board-li-a">관광일기</a>
@@ -324,8 +333,15 @@ const xhttp = new XMLHttpRequest();
 			<h2 style="display: flex; justify-content: space-between;padding-left: 20px; padding-right: 20px; 
 					font-size:x-large; font-family: KCC-간판체">제목: ${vo.title }</h2>
 			</div>
-			<p class="date">작성자: ${vo.writer}</p>
-			<p class="date">작성일: ${vo.w_date}</p>
+			<div class="writer-date-join">
+			<div style="width:50%">
+			<p class="date">작성자: ${vo.writer}</p> 
+			<p class="date">작성일: ${vo.w_date}</p> 
+			</div>
+			<div style="width:50%; word-break: break-word">
+			<p class="join">참여 확정: </p>
+			</div>
+			</div> 
 			<div class="post-content">
 				<div class="images">
 					<div class="img-style">
