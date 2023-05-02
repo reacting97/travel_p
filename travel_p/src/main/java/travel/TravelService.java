@@ -30,7 +30,11 @@ public class TravelService {
 	}
 	
 	public ArrayList<TravelVO> selectByLoc(String loc) {
-		return dao.selectByLoc(loc);
+		if(loc.equals("서울") || loc.equals("제주") || loc.equals("인천") || loc.equals("대전") || loc.equals("광주") || loc.equals("대구") || loc.equals("울산") || loc.equals("부산")) {
+			return dao.selectByFirstLoc(loc);
+		} else {
+			return dao.selectByLoc(loc);
+		}	
 	}
 	
 	public ArrayList<TravelVO> selectAll() {

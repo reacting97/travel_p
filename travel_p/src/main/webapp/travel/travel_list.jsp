@@ -102,7 +102,7 @@
 			if(dataList[i] == null) break;
 			textHtml += "<div class='col-12' num='"+dataList[i].id+"'><div class='card h-75'><div class='row no-gutters'>";
 			textHtml += "<div class='col-4' style='width: 16rem; height: 10rem;'><img src='"+dataList[i].pic1+"' class='card-img h-75 w-75' style=''/></div><div class='col-8'>";
-			textHtml +=	"<div class='card-body'><h4 class='card-title text-start'>"+dataList[i].name+"</h4><p class='card-text'></p>";
+			textHtml += "<div class='card-body'><h4 class='card-title text-start'>"+dataList[i].name+"</h4><p style='color:black;' class='card-text'>"+dataList[i].address+"</p>";			
 			textHtml += "</div></div></div></div></div>";
 		}
 		
