@@ -280,7 +280,7 @@ response.setCharacterEncoding("utf-8");
 
 
 <body style="background-color:#F0FFFF">
-  <header class="header-area header-sticky">
+  <header class="header-area header-sticky" style="position: fixed">
     <div class="container head-nav">
         <div class="row head-nav-sub">
             <div class="col-12 head-nav-sub2">

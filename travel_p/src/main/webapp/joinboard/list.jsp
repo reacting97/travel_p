@@ -32,6 +32,13 @@ response.setCharacterEncoding("utf-8");
     
     
 <style type="text/css">
+
+.sub-head-1{ 
+	height:130px; 
+ 	background-color: #D3D3D3; 
+}
+
+
 .col-3{
 	margin-top: 10px;
 	margin-bottom: 10px;
@@ -43,6 +50,23 @@ response.setCharacterEncoding("utf-8");
 .hideboard{
 	display: none;
 }
+
+.join-head{
+	font-size: -webkit-xxx-large;
+    padding-top: 3px;
+    font-family: KCC-간판체;
+    text-align: center;
+    padding-top: 100px;
+    color: rgb(243 245 219);
+}
+
+.write-recommend {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 30px;
+    margin-right: 10px;
+}
+
 </style>
 <script
 	src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
@@ -54,8 +78,11 @@ response.setCharacterEncoding("utf-8");
 	integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ"
 	crossorigin="anonymous">
 </head>
-<body>
-	<header class="header-area header-sticky">
+
+
+<body style="background-image:url(../assets/images/backimg.jpg)">
+
+	 <header class="header-area header-sticky">
     <div class="container head-nav">
         <div class="row head-nav-sub">
             <div class="col-12 head-nav-sub2">
@@ -68,24 +95,22 @@ response.setCharacterEncoding("utf-8");
                     <!-- ***** Menu Start ***** -->
                     <ul class="nav">
                         <li><a href="../index.jsp" class="active">Home</a></li>
-                        <li><a href="${pageContext.request.contextPath }/recommandboard/list.do" class="board">recommand board</a></li>
-                        <li><a href="${pageContext.request.contextPath }/recordboard/list.do" class="board">record board</a></li>
-                        <li><a href="${pageContext.request.contextPath }/joinboard/add.do">글작성</a></li>
                         <li>
                         <a href="#" class="board">Board</a>
                          <ul class="hideboard">
 							<li class="board-li" ><a href="${pageContext.request.contextPath }/recommandboard/list.do" id="board-li-a">추천게시판</a>
     						<li class="board-li"><a href="${pageContext.request.contextPath }/recordboard/list.do" id="board-li-a">관광일기</a>
-    						<li class="board-li"><a href="${pageContext.request.contextPath }/joinboard/list.do" id="board-li-a">같이가자!</a>
+    						<li class="board-li"><a href="${pageContext.request.contextPath }/joinboard/list.do" id="board-li-a" >같이가자!</a>
   	 					 </ul>
   	 					 </li>
-                        <li><a href="${pageContext.request.contextPath }/joinboard/add.do">모집글 작성하기~</a></li>
+                       
                         <c:if test ="${empty sessionScope.loginId }">
                         <li><a href="${pageContext.request.contextPath }/member/login.do">Login</a></li>
                         </c:if>
                         <c:if test ="${not empty sessionScope.loginId }">
+                         <li><a href="${pageContext.request.contextPath }/joinboard/add.do">Let's together</a></li>
                         <li><a href="${pageContext.request.contextPath }/member/logout.do">Logout</a></li>
-                        <li><a href="#" style="padding-top:6px">${sessionScope.loginId } 님 <img src="../assets/images/myinfo.png" class="myinfo-icon"></a>
+                        <li><a href="${pageContext.request.contextPath }/member/edit.do?id=${sessionScope.loginId}" style="padding-top:6px">${sessionScope.loginId } 님 <img src="../assets/images/myinfo.png" class="myinfo-icon"></a>
                         </li>
                         </c:if>
                     </ul>   
@@ -102,8 +127,30 @@ response.setCharacterEncoding("utf-8");
         </div>
     </div>
   </header>
-	<div class="container">
-		<div class="row" style="margin-top: 100px;">
+  	
+  <div class="container-fluid" style="display: flex;
+    flex-wrap: inherit;
+    justify-content: center;
+    font-size: -webkit-xxx-large;
+    margin-top: 70px;
+    color:white">
+    <span class="navbar-brand mb-0 h1" style="font-size:-webkit-xxx-large; padding-top:70px; font-family: KCC-간판체 ">
+   	같이 곡!곡!</span>
+  </div>
+  
+  
+  
+	<div class="container"  style=" display: flex;
+    justify-content: space-around;margin-bottom: 150px;">
+		<div class="row" style="margin-top: 100px; width:1000px">
+			<div class="write-recommend">
+				<h6 style="border-bottom:1px solid gray ">
+				<c:if test="${not empty sessionScope.loginId }">
+				<a href="${pageContext.request.contextPath }/joinboard/add.do">
+				<img src="../assets/images/pen.png" style="width:20px; color:white">모집하기</a>
+				</c:if>
+				</h6>
+				</div>
 		<c:forEach var="vo" items="${list }">
 			<div class="col-3">
 				<div class="card" style="width:100%; height:100%;">
@@ -112,11 +159,12 @@ response.setCharacterEncoding("utf-8");
 						<img src=${vo.pic1 } class="img-fluid" style=""/>
 							<div class="mask" style="background-color: rgba(251, 251, 251, 0.15)"></div>
 					</div>
-					<div class="card-header">${vo.writer }</div>
+					<div class="card-header" style="font-family: KCC-간판체 "><strong>${vo.writer }님과 함께</strong></div>
 					<div class="card-body">
-						<h5 class="card-title">${vo.title }</h5>
-						<p>${vo.content }</p>
-
+						<h5 class="card-title" style=" height: 25px; overflow: hidden; white-space: nowrap; width: 200px; text-overflow: ellipsis; font-family: Dovemayo_wild;">
+						제목: ${vo.title }</h5>
+						<p style="overflow: hidden; white-space: nowrap; text-overflow: ellipsis;">
+						${vo.content }</p>
 						<a href="${pageContext.request.contextPath}/joinboard/detail.do?num=${vo.num}"><button type="button" class="btn btn-primary">상세보기</button></a>
 					</div>
 				</div>
@@ -124,6 +172,35 @@ response.setCharacterEncoding("utf-8");
 			</c:forEach>
 		</div>
 	</div>
+	
+	
+	<!-- 	바닥글 -->
+  <div class="call-to-action">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8">
+          <h2>Are You Looking To Travel ?</h2>
+          <h4>Make A Reservation By Clicking The Button</h4>
+        </div>
+        <div class="col-lg-4">
+          <div class="border-button">
+            <a href="reservation.html">Book Yours Now</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12">
+          <p>Copyright © 2036 <a href="#">WoOx Travel</a> Company. All rights reserved. 
+          <br>Design: <a href="https://templatemo.com" target="_blank" title="free CSS templates">TemplateMo</a> Distribution: <a href="https://themewagon.com target="_blank" >ThemeWagon</a></p>
+        </div>
+      </div>
+    </div>
+  </footer>
 	
 </body>
 </html>
