@@ -180,7 +180,7 @@ margin-left: 4px;
 						<div class="input-group-prepend">
 							<span class="input-group-text"><i class="fa fa-phone"></i></span>
 						</div>
-						<input type="text" class="form-control" placeholder="phone" name="phone">
+						<input type="email" class="form-control" placeholder="phone" name="phone">
 					</div>
 					<div class="form-group">
 						<input type="submit" id="join" value="Join" class="btn float-right login_btn">

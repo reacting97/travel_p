@@ -19,6 +19,8 @@ import org.w3c.dom.Element;
 import org.w3c.dom.NodeList;
 import org.xml.sax.SAXException;
 
+import food.FoodService;
+import food.FoodVO;
 import handler.Handler;
 import travel.TravelService;
 import travel.TravelVO;
@@ -29,7 +31,7 @@ public class TravelDetailHandler implements Handler{
 	public String process(HttpServletRequest request, HttpServletResponse response) {
 		int num = Integer.parseInt(request.getParameter("num"));
 		TravelService service = new TravelService();
-//		FoodService foodService = new FoodService();
+		FoodService foodService = new FoodService();
 		TravelVO travel = service.selectByNum(num);
 		String[] locs = travel.getAddress().split(" ");
 		String loc = null;
@@ -41,9 +43,8 @@ public class TravelDetailHandler implements Handler{
 			loc = locs[1];
 		}
 		
-//		ArrayList<FoodVO> list = foodService.selectByLoc(loc);
+		ArrayList<FoodVO> list = foodService.selectByLoc(loc);
 		ArrayList<TravelVO> travelList = service.selectByLoc(loc);
-		
 		Weather weather = null;
 		for(int i=0; i<travelList.size(); i++) {
 			if(travelList.get(i).getAddress().equals(travel.getAddress())) {
@@ -52,29 +53,6 @@ public class TravelDetailHandler implements Handler{
 		}
 		
 		Collections.shuffle(travelList);
-		if(travelList.size() < 6) {
-			ArrayList<TravelVO> tmpList = service.selectByLoc(locs[0]);
-			Collections.shuffle(tmpList);
-			for(int i = 0; i<tmpList.size(); i++) {
-				if(tmpList.get(i).getAddress().equals(travel.getAddress())) {
-					tmpList.remove(i);
-				}
-			}
-			
-			for(int i = 0; i<tmpList.size(); i++) {
-				travelList.add(tmpList.get(i));
-			}
-			
-			for(int i=0; i<travelList.size(); i++) {
-				for(int j=0; j<travelList.size(); j++) {
-					if(i==j) {
-					} else if(travelList.get(i).getAddress().equals(travelList.get(j).getAddress())) {
-						travelList.remove(j);
-					}
-				}
-			}
-		}
-		
 		int code = 0;
 		if(loc.startsWith("서울")) {
 			code = 109;
@@ -172,7 +150,7 @@ public class TravelDetailHandler implements Handler{
 		}
 		
 		request.setAttribute("travel", travel);
-//		request.setAttribute("foodList", list);
+		request.setAttribute("foodList", list);
 		request.setAttribute("travelList", travelList);
 		request.setAttribute("latitude", latitude);
 		request.setAttribute("longtitude", longitude);

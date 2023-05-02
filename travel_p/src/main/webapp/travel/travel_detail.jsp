@@ -183,7 +183,7 @@
             <div class="location-title">
             	<c:set var="keywordArr" value="${fn:split(travel.address, ' ')}"></c:set>
                 <p><b style="color: rgb(18, 126, 214);">
-                	<c:forEach var="keyword" items="${keywordArr }">
+                	<c:forEach var="keyword" items="${keywordArr }" varStatus="status">
                 		<c:choose>
                 			<c:when test="${status.index eq 0 }">
                 				${keywordArr[status.index] } </b> >
@@ -239,7 +239,7 @@
                 <p style="color: rgb(100, 100, 100); font-size: 20px; font-weight: 600;">주변 관광지</p>
             </div>
             <div class="nearby-restaurant">
-            	<c:forEach items="${travelList }" var="travel" begin="1" end="5" varStatus="status">
+            	<c:forEach items="${travelList }" var="travel" begin="1" end="5">
             		<div class="restaurant-card" onclick="location.href='${pageContext.request.contextPath}/travel/detail.do?num=${travel.id }';">
 	                    <div class="restaurant-card-img" style='width: 19rem; height: 15rem'>
 	                        <img src="${travel.pic1 }">
