@@ -13,55 +13,68 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="stylesheet" href="style.css">
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+
 <script type="text/javascript" src="https://dapi.kakao.com/v2/maps/sdk.js?appkey=d2625792f1e6e1fac26d00f60d91116c&amp;libraries=services,clusterer,drawing"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
 <title>${travel.name }</title>
+	<link rel="stylesheet" href="../assets/css/fontawesome.css">
+    <link rel="stylesheet" href="../assets/css/templatemo-woox-travel.css">
+    <link rel="stylesheet" href="../assets/css/owl.css">
+    <link rel="stylesheet" href="../assets/css/animate.css">
+    <link rel="stylesheet"href="https://unpkg.com/swiper@7/swiper-bundle.min.css"/>
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+<script type="text/javascript">
+	
+	$(document).ready(function(){
+	  $(".board").click(function(){
+	    $(".hideboard").slideToggle("slow");
+	  });
+	 
+	});
+	</script>
+
 <style type="text/css">
-	.container {
-		padding: 0px !important;
-		border: 1px solid rgb(214, 214, 214);
-		border-radius: 15px;
-		margin-top: 10px;
-		overflow: hidden;
-	}
-	.head-container img {
-	    object-fit: cover;                /* 사진의 가로세로 비율 맞추기 */
-	}
+	
 	.head-container{
 	    display: flex;
 	    justify-content: space-between;
+	    height: 600px;
+   	    margin: 15px;
 	}
 	.main-img-container {
-	    width: 815px;
-	    height: 500px;
+	  	 width: 55%;
+   		 height: 100%;
 	}
 	.main-img-container img {
-	    width: 815px; 
-	    height: 500px;
+	  	 width: 100%;
+    	height: 100%;
 	}
 	.sub-img-container{
-	    width: 500px;
-	    height: 500px;
-	    display: flex;
-	    flex-direction: column;
-	    justify-content: space-between;
+	    width: 45%;
+    	height: 100%;
+    	display: flex;
+    	flex-direction: column;
+    	justify-content: space-between;
 	}
 	.sub1, .sub2 {
 	    display: flex;
 	    justify-content: space-between;
+	    width: 100%;
+   		height: 50%;
 	}
 	.sub-img-container img {
-	    width: 500px;
-	    height: 248px;
+	    width: 100%;
+   		height: 100%;
 	}
 	.body-container{
 	    /* background-color: yellow; */
-	    padding: 50px;
+	    padding: 10px;
 	}
 	.location-name{
 	    font-size: 28px;
 	    font-weight: 900;
+	    color: #797947;
 	}
 	.location-eng-name{
 	    margin-top: -15px;
@@ -80,10 +93,14 @@
 	.other-info{
 	    margin-top: 50px;
 	    padding-left: 20px;
-	    border-left: 2px solid rgb(221, 221, 221);
+	    border: 1px solid rgb(221, 221, 221);
+	    border-radius: 20px;
+	    padding-bottom: 30px;
+	    font-weight: 600;
 	}
 	.other-info div {
 	    display: flex;
+	    padding-left: 5px;
 	}
 	.other-info div p {
 	    margin: 0px 10px;
@@ -115,9 +132,9 @@
 	    border: 2px solid rgb(145, 145, 145);
 	}
 	.restaurant-card img {
-	    width: 100%;
-	    height: 150px;
-	    object-fit: cover;
+	    width: 197px;
+    	height: 150px;
+
 	}
 	.restaurant-card-content{
 	    padding: 10px;
@@ -162,10 +179,63 @@
 	a {
 	  text-decoration: none;
 	}
+	
 </style>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
 </head>
 <body>
-    <div class="container">
+
+	<header class="header-area header-sticky">
+    <div class="container head-nav">
+        <div class="row head-nav-sub">
+            <div class="col-12 head-nav-sub2">
+                <nav class="main-nav">
+                    <!-- ***** Logo Start ***** -->
+                    <a href="../index.jsp" class="logo">
+                        <img src="../assets/images/bangbang.png" class="main-logo" alt="">
+                    </a>
+                    <!-- ***** Logo End ***** -->
+                    <!-- ***** Menu Start ***** -->
+                    <ul class="nav">
+                        <li><a href="../index.jsp" class="active">Home</a></li>
+                        <li>
+                        <a href="#" class="board">Board</a>
+                        <ul class="hideboard">
+							<li class="board-li" ><a href="${pageContext.request.contextPath }/recommandboard/list.do" id="board-li-a">추천게시판</a>
+    						<li class="board-li"><a href="${pageContext.request.contextPath }/recordboard/list.do" id="board-li-a">관광일기</a>
+    						<li class="board-li"><a href="${pageContext.request.contextPath }/joinboard/list.do" id="board-li-a">같이가자!</a>
+  	 					 </ul>
+  	 					 </li>
+                       
+                        <c:if test ="${empty sessionScope.loginId }">
+                        <li><a href="${pageContext.request.contextPath }/member/login.do">Login</a></li>
+                        </c:if>
+                        <c:if test ="${not empty sessionScope.loginId }">
+                         <li><a href="${pageContext.request.contextPath }/recordboard/add.do">Let's record</a></li>
+                        <li><a href="${pageContext.request.contextPath }/member/logout.do">Logout</a></li>
+                        <li><a href="${pageContext.request.contextPath }/member/edit.do?id=${sessionScope.loginId}" style="padding-top:6px">${sessionScope.loginId } 님 <img src="../assets/images/myinfo.png" class="myinfo-icon"></a>
+                        </li>
+                        </c:if>
+                    </ul>   
+                    
+                    <a class='menu-trigger'>
+                        <span>Menu</span>
+                    </a>
+                    <!-- ***** Menu End ***** -->
+                </nav>
+<!--                 <div class="container hide-position" style="text-align: center"> -->
+             
+<!--   	 			</div>		  -->
+            </div>
+        </div>
+    </div>
+  </header>
+
+		
+    <div class="container" style="margin-top: 140px;
+    							  border: 1px solid rgb(214, 214, 214);
+    							  border-radius: 15px;
+    							  width:70%">
         <div class="head-container">
             <div class="main-img-container">
                 <img src="${travel.pic1 }">
@@ -197,7 +267,7 @@
 <!--                 <p class="location-eng-name">Hwasun-gun</p> -->
             </div>
             <div class="location-info">
-                <p>${travel.content } </p>
+                <p style="color:#716868;">${travel.content } </p>
                 <button>∨</button>
             </div>
             <div class="other-info">
@@ -226,7 +296,7 @@
      	    	       	<p class="click" style="color: rgb(18, 126, 214);"><a href="https://map.kakao.com/link/map/${travel.name},${latitude},${longtitude}" target="_blank">📌지도</a></p>
                		</div>
                 	<div class="map_wrap">
-					    <div id="map" style="width:500px;height:350px;position:relative;overflow:hidden;"></div>
+					    <div id="map" style="width:970px;height:350px;position:relative;overflow:hidden;"></div>
 					    <div class="hAddr">
 					        <p><span class="title"><b>주소 정보</b></span></p>
 					        <p><span id="centerAddr"></span></p>
@@ -241,7 +311,7 @@
             <div class="nearby-restaurant">
             	<c:forEach items="${travelList }" var="travel" begin="1" end="5">
             		<div class="restaurant-card" onclick="location.href='${pageContext.request.contextPath}/travel/detail.do?num=${travel.id }';">
-	                    <div class="restaurant-card-img" style='width: 19rem; height: 15rem'>
+	                    <div class="restaurant-card-img" >
 	                        <img src="${travel.pic1 }">
 	                    </div>
 	                    <div class="restaurant-card-content">
@@ -308,6 +378,28 @@
             </div>
         </div>
     </div>
+    	<div class="call-to-action">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8">
+          <h2>Are You Looking To Travel ?</h2>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12">
+          <p>Copyright © 2023 1조 관광곡곡 Travel Company. All rights reserved. 
+          <br>From: 이주원 전준하 남영우 장하은</p> 
+        </div>
+      </div>
+    </div>
+  </footer>
+    
+    
     <script type="text/javascript">
 		/* $.ajax({
 			url: 'https://dapi.kakao.com/v2/local/geo/coord2address.json?x=' + ${latitude} + '&y=' + ${longtitude},
