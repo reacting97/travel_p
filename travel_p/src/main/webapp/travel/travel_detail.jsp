@@ -87,6 +87,7 @@
 	    font-size: 28px;
 	    font-weight: 900;
 	    color: #797947;
+	    margin-left: 16px;
 	}
 	.location-eng-name{
 	    margin-top: -15px;
@@ -100,6 +101,7 @@
 	    -webkit-line-clamp: 3;
 	    -webkit-box-orient: vertical;
 	    overflow: hidden;
+	    margin-left :17px;
 	}
 	
 	.other-info{
@@ -131,6 +133,8 @@
 	    display: flex;
 	    flex-wrap: wrap;
 	    justify-content: space-between;
+	    margin-bottom: 20px;
+	    
 	}
 	.restaurant-card{
 	    width: 200px;
@@ -139,6 +143,7 @@
 	    overflow: hidden;
 	    cursor: pointer;
 	    transition: 0.3s;
+	    border-radius: 20px;
 	}
 	.restaurant-card:hover{
 	    border: 2px solid rgb(145, 145, 145);
@@ -192,6 +197,29 @@
 	  text-decoration: none;
 	}
 	
+.back-btn0{
+	position: absolute;
+    left: 70px;
+}	
+
+.back-btn1{
+	position: fixed;
+    border: 0.5px solid gray;
+    background-color: transparent;
+    border-radius: 10px;
+}	
+	
+	
+.up-btn0{
+	display: flex;
+    justify-content: center;
+    margin-bottom: 130px;
+}
+
+.up-btn1{
+	border: none;
+    background-color: transparent;
+}
 	
 footer video {
   position: absolute; 
@@ -251,12 +279,16 @@ footer video {
     </div>
   </header>
 
-		
+	<div class="back-btn0">
+	<button class="back-btn1" onclick="history.go(-1)"><img src="../assets/images/back.png" style="width:40px"></button>
+	</div>
+	
     <div class="container" style="margin-top: 140px;
     							  border: 1px solid rgb(214, 214, 214);
     							  border-radius: 15px;
     							  width:70%;
-    							  margin-bottom: 130px;">
+    							  margin-bottom: 20px;
+    							  box-shadow: 19px 17px 13px #ccc;">
         <div class="head-container">
             <div class="main-img-container">
                 <img src="${travel.pic1 }">
@@ -273,7 +305,7 @@ footer video {
         <div class="body-container">
             <div class="location-title">
             	<c:set var="keywordArr" value="${fn:split(travel.address, ' ')}"></c:set>
-                <p><b style="color: rgb(18, 126, 214);">
+                <p><b style="color: rgb(18, 126, 214); margin-left: 14px;">
                 	<c:forEach var="keyword" items="${keywordArr }" varStatus="status">
                 		<c:choose>
                 			<c:when test="${status.index eq 0 }">
@@ -401,6 +433,10 @@ footer video {
 <!--                 </div> -->
             </div>
         </div>
+    </div>
+    
+    <div class="up-btn0">
+    	<button class="up-btn1" onclick="javascript:window.scrollTo(0,0)"><img src="../assets/images/up.png" style="width:30px"></a></button>
     </div>
     
     	<footer style="position: relative;">
