@@ -18,6 +18,16 @@
 	    height: 60px;
 	  }
 	}
+	
+	
+	footer video {
+  position: absolute; 
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* 동영상 크기에 맞게 자동으로 늘리기 */
+}
 </style>
 	<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 
@@ -27,7 +37,6 @@
 	<link rel="stylesheet" href="../assets/css/owl.css">
 	<link rel="stylesheet" href="../assets/css/animate.css">
 	<link rel="stylesheet"href="https://unpkg.com/swiper@7/swiper-bundle.min.css"/>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
 
 <script type="text/javascript">
@@ -186,11 +195,11 @@
 		margin-bottom: 10px; 	
 	}
 </style>
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
 </head>
 <body>
 	<!-- ***** Header Area Start ***** -->
-	  <header class="header-area header-sticky">
+	  <header class="header-area header-sticky" >
     <div class="container head-nav">
         <div class="row head-nav-sub">
             <div class="col-12 head-nav-sub2">
@@ -203,21 +212,13 @@
                     <!-- ***** Menu Start ***** -->
                     <ul class="nav">
                         <li><a href="../index.jsp" class="active">Home</a></li>
-                        <li>
-                        <a href="#" class="board">Board</a>
-                         <ul class="hideboard">
-							<li class="board-li" ><a href="${pageContext.request.contextPath }/recommandboard/list.do" id="board-li-a">추천게시판</a>
-    						<li class="board-li"><a href="${pageContext.request.contextPath }/recordboard/list.do" id="board-li-a">관광일기</a>
-    						<li class="board-li"><a href="${pageContext.request.contextPath }/joinboard/list.do" id="board-li-a">같이가자!</a>
-  	 					 </ul>
-  	 					 </li>
-                        <li><a href="#">Deals</a></li>
+                       
                         <c:if test ="${empty sessionScope.loginId }">
                         <li><a href="${pageContext.request.contextPath }/member/login.do">Login</a></li>
                         </c:if>
                         <c:if test ="${not empty sessionScope.loginId }">
                         <li><a href="${pageContext.request.contextPath }/member/logout.do">Logout</a></li>
-                        <li><a href="#" style="padding-top:6px">${sessionScope.loginId } 님 <img src="../assets/images/myinfo.png" class="myinfo-icon"></a>
+                        <li><a href="${pageContext.request.contextPath }/member/edit.do?id=${sessionScope.loginId}" style="padding-top:6px">${sessionScope.loginId } 님 <img src="../assets/images/myinfo.png" class="myinfo-icon"></a>
                         </li>
                         </c:if>
                     </ul>   
@@ -235,7 +236,7 @@
     </div>
   </header>
 	<!-- ***** Header Area End ***** -->
-	<div class="container mt-5">
+	<div class="container mt-5" style="padding-top: 65px;">
 		<div class="row">
           <div class="section-heading">
           <div class="test" loc="서울"><button type="button" class="lo_icons" ><img src="../assets/images/seoulicon.png">서울</button></div> 
@@ -303,7 +304,34 @@
 			</ul>
 		</nav>
 	</div>
+	
+	
+	<footer style="position: relative; margin-top: 200px;">
+  	<div class="call-to-action" style="height: 140px; margin-top:0">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8">
+        </div>
+      </div>
+    </div>
+  </div>
+	<video muted autoplay loop id="background-video" >
+      <source src="../assets/images/sea.mp4" type="video/mp4">
+      <strong>Your browser does not support the video tag.</strong>
+   	 </video>
+ 
+    <div class="container" style="position: relative;">
+      <div class="row">
+        <div class="col-lg-12">
+          <p>Copyright © 2023 1조 관광곡곡 Travel Company. All rights reserved. 
+          <br>From: 이주원 전준하 남영우 장하은</p> 
+        </div>
+      </div>
+    </div>
+  </footer>
+	
+	
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
-	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+	 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
 </body>
 </html>

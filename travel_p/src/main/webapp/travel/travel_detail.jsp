@@ -285,7 +285,9 @@ footer video {
                 		</c:choose>
                 	</c:forEach>
                 <p class="location-name">${travel.name }
-                <button id="fav" num=${travel.id }><img src="../assets/images/like.png" style="width:30px; height:30px; background-color: transparent"></button>
+                <button id="fav" num=${travel.id } style=" background-color: transparent; border:none;
+               											 font-size: 15px; color: #a05f5f9e; font-weight: bold;">
+                <img src="../assets/images/like.png" style="width:30px; height:30px;">찜하기</button>
                 </p>
 <!--                 <p class="location-eng-name">Hwasun-gun</p> -->
             </div>
