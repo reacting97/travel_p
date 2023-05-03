@@ -20,4 +20,8 @@ public class MyTravelService {
 	public ArrayList<MyTravelVo> getById(String id){
 		return dao.selectById(id);
 	}
+	
+	public MyTravelVo getByIdNum(String id, int num) {
+		return dao.select(id, num);
+	}
 }
