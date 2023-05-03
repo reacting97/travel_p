@@ -30,7 +30,19 @@
 	  $(".board").click(function(){
 	    $(".hideboard").slideToggle("slow");
 	  });
-	 
+	  
+	  $("#fav").click(function() {
+		 $.ajax({
+			method:'get',
+			url:'${pageContext.request.contextPath }/mytravel/add.do',
+			data:{'num' : $(this).attr('num'), 'id' : '${sessionScope.loginId}'},
+			success: function(data) {
+				alert(data);
+			}, error : function(request, status, error){
+				alert("status : "+request.status +"\n\n error : "+error);
+			}
+		 });
+	  });
 	});
 	</script>
 
@@ -272,12 +284,13 @@ footer video {
                 			</c:when>
                 		</c:choose>
                 	</c:forEach>
-                <p class="location-name">${travel.name }</p>
+                <p class="location-name">${travel.name }
+                <button id="fav" num=${travel.id }><img src="../assets/images/like.png" style="width:30px; height:30px; background-color: transparent"></button>
+                </p>
 <!--                 <p class="location-eng-name">Hwasun-gun</p> -->
             </div>
             <div class="location-info">
                 <p style="color:#716868;">${travel.content } </p>
-                <button>💖찜하기</button>
             </div>
             <div class="other-info">
                 <div class="location-weather">
