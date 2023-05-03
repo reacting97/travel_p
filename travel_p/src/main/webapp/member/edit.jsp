@@ -59,9 +59,8 @@ https://templatemo.com/tm-580-woox-travel
 			 success: function(data) {
 				 if(data == 'true'){
 					$(this).remove();
-					alert(${msg})
 				 }else{
-					 alert(${msg})
+		
 				 }
 				
 			 }, error : function(request, status, error){

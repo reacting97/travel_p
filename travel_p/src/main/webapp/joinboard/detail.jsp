@@ -54,7 +54,6 @@ const xhttp = new XMLHttpRequest();
 		let html = document.getElementById("id_"+num2);
 		html.remove();
 	}
-	alert(num2);
 	let param = "?num=" + num2;
 	//요청 전송방식, 서버페이지 url 설정. get방식인 경우 url뒤에 파람 붙임
 	xhttp.open("GET", "${pageContext.request.contextPath}/comment/del.do"+param);
@@ -339,7 +338,11 @@ const xhttp = new XMLHttpRequest();
 			<p class="date">작성일: ${vo.w_date}</p> 
 			</div>
 			<div style="width:50%; word-break: break-word">
-			<p class="join">참여 확정: </p>
+			<p class="join">참여 확정: 
+			<c:forEach var="po" items="${plist }">
+			${po.party_member }
+			</c:forEach>
+			</p>
 			</div>
 			</div> 
 			<div class="post-content">
@@ -369,8 +372,11 @@ const xhttp = new XMLHttpRequest();
 			<h3 style="font-family: 고령딸기체">댓글</h3>
 			<c:forEach var="co" items="${clist }">
 			<div id="id_${co.num }" class="comment">
-				<p class="author" style=" margin-bottom: -6px;">
-				ID: ${co.user_id } <button class="btn btn-primary" onclick="del2('${co.num}')">댓삭</button></p>
+				<p class="author" style=" margin-bottom: -6px;">ID: ${co.user_id } 
+				<c:if test="${sessionScope.loginId eq co.user_id }">
+					<button class="btn btn-primary" onclick="del2('${co.num}')">댓삭</button>
+				</c:if>
+				</p>
 				<p class="date" style=" margin-bottom: 0; border-bottom: 1px dashed #dddddd;">작성일: ${co.date }</p>
 				<p class="content" >${co.content }</p>
 			</div>

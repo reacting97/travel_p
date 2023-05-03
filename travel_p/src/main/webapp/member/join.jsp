@@ -183,7 +183,7 @@ margin-left: 4px;
 						<input type="text" class="form-control" placeholder="phone" name="phone">
 					</div>
 					<div class="form-group">
-						<input type="submit" id="join" value="Join" class="btn float-right login_btn">
+						<input type="submit" id="join" style="display:none;" value="Join" class="btn float-right login_btn">
 					</div>
 				</form>
 			</div>
