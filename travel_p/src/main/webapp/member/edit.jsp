@@ -74,19 +74,41 @@ https://templatemo.com/tm-580-woox-travel
 	  $('.btn-danger').click(function() {
 		  if(confirm("이 글의 좋아요를 취소하시겠습니까?")){
 			  let li = $(this).closest('li');
-			  $.ajax({
-					 method:'get',
-					 url:'${pageContext.request.contextPath }/recommandboard/likeup.do',
-					 data:{'recommandnum' : $(this).attr('num'), 'writer' : '${sessionScope.loginId}'},
-					 success: function(data) {
-						 li.remove();
-					 }, error : function(request, status, error){
-						 alert("status : "+request.status +"\n\n error : "+error);
-						 
-					 }
-				  });
+			  if($(this).closest('li').attr('id').startsWith('like')){
+				  $.ajax({
+						 method:'get',
+						 url:'${pageContext.request.contextPath }/recommandboard/likeup.do',
+						 data:{'recommandnum' : $(this).attr('num'), 'writer' : '${sessionScope.loginId}'},
+						 success: function(data) {
+							 li.remove();
+						 }, error : function(request, status, error){
+							 alert("status : "+request.status +"\n\n error : "+error);
+							 
+						 }
+					  });
+			  } else if($(this).closest('li').attr('id').startsWith('fav')){
+				  /*$.ajax({
+						 method:'get',
+						 url:'${pageContext.request.contextPath }/mytravel/fav.do',
+						 data:{'num' : $(this).attr('travel'), 'id' : '${sessionScope.loginId}'},
+						 success: function(data) {
+							 li.remove();
+						 }, error : function(request, status, error){
+							 alert("status : "+request.status +"\n\n error : "+error);
+							 
+						 }
+					  });*/
+			  }
 		  } else {}
 		  
+	  });
+	  
+	  $('.fav-content').click(function() {
+		 if($(this).attr('id') == 'like_'+$(this).attr('num')){
+			 window.location.href = '${pageContext.request.contextPath}/recommandboard/detail.do?num='+$(this).attr('num');
+		 } else if ($(this).attr('id') == 'fav_'+$(this).attr('num')){
+			 window.location.href = '${pageContext.request.contextPath}/travel/detail.do?num='+$(this).attr('travel');
+		 }
 	  });
 	});
 	</script>
@@ -299,27 +321,33 @@ https://templatemo.com/tm-580-woox-travel
        <img src="../assets/images/like.png" style='width:20px; margin-right:10px'>나의 좋아요 
       </button>
     </h2>
-    <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse show">
+    <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse">
       <div class="accordion-body">
         <ul class="">
-			<c:forEach var="fav" items="${favlist }">
-				<li class="fav-content" id="fav_${fav.num }" num=${fav.num }>${fav.writer} ${fav.title }
-					<button type="button" num=${fav.num } class="btn btn-danger">삭제</button>
+			<c:forEach var="like" items="${likelist }">
+				<li class="fav-content" id="like_${like.num }" num=${like.num }>${like.writer} ${like.title }
+					<button type="button" num=${like.num } class="btn btn-danger">삭제</button>
 				</li>
 			</c:forEach>
-			</ul>
+		</ul>
       </div>
     </div>
   </div>
   <div class="accordion-item">
     <h2 class="accordion-header">
       <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseTwo" aria-expanded="false" aria-controls="panelsStayOpen-collapseTwo">
-       <img src="../assets/images/write.png" style='width:20px; margin-right:10px'>내 노트
+       <img src="../assets/images/write.png" style='width:20px; margin-right:10px'>찜한 여행지
       </button>
     </h2>
     <div id="panelsStayOpen-collapseTwo" class="accordion-collapse collapse">
       <div class="accordion-body">
-      	
+      	<ul class="">
+			<c:forEach var="fav" items="${favlist }">
+				<li class="fav-content" id="fav_${fav.num }" num=${fav.num } travel='${fav.travel_id }'>${fav.id}
+					<button type="button" num=${fav.num } class="btn btn-danger">삭제</button>
+				</li>
+			</c:forEach>
+		</ul>
       </div>
     </div>
   </div>
@@ -327,20 +355,16 @@ https://templatemo.com/tm-580-woox-travel
 </div>
 	<div class="message">
  	<span class="msg-banner">
-  			<button class="drop"><img src="../assets/images/chat.png">
-  			<p style="font-size: 16px; width: 80px; display: flex; align-items: center;}">메세지 ${cnt }개</p></button>
-			<ul class="msg-detail">
+		<button class="drop"><img src="../assets/images/chat.png">
+			<p style="font-size: 16px; width: 80px; display: flex; align-items: center;}">메세지 ${cnt }개</p></button>
+		<ul class="msg-detail">
 			<c:forEach var="vo2" items="${mlist }">
 				<li class="msg-content" num=${vo2.num }>${vo2.content }</li>
-				
 			</c:forEach>
-			</ul>  		
-  		</span>
-  		</div>
-
+		</ul>  		
+	</span>
 </div>
-	
-	
+</div>
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
 </body>
 </html>

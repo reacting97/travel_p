@@ -39,7 +39,7 @@ private DBConnect dbconn;
 	public ArrayList<MyTravelVo> selectById(String id) {
 		Connection conn = dbconn.conn();
 		ArrayList<MyTravelVo> list = new ArrayList<>();
-		String sql = "select * from my_travel where user_id=?";
+		String sql = "select m.num num, t.name, t.num travel_id from travel t, my_travel m where t.num = m.travel_id and user_id = ?";
 		try {
 			PreparedStatement ps = conn.prepareStatement(sql);
 			ps.setString(1, id);
