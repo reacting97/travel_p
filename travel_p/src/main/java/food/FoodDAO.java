@@ -110,7 +110,7 @@ public class FoodDAO {
 	
 	public ArrayList<FoodVO> selectAll() {
 		Connection conn = dbconn.conn();
-		String sql = "select * from food";
+		String sql = "select * from food order by num";
 		ArrayList<FoodVO> list = new ArrayList<>();
 		try {
 			PreparedStatement ps = conn.prepareStatement(sql);

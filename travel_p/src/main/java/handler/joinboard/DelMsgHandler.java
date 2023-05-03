@@ -1,5 +1,7 @@
 package handler.joinboard;
 
+import java.io.UnsupportedEncodingException;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -11,6 +13,7 @@ public class DelMsgHandler implements Handler {
 	@Override
 	public String process(HttpServletRequest request, HttpServletResponse response) {
 		// TODO Auto-generated method stub
+		
 		boolean flag = false;
 		int num = Integer.parseInt(request.getParameter("num"));
 		String id = request.getParameter("id");

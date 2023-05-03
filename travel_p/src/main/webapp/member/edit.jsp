@@ -114,6 +114,11 @@ https://templatemo.com/tm-580-woox-travel
 	</script>
  <style type="text/css">
  
+ .sub-head-1 {
+    height: 130px;
+    background-color: #D3D3D3;
+}
+ 
  .mypage-card{
 	color:blue;
 	text-align:center;
@@ -150,11 +155,15 @@ https://templatemo.com/tm-580-woox-travel
     flex-direction: column;
  }
  
+ .myinfo-detail:hover{
+ 	transform:none;
+ }
+ 
  .message{
  	display: flex;
     position: relative;
     float: right;
-    right: -140px;
+    right: -160px;
     top:50px;
  
  }
@@ -184,21 +193,85 @@ https://templatemo.com/tm-580-woox-travel
  
  .msg-content{
  	margin-bottom: 12px;
-    border-bottom: 1px dashed #808080;
+    border-bottom: 1px dashed #80808087;
     margin-top: 10px;
     margin-right: 10px;
  }
  
  .fav-content{
- 	margin-bottom: 12px;
-    border-bottom: 1px dashed #808080;
-    margin-top: 10px;
-    margin-right: 10px;
+ 	display: flex;
+    justify-content: space-between;
+    border-bottom: 1px dashed;
+    margin-left: -30px;
+    margin-bottom: 10px;
  }
+ 
+ .trash-btn{
+ 	border: none;
+    background-color: transparent;
+    
+ }
+ 
+ .trash-btn {
+  display:inline-block;
+  position: relative;
+  transition-duration: $defaultDuration;
+  transition-property:transform;
+
+  @include hideTapHighlightColor();
+  @include hardwareAccel();
+  @include improveAntiAlias();
+
+  &:before {
+    pointer-events: none;
+    position: absolute;
+    z-index: -1;
+    content: '';
+    top: 100%;
+    left: 5%;
+    height: 10px;
+    width: 90%;
+    opacity: 0;
+    background: radial-gradient(ellipse at center, rgba(0,0,0,.35) 0%,rgba(0,0,0,0) 80%); /* W3C */
+    transition-duration:$defaultDuration;
+    transition-property:transform opacity;
+  }
+
+  &:hover {
+    transform: translateY(-5px); /* move the element up by 5px */
+
+   &:before {
+      opacity: 1;
+      transform:translateY(5px); /* move the element down by 5px (it will stay in place because it's attached to the element that also moves up 5px) */
+    }
+  }
+}
+
+.edit-del{
+	display: flex;
+    margin-right: 5px;
+   	justify-content: flex-end;
+    flex-direction: row;
+}
+
+#edit-btn:hover{
+	text-shadow: 0 0 0.1em, 17px 20px 0.3em;
+}
+
+footer video {
+  position: absolute; 
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* 동영상 크기에 맞게 자동으로 늘리기 */
+}
+
+
  </style>
 </head>
-<body>
-	<header class="header-area header-sticky">
+<body style="background-color: #14ed5d0d;">
+	 <header class="header-area header-sticky">
     <div class="container head-nav">
         <div class="row head-nav-sub">
             <div class="col-12 head-nav-sub2">
@@ -212,20 +285,20 @@ https://templatemo.com/tm-580-woox-travel
                     <ul class="nav">
                         <li><a href="../index.jsp" class="active">Home</a></li>
                         <li>
-                        <a href="#" class="board">Board</a>
+                        <a class="board">Board</a>
                          <ul class="hideboard">
 							<li class="board-li" ><a href="${pageContext.request.contextPath }/recommandboard/list.do" id="board-li-a">추천게시판</a>
     						<li class="board-li"><a href="${pageContext.request.contextPath }/recordboard/list.do" id="board-li-a">관광일기</a>
     						<li class="board-li"><a href="${pageContext.request.contextPath }/joinboard/list.do" id="board-li-a">같이가자!</a>
   	 					 </ul>
   	 					 </li>
-                        <li><a href="#">Deals</a></li>
+                        <li><a href="${pageContext.request.contextPath }/food/list.do">Michelin</a></li>
                         <c:if test ="${empty sessionScope.loginId }">
                         <li><a href="${pageContext.request.contextPath }/member/login.do">Login</a></li>
                         </c:if>
                         <c:if test ="${not empty sessionScope.loginId }">
                         <li><a href="${pageContext.request.contextPath }/member/logout.do">Logout</a></li>
-                        <li><a href="#" style="padding-top:6px">${sessionScope.loginId } 님 <img src="../assets/images/myinfo.png" class="myinfo-icon"></a>
+                        <li><a href="${pageContext.request.contextPath }/member/edit.do?id=${sessionScope.loginId}" style="padding-top:6px">${sessionScope.loginId } 님 <img src="../assets/images/myinfo.png" class="myinfo-icon"></a>
                         </li>
                         </c:if>
                     </ul>   
@@ -245,13 +318,14 @@ https://templatemo.com/tm-580-woox-travel
   		
   		
   
-  	<nav class="navbar bg-body-tertiary" style="height:190px">
+  	<nav class="sub-head-1">
   <div class="container-fluid" style="display: flex;
     flex-wrap: inherit;
     justify-content: center;
     font-size: -webkit-xxx-large;
-    margin-top: 111px">
-    <span class="navbar-brand mb-0 h1" style="font-size:-webkit-xxx-large">My page</span>
+    margin-top: 70px">
+    <span class="navbar-brand mb-0 h1" style="font-size:-webkit-xxx-large; padding-top:70px; font-family: KCC-간판체 ">
+    My page</span>
   </div>
 	</nav>
 	
@@ -259,9 +333,9 @@ https://templatemo.com/tm-580-woox-travel
 	
 	
 	
-	<div class="container" style="justify-content:flex-start; display: flex">
+	<div class="container" style="justify-content:flex-start; display: flex; margin-top: 80px;">
 	
-		<div class="card myinfo" style="margin:50px; background-color: beige; width: 25%;">
+		<div class="card myinfo" style="margin:70px; background-color: beige; width: 25%; margin-top: 50px;">
   			<img src="../assets/images/myinfo.png" class="card-img-top" alt="...">
   		<div class="card-body">
    				 <p class="card-text mypage-card" >안녕하세요! <br/> ${sessionScope.loginId } 님 </p>
@@ -270,7 +344,7 @@ https://templatemo.com/tm-580-woox-travel
 	
 	<div class="myinfo-detail">
 	<form action="${pageContext.request.contextPath }/member/edit.do" method="post" style="height:100%; width:130%; margin:50px; margin-left: 0;">
-	<div class="card myinfo" style="width: 100%; height:47%">
+	<div class="card myinfo" style="width: 100%; height:42%;">
   <ul class="list-group list-group-flush">
    <li> 
    <div class="input-group flex-nowrap">
@@ -306,15 +380,17 @@ https://templatemo.com/tm-580-woox-travel
   	<input type="tel" class="form-control" name="phone" value="${vo.phone }" aria-describedby="addon-wrapping" >
 	</div>
 	</li>
-  	<li>
-	<button type="submit" class="btn btn-link" style="display:flex; flex-direction:row-reverse; text-decoration:none">수정하기</button>
+  	<li class="edit-del">
+	<button type="submit" class="btn btn-link" id="edit-btn" style="text-decoration: none; color: #472b2bbd; font-weight: bold; " >수정하기</button>
+	<button type="button" class="btn btn-link" id="edit-btn" onclick="javascript:location.href='${pageContext.request.contextPath }/member/del.do?id=${sessionScope.loginId}'"
+	style="text-decoration: none; color: #472b2bbd; font-weight: bold;">탈퇴</button>
  	</li>
  	
   </ul>
  	</div>
   </form>
   
- 	<div class="accordion mylike" id="accordionPanelsStayOpenExample">
+ 	<div class="accordion mylike" id="accordionPanelsStayOpenExample" ">
   <div class="accordion-item">
     <h2 class="accordion-header">
       <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="true" aria-controls="panelsStayOpen-collapseOne">
@@ -325,8 +401,8 @@ https://templatemo.com/tm-580-woox-travel
       <div class="accordion-body">
         <ul class="">
 			<c:forEach var="like" items="${likelist }">
-				<li class="fav-content" id="like_${like.num }" num=${like.num }>${like.writer} ${like.title }
-					<button type="button" num=${like.num } class="btn btn-danger">삭제</button>
+				<li class="fav-content" id="like_${like.num }" num=${like.num }>${like.writer} 제목: ${like.title }
+          <button type="button" num=${like.num } class="trash-btn"><img src="../assets/images/trash.png" style="width:20px; margin-bottom: 5px;">삭제</button>
 				</li>
 			</c:forEach>
 		</ul>
@@ -353,7 +429,7 @@ https://templatemo.com/tm-580-woox-travel
   </div>
 	</div>
 </div>
-	<div class="message">
+	<div class="message" >
  	<span class="msg-banner">
 		<button class="drop"><img src="../assets/images/chat.png">
 			<p style="font-size: 16px; width: 80px; display: flex; align-items: center;}">메세지 ${cnt }개</p></button>
@@ -361,10 +437,36 @@ https://templatemo.com/tm-580-woox-travel
 			<c:forEach var="vo2" items="${mlist }">
 				<li class="msg-content" num=${vo2.num }>${vo2.content }</li>
 			</c:forEach>
-		</ul>  		
-	</span>
+			</ul>  		
+  		</span>
+  		</div>
 </div>
-</div>
-	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
+	
+	
+	
+	<footer style="position: relative; margin-top: 200px;">
+  	<div class="call-to-action" style="height: 140px; margin-top:0">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8">
+        </div>
+      </div>
+    </div>
+  </div>
+	<video muted autoplay loop id="background-video" >
+      <source src="../assets/images/sea.mp4" type="video/mp4">
+      <strong>Your browser does not support the video tag.</strong>
+   	 </video>
+ 
+    <div class="container" style="position: relative;">
+      <div class="row">
+        <div class="col-lg-12">
+          <p>Copyright © 2023 1조 관광곡곡 Travel Company. All rights reserved. 
+          <br>From: 이주원 전준하 남영우 장하은</p> 
+        </div>
+      </div>
+    </div>
+  </footer>
+		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
 </body>
 </html>

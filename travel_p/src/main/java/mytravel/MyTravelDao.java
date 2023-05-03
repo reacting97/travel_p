@@ -20,9 +20,8 @@ private DBConnect dbconn;
 		String sql = "insert into my_travel values(seq_my_travel.nextval,?,?)";
 		try {
 			PreparedStatement ps = conn.prepareStatement(sql);
-			ps.setInt(1, vo.getNum());
-			ps.setString(2, vo.getId());
-			ps.setInt(3, vo.getTravel_id());
+			ps.setString(1, vo.getId());
+			ps.setInt(2, vo.getTravel_id());
 			int num = ps.executeUpdate();
 			System.out.println(num + " 줄 추가");
 		} catch (SQLException e) {
@@ -57,6 +56,30 @@ private DBConnect dbconn;
 			}
 		}
 		return list;
+	}
+	
+	public MyTravelVo select(String id, int num) {
+		Connection conn = dbconn.conn();
+		MyTravelVo vo = null;
+		String sql = "select * from my_travel where user_id=? and travel_id=?";
+		try {
+			PreparedStatement ps = conn.prepareStatement(sql);
+			ps.setString(1, id);
+			ps.setInt(2, num);
+			ResultSet rs = ps.executeQuery();
+			if(rs.next()) {
+				vo =new MyTravelVo(rs.getInt(1),rs.getString(2),rs.getInt(3));
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				conn.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+		return vo;
 	}
 	
 	public void delete(int num) {
