@@ -141,6 +141,7 @@ footer video {
 		
 
 	<div class="container my-4" style="padding-top: 66px;">
+
 		<form method="POST" action="${pageContext.request.contextPath }/recordboard/add.do" enctype="multipart/form-data">
 			<div class="form-group">
 				<label for="writer">작성자</label> <input type="text"
@@ -193,6 +194,7 @@ footer video {
    	 </video>
  
     <div class="container" style="position: relative;">
+
       <div class="row">
         <div class="col-lg-12">
           <p>Copyright © 2023 1조 관광곡곡 Travel Company. All rights reserved. 

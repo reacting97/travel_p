@@ -141,6 +141,7 @@ footer video {
 
  
 	<div class="container my-4" style="padding-top: 66px;">
+
 		<form method="POST" action="${pageContext.request.contextPath }/recordboard/edit.do?num=${vo.num}" enctype="multipart/form-data">
 			<div class="form-group">
 				<label for="writer">작성자</label> <input type="text"

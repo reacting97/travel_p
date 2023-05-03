@@ -139,6 +139,7 @@ footer video {
   </header>
 
 
+
 	<div class="container my-4" style="padding-top: 70px;">
 		<form method="POST" action="${pageContext.request.contextPath }/joinboard/add.do" enctype="multipart/form-data">
 			<div class="form-group">
@@ -169,11 +170,13 @@ footer video {
 		</form>
 	</div>
 	
+
 	<footer style="position: relative;">
   	<div class="call-to-action" style="height: 140px; margin-top:0">
     <div class="container">
       <div class="row">
         <div class="col-lg-8">
+
         </div>
       </div>
     </div>

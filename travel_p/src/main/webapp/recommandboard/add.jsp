@@ -195,6 +195,5 @@ footer video {
       </div>
     </div>
   </footer>
-  
 </body>
 </html>
