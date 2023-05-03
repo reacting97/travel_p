@@ -71,14 +71,14 @@ https://templatemo.com/tm-580-woox-travel
 		  });
 	  });
 	  
-	  $('.btn-danger').click(function() {
+	  $('.trash-btn ').click(function() {
 		  if(confirm("이 글의 좋아요를 취소하시겠습니까?")){
 			  let li = $(this).closest('li');
 			  if($(this).closest('li').attr('id').startsWith('like')){
 				  $.ajax({
 						 method:'get',
 						 url:'${pageContext.request.contextPath }/recommandboard/likeup.do',
-						 data:{'recommandnum' : $(this).attr('num'), 'writer' : '${sessionScope.loginId}'},
+						 data:{'recommandnum' : li.attr('num'), 'writer' : '${sessionScope.loginId}'},
 						 success: function(data) {
 							 li.remove();
 						 }, error : function(request, status, error){
@@ -87,27 +87,30 @@ https://templatemo.com/tm-580-woox-travel
 						 }
 					  });
 			  } else if($(this).closest('li').attr('id').startsWith('fav')){
-				  /*$.ajax({
+				  console.log(li.attr('travel'));
+				  $.ajax({
 						 method:'get',
-						 url:'${pageContext.request.contextPath }/mytravel/fav.do',
-						 data:{'num' : $(this).attr('travel'), 'id' : '${sessionScope.loginId}'},
+						 url:'${pageContext.request.contextPath }/mytravel/add.do',
+						 data:{'num' : li.attr('travel'), 'id' : '${sessionScope.loginId}'},
 						 success: function(data) {
 							 li.remove();
+							 alert(data);
 						 }, error : function(request, status, error){
 							 alert("status : "+request.status +"\n\n error : "+error);
 							 
 						 }
-					  });*/
+					  });
 			  }
 		  } else {}
 		  
 	  });
 	  
-	  $('.fav-content').click(function() {
-		 if($(this).attr('id') == 'like_'+$(this).attr('num')){
-			 window.location.href = '${pageContext.request.contextPath}/recommandboard/detail.do?num='+$(this).attr('num');
-		 } else if ($(this).attr('id') == 'fav_'+$(this).attr('num')){
-			 window.location.href = '${pageContext.request.contextPath}/travel/detail.do?num='+$(this).attr('travel');
+	  $('h5').click(function() {
+		 let li = $(this).closest('li');
+		 if(li.attr('id').startsWith('like')){
+			 window.location.href = '${pageContext.request.contextPath}/recommandboard/detail.do?num='+li.attr('num');
+		 } else if (li.attr('id').startsWith('fav')){
+			 window.location.href = '${pageContext.request.contextPath}/travel/detail.do?num='+li.attr('travel');
 		 }
 	  });
 	});
@@ -401,7 +404,7 @@ footer video {
       <div class="accordion-body">
         <ul class="">
 			<c:forEach var="like" items="${likelist }">
-				<li class="fav-content" id="like_${like.num }" num=${like.num }>${like.writer} 제목: ${like.title }
+				<li class="fav-content" id="like_${like.num }" num=${like.num }><h5>${like.writer} 제목: ${like.title }</h5>
           <button type="button" num=${like.num } class="trash-btn"><img src="../assets/images/trash.png" style="width:20px; margin-bottom: 5px;">삭제</button>
 				</li>
 			</c:forEach>
@@ -419,8 +422,8 @@ footer video {
       <div class="accordion-body">
       	<ul class="">
 			<c:forEach var="fav" items="${favlist }">
-				<li class="fav-content" id="fav_${fav.num }" num=${fav.num } travel='${fav.travel_id }'>${fav.id}
-					<button type="button" num=${fav.num } class="btn btn-danger">삭제</button>
+				<li class="fav-content" id="fav_${fav.num }" num=${fav.num } travel='${fav.travel_id }'><h5>${fav.id}</h5>
+					<button type="button" num=${fav.num } class="trash-btn"><img src="../assets/images/trash.png" style="width:20px; margin-bottom: 5px;">삭제</button>
 				</li>
 			</c:forEach>
 		</ul>

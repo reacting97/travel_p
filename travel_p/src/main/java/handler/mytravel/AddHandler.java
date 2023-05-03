@@ -26,14 +26,13 @@ public class AddHandler implements Handler {
 		String id = request.getParameter("id");
 		MyTravelService s = new MyTravelService();
 		MyTravelVo vo = s.getByIdNum(id, num);
-		System.out.println("add handler");
 		if(vo == null) {
-			msg = "1 나의 찜리스트에 정상적으로 추가되었습니다.";
+			msg = "나의 찜리스트에 정상적으로 추가되었습니다.";
 			s.addMyTravel(new MyTravelVo(0, id, num));
 		}else {
-			msg = "2 나의 찜리스트에 이미 추가되어 있는 여행지입니다.";
+			msg = "나의 찜리스트에서 삭제하였습니다.";
+			s.delMyTravel(vo.getNum());
 		}
-		System.out.println("response");
 		return "responsebody/"+msg;
 		
 	}
