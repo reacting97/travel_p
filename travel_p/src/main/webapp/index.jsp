@@ -41,6 +41,20 @@ https://templatemo.com/tm-580-woox-travel
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
 <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.css">
 <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick-theme.min.css">
+
+
+
+<style type="text/css">
+
+footer video {
+  position: absolute; /* 상위 요소인 footer 기준으로 위치 지정 */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* 동영상 크기에 맞게 자동으로 늘리기 */
+}
+</style>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
 <script type="text/javascript">
 	
@@ -57,7 +71,7 @@ https://templatemo.com/tm-580-woox-travel
 	  	  dataType:'json',
 	  	  success:function(result){
 	  		  let texthtml = '';
-	  		  for(let i=0; i<result.length; i++){
+	  		  for(let i=0; i<5; i++){
 	  			texthtml += '<div class="card" style="width: 15rem; height:18rem">';
 	  			texthtml +=	'<img src="'+result[i].pic1+'" class="maincard-img-top" alt="...">';
 	  			texthtml += '<div class="card-body">';
@@ -139,7 +153,7 @@ https://templatemo.com/tm-580-woox-travel
 		</script>
   </head>
 
-<body>
+<body >
 
   <!-- ***** Preloader Start ***** -->
   <div id="js-preloader" class="js-preloader">
@@ -169,7 +183,7 @@ https://templatemo.com/tm-580-woox-travel
                     <ul class="nav">
                         <li><a href="index.jsp" class="active">Home</a></li>
                         <li>
-                        <a href="#" class="board">Board</a>
+                        <a class="board">Board</a>
                          <ul class="hideboard">
 							<li class="board-li" ><a href="${pageContext.request.contextPath }/recommandboard/list.do" id="board-li-a">추천게시판</a>
     						<li class="board-li"><a href="${pageContext.request.contextPath }/recordboard/list.do" id="board-li-a">관광일기</a>
@@ -354,6 +368,7 @@ https://templatemo.com/tm-580-woox-travel
           </div>
         </div>
       </div>
+   	 
       <nav>
         <div class="controls">
           <label for="banner1"><span class="progressbar"><span class="progressbar-fill"></span></span><span class="text">1</span></label>
@@ -416,7 +431,7 @@ https://templatemo.com/tm-580-woox-travel
     
     
   <h3 class="recommend-text">조회수 랭킹곡곡</h3>
-  		<div class="container">
+  		<div class="container" style="width:80%">
   			<div id="recommand1" class="recommend"> 
 			<!-- <div class="card" style="width: 18rem; height:20rem">
   					<img src="assets/images/nammountain.jpg" class="maincard-img-top" alt="...">
@@ -451,11 +466,10 @@ https://templatemo.com/tm-580-woox-travel
 		</div>
 	</div>
 	<!-- 	날씨 -->
-	<div class="container boards" style="margin-top:50px">
+	<div class="container boards" style="margin-top:50px; width: 78%;">
 		<div class="column recommed">
       <h2 class="boards-title">Recommend<a href="${pageContext.request.contextPath }/recommandboard/list.do" id="board-li-a" style="color:black; font-size: 20px;"> ...</a></h2>
       <img id="image1" src="assets/images/kuje.jpg" alt="추천글 이미지" class="recommend-img">
-      <p>추천글 내용</p>
       <div class="img-button">
         <button onclick="changeImage1('prev')" style="background-color: transparent; border:none"><img id="prev1" src="assets/images/left.png" alt="왼쪽 화살표" ></button> 
          <button onclick="changeImage1('next')" style="background-color: transparent; border:none"><img id="next1" src="assets/images/right.png" alt="오른쪽 화살표"></button>
@@ -465,7 +479,6 @@ https://templatemo.com/tm-580-woox-travel
     <div class="column recommed">
       <h2 class="boards-title">Diary<a href="${pageContext.request.contextPath }/recordboard/list.do" id="board-li-a" style="color:black; font-size: 20px;"> ...</a></h2>
       <img id="image2" src="assets/images/busan.jpg" alt="일기 이미지" class="recommend-img">
-      <p>일기 내용</p>
       <div class="img-button">
          <button onclick="changeImage2('prev')" style="background-color: transparent; border:none"><img id="prev2" src="assets/images/left.png" alt="왼쪽 화살표"></button>
         <button onclick="changeImage2('next')" style="background-color: transparent; border:none"><img id="next2" src="assets/images/right.png" alt="오른쪽 화살표"></button>
@@ -475,7 +488,6 @@ https://templatemo.com/tm-580-woox-travel
     <div class="column recommed">
       <h2 class="boards-title">Join<a href="${pageContext.request.contextPath }/joinboard/list.do" id="board-li-a" style="color:black; font-size: 20px;"> ...</a></h2>
       <img id="image3" src="assets/images/nammountain.jpg" alt="모집 이미지" class="recommend-img">
-      <p>모집 내용</p>
       <div class="img-button">
        <button onclick="changeImage3('prev')" style="background-color: transparent; border:none"><img id="prev3" src="assets/images/left.png" alt="왼쪽 화살표"></button>
        <button onclick="changeImage3('next')" style="background-color: transparent; border:none"><img id="next3" src="assets/images/right.png" alt="오른쪽 화살표"></button>
@@ -553,21 +565,24 @@ https://templatemo.com/tm-580-woox-travel
 </div>
 </div>
 	
-	
 <!-- 	바닥글 -->
-  <div class="call-to-action">
+	<footer style="position: relative;">
+  	<div class="call-to-action">
     <div class="container">
       <div class="row">
         <div class="col-lg-8">
-          <h2>Are You Looking To Travel ?</h2>
+          <h2>Where to next?</h2>
         	 <audio src="assets/music/유희열_공원에서.mp3" controls autoplay loop style="height:30px"></audio>
         </div>
       </div>
     </div>
   </div>
-
-  <footer>
-    <div class="container">
+	<video muted autoplay loop id="background-video" >
+      <source src="assets/images/sea.mp4" type="video/mp4">
+      <strong>Your browser does not support the video tag.</strong>
+   	 </video>
+ 
+    <div class="container" style="position: relative;">
       <div class="row">
         <div class="col-lg-12">
           <p>Copyright © 2023 1조 관광곡곡 Travel Company. All rights reserved. 

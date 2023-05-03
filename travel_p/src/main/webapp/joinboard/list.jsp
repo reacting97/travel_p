@@ -67,6 +67,15 @@ response.setCharacterEncoding("utf-8");
     margin-right: 10px;
 }
 
+footer video {
+  position: absolute; 
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* 동영상 크기에 맞게 늘리기 */
+}
+
 </style>
 <script
 	src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
@@ -80,9 +89,9 @@ response.setCharacterEncoding("utf-8");
 </head>
 
 
-<body style="background-image:url(../assets/images/backimg.jpg)">
+<body style="background-image:url(../assets/images/togetherimg2.jpg); background-size:100%; background-attachment: fixed;">
 
-	 <header class="header-area header-sticky">
+	 <header class="header-area header-sticky" style="position: fixed">
     <div class="container head-nav">
         <div class="row head-nav-sub">
             <div class="col-12 head-nav-sub2">
@@ -96,7 +105,7 @@ response.setCharacterEncoding("utf-8");
                     <ul class="nav">
                         <li><a href="../index.jsp" class="active">Home</a></li>
                         <li>
-                        <a href="#" class="board">Board</a>
+                        <a class="board">Board</a>
                          <ul class="hideboard">
 							<li class="board-li" ><a href="${pageContext.request.contextPath }/recommandboard/list.do" id="board-li-a">추천게시판</a>
     						<li class="board-li"><a href="${pageContext.request.contextPath }/recordboard/list.do" id="board-li-a">관광일기</a>
@@ -175,26 +184,30 @@ response.setCharacterEncoding("utf-8");
 	
 	
 	<!-- 	바닥글 -->
-  <div class="call-to-action">
+  <footer style="position: relative;">
+  	<div class="call-to-action">
     <div class="container">
       <div class="row">
         <div class="col-lg-8">
-          <h2>Are You Looking To Travel ?</h2>
         </div>
       </div>
     </div>
   </div>
-
-  <footer>
-    <div class="container">
+<!-- 	<video muted autoplay loop id="background-video" > -->
+<!--       <source src="../assets/images/sea.mp4" type="video/mp4"> -->
+<!--       <strong>Your browser does not support the video tag.</strong> -->
+<!--    	 </video> -->
+ 
+    <div class="container" style="position: relative;">
       <div class="row">
         <div class="col-lg-12">
           <p>Copyright © 2023 1조 관광곡곡 Travel Company. All rights reserved. 
           <br>From: 이주원 전준하 남영우 장하은</p> 
+          <p>img:© <a href='https://kr.123rf.com/profile_virtosmedia'>virtosmedia</a>, <a href='https://www.123rf.com/free-images/'>123RF Free Images</a></p>
         </div>
       </div>
     </div>
-  </footer>	
+  </footer>
 	
 </body>
 </html>

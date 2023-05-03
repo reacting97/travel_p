@@ -153,7 +153,14 @@ response.setCharacterEncoding("utf-8");
     color: #6c757d;
 }
 
-
+footer video {
+  position: absolute; 
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* 동영상 크기에 맞게 자동으로 늘리기 */
+}
 </style>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
@@ -201,7 +208,7 @@ function likey2(num){
 	crossorigin="anonymous">
 </head>
 <body style="background-color:#F0FFFF">
-	<header class="header-area header-sticky">
+	<header class="header-area header-sticky" style="position: fixed">
     <div class="container head-nav">
         <div class="row head-nav-sub">
             <div class="col-12 head-nav-sub2">
@@ -215,7 +222,7 @@ function likey2(num){
                     <ul class="nav">
                         <li><a href="../index.jsp" class="active">Home</a></li>
                         <li>
-                        <a href="#" class="board">Board</a>
+                        <a class="board">Board</a>
                         <ul class="hideboard">
 							<li class="board-li" ><a href="${pageContext.request.contextPath }/recommandboard/list.do" id="board-li-a">추천게시판</a>
     						<li class="board-li"><a href="${pageContext.request.contextPath }/recordboard/list.do" id="board-li-a">관광일기</a>
@@ -296,18 +303,21 @@ function likey2(num){
 	
 	
 	<!-- 	바닥글 -->
- <div class="call-to-action">
+ <footer style="position: relative;">
+  	<div class="call-to-action" style="height: 140px;">
     <div class="container">
       <div class="row">
         <div class="col-lg-8">
-          <h2>Are You Looking To Travel ?</h2>
         </div>
       </div>
     </div>
   </div>
-
-  <footer>
-    <div class="container">
+	<video muted autoplay loop id="background-video" >
+      <source src="../assets/images/sea.mp4" type="video/mp4">
+      <strong>Your browser does not support the video tag.</strong>
+   	 </video>
+ 
+    <div class="container" style="position: relative;">
       <div class="row">
         <div class="col-lg-12">
           <p>Copyright © 2023 1조 관광곡곡 Travel Company. All rights reserved. 

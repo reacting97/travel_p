@@ -155,7 +155,6 @@ https://templatemo.com/tm-580-woox-travel
 .left{
 	height: 500px;
     width: 50%;
-    border: 1px solid;
 }
 
 .right{
@@ -198,6 +197,14 @@ https://templatemo.com/tm-580-woox-travel
     color: #6c757d;
 }
 
+footer video {
+  position: absolute; 
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* 동영상 크기에 맞게 자동으로 늘리기 */
+}
 
 </style>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
@@ -218,8 +225,8 @@ https://templatemo.com/tm-580-woox-travel
 			 background-size: 100% 1.2em;">
 
 
-	<header class="header-area header-sticky">
-    <div class="container head-nav">
+	<header class="header-area header-sticky" style="position: fixed">
+    <div class="container head-nav" >
         <div class="row head-nav-sub">
             <div class="col-12 head-nav-sub2">
                 <nav class="main-nav">
@@ -232,7 +239,7 @@ https://templatemo.com/tm-580-woox-travel
                     <ul class="nav">
                         <li><a href="../index.jsp" class="active">Home</a></li>
                         <li>
-                        <a href="#" class="board">Board</a>
+                        <a class="board">Board</a>
                         <ul class="hideboard">
 							<li class="board-li" ><a href="${pageContext.request.contextPath }/recommandboard/list.do" id="board-li-a">추천게시판</a>
     						<li class="board-li"><a href="${pageContext.request.contextPath }/recordboard/list.do" id="board-li-a">관광일기</a>
@@ -311,18 +318,21 @@ https://templatemo.com/tm-580-woox-travel
 	</div>
 	</nav>
 	
-	<div class="call-to-action">
+	<footer style="position: relative;">
+  	<div class="call-to-action" style="height: 140px;">
     <div class="container">
       <div class="row">
         <div class="col-lg-8">
-          <h2>Are You Looking To Travel ?</h2>
         </div>
       </div>
     </div>
   </div>
-
-  <footer>
-    <div class="container">
+	<video muted autoplay loop id="background-video" >
+      <source src="../assets/images/sea.mp4" type="video/mp4">
+      <strong>Your browser does not support the video tag.</strong>
+   	 </video>
+ 
+    <div class="container" style="position: relative;">
       <div class="row">
         <div class="col-lg-12">
           <p>Copyright © 2023 1조 관광곡곡 Travel Company. All rights reserved. 
@@ -330,7 +340,7 @@ https://templatemo.com/tm-580-woox-travel
         </div>
       </div>
     </div>
-  </footer>	
+  </footer>
 	
 	
 </body>
