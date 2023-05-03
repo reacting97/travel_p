@@ -466,9 +466,9 @@ footer video {
 		</div>
 	</div>
 	<!-- 	날씨 -->
-	<div class="container boards" style="margin-top:50px; width: 78%;">
+	<div class="container boards" style="padding-top:0; width: 78%;">
 		<div class="column recommed">
-      <h2 class="boards-title">Recommend<a href="${pageContext.request.contextPath }/recommandboard/list.do" id="board-li-a" style="color:black; font-size: 20px;"> ...</a></h2>
+      <h2 class="boards-title">Recommend<a href="${pageContext.request.contextPath }/recommandboard/list.do" id="board-li-a" class="drop" style="color:black; font-size: 20px;"> ...</a></h2>
       <img id="image1" src="assets/images/kuje.jpg" alt="추천글 이미지" class="recommend-img">
       <div class="img-button">
         <button onclick="changeImage1('prev')" style="background-color: transparent; border:none"><img id="prev1" src="assets/images/left.png" alt="왼쪽 화살표" ></button> 
@@ -477,7 +477,7 @@ footer video {
     </div>
     <!-- 일기 컬럼 -->
     <div class="column recommed">
-      <h2 class="boards-title">Diary<a href="${pageContext.request.contextPath }/recordboard/list.do" id="board-li-a" style="color:black; font-size: 20px;"> ...</a></h2>
+      <h2 class="boards-title">Diary<a href="${pageContext.request.contextPath }/recordboard/list.do" id="board-li-a" class="drop" style="color:black; font-size: 20px;"> ...</a></h2>
       <img id="image2" src="assets/images/busan.jpg" alt="일기 이미지" class="recommend-img">
       <div class="img-button">
          <button onclick="changeImage2('prev')" style="background-color: transparent; border:none"><img id="prev2" src="assets/images/left.png" alt="왼쪽 화살표"></button>
@@ -486,7 +486,7 @@ footer video {
     </div>
     <!-- 모집 컬럼 -->
     <div class="column recommed">
-      <h2 class="boards-title">Join<a href="${pageContext.request.contextPath }/joinboard/list.do" id="board-li-a" style="color:black; font-size: 20px;"> ...</a></h2>
+      <h2 class="boards-title">Join<a href="${pageContext.request.contextPath }/joinboard/list.do" id="board-li-a" class="drop" style="color:black; font-size: 20px;"> ...</a></h2>
       <img id="image3" src="assets/images/nammountain.jpg" alt="모집 이미지" class="recommend-img">
       <div class="img-button">
        <button onclick="changeImage3('prev')" style="background-color: transparent; border:none"><img id="prev3" src="assets/images/left.png" alt="왼쪽 화살표"></button>

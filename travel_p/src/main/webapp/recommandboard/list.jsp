@@ -27,11 +27,11 @@ response.setCharacterEncoding("utf-8");
 	  });
 	});
 	
-	  var images1 = ["../assets/images/kuje.jpg", "../assets/images/koreaisland.jpg", "../assets/images/seoul.jpg"];
-	  var images2 = ["../assets/images/deals-04.jpg", "../assets/images/jeju.avif", "../assets/images/pohang.jpg"];
-	  var images3 = ["../assets/images/jeju.jpg", "../assets/images/cities-01.jpg", "../assets/images/cities-02.jpg"];
-	  var images4 = ["../assets/images/cities-03.jpg", "../assets/images/cities-04.jpg", "../assets/images/country-01.jpg"];
-	  var images5 = ["../assets/images/deals-01.jpg", "../assets/images/country-03.jpg", "../assets/images/deals-03.jpg"];
+	  var images1 = ["../assets/images/butflower.jpg", "../assets/images/dogflower.jpg", "../assets/images/youflower.webp"];
+	  var images2 = ["../assets/images/busan.jpg", "../assets/images/jeju.jpg", "../assets/images/pohang.jpg"];
+	  var images3 = ["../assets/images/kangwon1.jpg", "../assets/images/korea1.jpg", "../assets/images/koreaisland.jpg"];
+	  var images4 = ["../assets/images/try1.bmp", "../assets/images/try2.jpg", "../assets/images/try3.jpg"];
+	  var images5 = ["../assets/images/act.png", "../assets/images/act2.jpg", "../assets/images/act3.jpg"];
 	  var currentIndex1 = 0;
 	  var currentIndex2 = 0;
 	  var currentIndex3 = 0;
@@ -368,7 +368,7 @@ footer video {
 
     <div class="column boss-recommend">
       <h2 class="boards-title-2">산</h2>
-      <img id="image3" src="../assets/images/nammountain.jpg" alt="모집 이미지" class="recommend-img2">
+      <img id="image3" src="../assets/images/kangwon1.jpg" alt="모집 이미지" class="recommend-img2">
       <span class="rec-btn3-l"> <button onclick="changeImage3('prev')" class="push" style="background-color: transparent; border:none"><img id="prev3" src="../assets/images/left1.png" alt="왼쪽 화살표"></button></span>
         <span class="rec-btn3-r"><button onclick="changeImage3('next')" class="push" style="background-color: transparent; border:none"><img id="next3" src="../assets/images/right1.png" alt="오른쪽 화살표"></button></span>
     	<p></p>
@@ -376,15 +376,15 @@ footer video {
    
     <div class="column boss-recommend">
       <h2 class="boards-title-2" >이색 체험</h2>
-      <img id="image4" src="../assets/images/koreaisland.jpg" alt="모집 이미지" class="recommend-img2">
+      <img id="image4" src="../assets/images/try1.bmp" alt="모집 이미지" class="recommend-img2">
        <span class="rec-btn4-l"><button onclick="changeImage4('prev')" class="push" style="background-color: transparent; border:none"><img id="prev4" src="../assets/images/left1.png" alt="왼쪽 화살표"></button></span>
         <span class="rec-btn4-r"><button onclick="changeImage4('next')" class="push" style="background-color: transparent; border:none"><img id="next4" src="../assets/images/right1.png" alt="오른쪽 화살표"></button></span>
       <p></p>
     </div>
    
     <div class="column boss-recommend">
-      <h2 class="boards-title-2">레저</h2>
-      <img id="image5" src="../assets/images/country-03.jpg" alt="모집 이미지" class="recommend-img2">
+      <h2 class="boards-title-2">엑티비티</h2>
+      <img id="image5" src="../assets/images/act.png" alt="모집 이미지" class="recommend-img2">
        <span class="rec-btn5-l"><button onclick="changeImage5('prev')" class="push" style="background-color: transparent; border:none"><img id="prev5" src="../assets/images/left1.png" alt="왼쪽 화살표"></button></span>
         <span class="rec-btn5-r"><button onclick="changeImage5('next')" class="push" style="background-color: transparent; border:none"><img id="next5" src="../assets/images/right1.png" alt="오른쪽 화살표"></button></span>
       	<p></p>

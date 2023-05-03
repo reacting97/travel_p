@@ -285,7 +285,7 @@
 	</div> 
 	<div class="container">
 		<div class="row">
-			<div class="col-10">
+			<div class="col-10" style="margin-left: 30px;">
 				<span id="displayCount"></span>
 			</div>
 			<div class="col-2">
