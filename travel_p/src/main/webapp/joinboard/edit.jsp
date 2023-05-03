@@ -79,6 +79,15 @@ button[type="submit"]:hover {
 	background-color: #0069d9;
 	border-color: #0062cc;
 }
+
+footer video {
+  position: absolute; 
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* 동영상 크기에 맞게 자동으로 늘리기 */
+}
 </style>
 </head>
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
@@ -130,8 +139,7 @@ button[type="submit"]:hover {
     </div>
   </header>
 
-	<div class="container my-4">
-		<h1>여행동반 모집 게시판 수정</h1>
+	<div class="container my-4" style="padding-top: 70px;">
 		<form method="POST" action="${pageContext.request.contextPath }/joinboard/edit.do?num=${vo.num}" enctype="multipart/form-data">
 			<div class="form-group">
 				<label for="writer">작성자</label> <input type="text"
@@ -161,18 +169,21 @@ button[type="submit"]:hover {
 		</form>
 	</div>
 	
-	<div class="call-to-action" style="margin-top:-103px">
+	<footer style="position: relative;">
+  	<div class="call-to-action" style="height: 140px; margin-top:0">
     <div class="container">
       <div class="row">
         <div class="col-lg-8">
-          <h2>Are You Looking To Travel ?</h2>
         </div>
       </div>
     </div>
   </div>
-
-  <footer>
-    <div class="container">
+	<video muted autoplay loop id="background-video" >
+      <source src="../assets/images/sea.mp4" type="video/mp4">
+      <strong>Your browser does not support the video tag.</strong>
+   	 </video>
+ 
+    <div class="container" style="position: relative;">
       <div class="row">
         <div class="col-lg-12">
           <p>Copyright © 2023 1조 관광곡곡 Travel Company. All rights reserved. 

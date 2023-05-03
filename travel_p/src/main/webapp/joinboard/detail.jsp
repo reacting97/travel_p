@@ -266,7 +266,7 @@ const xhttp = new XMLHttpRequest();
 	integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ"
 	crossorigin="anonymous">
 </head>
-<body style="background-image: url(../assets/images/backimg.jpg)">
+<body style="background-image:url(../assets/images/togetherimg2.jpg); background-size:100%; background-attachment: fixed;">
 
 
 	<header class="header-area header-sticky" style="position: fixed">
@@ -399,7 +399,6 @@ const xhttp = new XMLHttpRequest();
     <div class="container">
       <div class="row">
         <div class="col-lg-8">
-          <h2>Are You Looking To Travel ?</h2>
         </div>
       </div>
     </div>
