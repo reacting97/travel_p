@@ -26,6 +26,7 @@ response.setCharacterEncoding("utf-8");
     <link rel="stylesheet" href="assets/css/templatemo-woox-travel.css">
     <link rel="stylesheet" href="assets/css/owl.css">
     <link rel="stylesheet" href="assets/css/animate.css">
+    <link type="text/css" rel="stylesheet" media="screen" href="assets/css/sakura.css" />
     <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css"/>
  
     
@@ -149,8 +150,11 @@ footer video {
 	    changeImage3("prev");
 	  });
 	
-	
 		</script>
+	  
+	  
+	
+		
   </head>
 
 <body >
@@ -226,9 +230,8 @@ footer video {
         <div id="top-banner-1" class="banner">
           <div class="banner-inner-wrapper header-text">
             <div class="main-caption">
-              <h2>Take a Glimpse Into The Beautiful Country Of:</h2>
+              <h2>Take a Glimpse Into The Beautiful City Of:</h2>
               <h1>경주</h1>
-              <div class="border-button"><a href="about.html">Go There</a></div>
             </div>
             <div class="container">
               <div class="row">
@@ -264,7 +267,6 @@ footer video {
             <div class="main-caption">
               <h2>Take a Glimpse Into The Beautiful City Of:</h2>
               <h1>서울</h1>
-              <div class="border-button"><a href="about.html">Go There</a></div>
             </div>
             <div class="container">
               <div class="row">
@@ -298,9 +300,8 @@ footer video {
         <div id="top-banner-3" class="banner">
           <div class="banner-inner-wrapper header-text">
             <div class="main-caption">
-              <h2>Take a Glimpse Into The Beautiful Country Of:</h2>
+              <h2>Take a Glimpse Into The Beautiful City Of:</h2>
               <h1>강원</h1>
-              <div class="border-button"><a href="about.html">Go There</a></div>
             </div>
             <div class="container">
               <div class="row">
@@ -336,7 +337,6 @@ footer video {
             <div class="main-caption">
               <h2>Take a Glimpse Into The Beautiful Country Of:</h2>
               <h1>제주</h1>
-              <div class="border-button"><a href="about.html">Go There</a></div>
             </div>
             <div class="container">
               <div class="row">
@@ -604,6 +604,20 @@ footer video {
   <script src="assets/js/tabs.js"></script>
   <script src="assets/js/popup.js"></script>
   <script src="assets/js/custom.js"></script>
+  <script src="assets/js/sakura.js"></script>
+  
+  	<script>
+    // domReady
+    $(function() {
+        $('body').sakura();
+    });
+
+    // windowLoad
+    $(window).load(function() {
+        $('body').sakura();
+    });
+    </script>
+  
   	 <script>
     function bannerSwitcher() {
       next = $('.sec-1-input').filter(':checked').next('.sec-1-input');
@@ -617,9 +631,9 @@ footer video {
       clearInterval(bannerTimer);
       bannerTimer = setInterval(bannerSwitcher, 5000)
     });
-  </script>
-	
-
+    </script>
+    
+  
   </body>
 
 </html>
